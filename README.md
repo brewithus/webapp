@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Coffee Shop Recommender
+
+Welcome to the Coffee Shop Recommender project! This application is designed to help users discover coffee shops and boba places based on their preferences, including location, price range, ratings, and dietary restrictions.
+
+## Technology Stack
+
+- **Frontend:** React (with Next.js and TypeScript)
+- **UI Library:** shadcn/ui
 
 ## Getting Started
 
-First, run the development server:
+You can set up the Coffee Shop Recommender application in your local development environment by following the instructions below. Choose between the traditional setup and a Docker-based setup, depending on your preferences and requirements.
+
+### Traditional Setup
+
+1. **Clone the repository**
+
+Through Command Line tools
+
+```bash
+git clone https://github.com/CS4800-02-RestaurantRecommender/Site.git
+cd Site
+```
+
+or clone the repo through your Desktop Github client
+
+2. **Install dependencies**
+
+Make sure you have Node.js installed on your machine.
+
+```bash
+npm install
+```
+
+3. **Run the server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to `http://localhost:3000` to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Docker Compose Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+If you prefer using Docker, ensure Docker and Docker Compose are installed on your machine.
 
-## Learn More
+**Start the application**
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker-compose up --build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This command builds and starts the application in development mode. The app will be accessible at `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+This project is currently open for contributions only from team members as part of a class project. If you're a team member and want to contribute, please follow the project's coding standards and submit your pull requests for review.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If you're not a team member but have feedback or suggestions, feel free to open an issue to discuss your ideas. While direct code contributions are restricted to team members, your input is valuable and appreciated.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+[LICENSE](LICENSE)
+
+---

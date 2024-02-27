@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    # command: npm run start # Uncomment this on production
+    # environment: # Uncomment this on production
+    #   - NODE_ENV=production # Uncomment this on production
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+    command: npm run dev # Comment out this line on production
+    environment: # Comment out this line on production
+      - NODE_ENV=development # Comment out this line on production
