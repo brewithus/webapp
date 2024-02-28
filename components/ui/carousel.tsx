@@ -8,18 +8,19 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import type { AdditionalProps } from '.';
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 type CarouselOptions = UseCarouselParameters[0];
 type CarouselPlugin = UseCarouselParameters[1];
 
-type CarouselProps = {
+interface CarouselProps {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
   orientation?: 'horizontal' | 'vertical';
   setApi?: (api: CarouselApi) => void;
-};
+}
 
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
@@ -32,7 +33,16 @@ type CarouselContextProps = {
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
-function useCarousel() {
+/**
+ * Custom hook for accessing carousel context.
+ * This hook allows you to access the carousel context which includes methods and properties
+ * related to the carousel's state and controls. It must be used within components that are
+ * descendants of a `<Carousel />` component, as it relies on the context provided by the
+ * Carousel component.
+ * @returns {CarouselContextProps} An object containing carousel context properties and methods.
+ * @throws {Error} Throws an error if used outside of a `<Carousel />` component context.
+ */
+function useCarousel(): CarouselContextProps {
   const context = React.useContext(CarouselContext);
 
   if (!context) {
@@ -44,7 +54,7 @@ function useCarousel() {
 
 const Carousel = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & CarouselProps
+  React.HTMLAttributes<HTMLDivElement> & CarouselProps & AdditionalProps
 >(
   (
     {
@@ -124,7 +134,7 @@ const Carousel = React.forwardRef<
       <CarouselContext.Provider
         value={{
           carouselRef,
-          api: api,
+          api,
           opts,
           orientation:
             orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
@@ -152,7 +162,7 @@ Carousel.displayName = 'Carousel';
 
 const CarouselContent = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  React.HTMLAttributes<HTMLDivElement> & AdditionalProps
 >(({ className, ...props }, ref) => {
   const { carouselRef, orientation } = useCarousel();
 
@@ -174,7 +184,7 @@ CarouselContent.displayName = 'CarouselContent';
 
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
+  React.HTMLAttributes<HTMLDivElement> & AdditionalProps
 >(({ className, ...props }, ref) => {
   const { orientation } = useCarousel();
 
@@ -196,7 +206,7 @@ CarouselItem.displayName = 'CarouselItem';
 
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
+  React.ComponentProps<typeof Button> & AdditionalProps
 >(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
@@ -225,7 +235,7 @@ CarouselPrevious.displayName = 'CarouselPrevious';
 
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
+  React.ComponentProps<typeof Button> & AdditionalProps
 >(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 

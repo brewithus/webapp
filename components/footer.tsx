@@ -1,10 +1,16 @@
+import * as React from 'react';
+
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { JSX, SVGProps } from 'react';
+import type { JSX, SVGProps } from 'react'; // Changed to import type
 import { poppinsFont } from '@/styles/fonts';
 
-export default function Footer() {
+/**
+ * Footer component with subscription form and social media links.
+ * @returns JSX.Element
+ */
+export default function Footer(): JSX.Element {
   return (
     <section className="w-full py-6 md:py-8 lg:py-10 bg-zinc-100 dark:bg-zinc-900">
       <div className="container px-4 md:px-6 flex flex-col items-center text-center">
@@ -73,9 +79,14 @@ export default function Footer() {
   );
 }
 
+/**
+ * Icon component for Facebook.
+ * @param props - SVG properties.
+ * @returns JSX.Element
+ */
 function FacebookIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) {
+): JSX.Element {
   return (
     <svg
       {...props}
@@ -94,9 +105,14 @@ function FacebookIcon(
   );
 }
 
+/**
+ * Icon component for Instagram.
+ * @param props - SVG properties.
+ * @returns JSX.Element
+ */
 function InstagramIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) {
+): JSX.Element {
   return (
     <svg
       {...props}
@@ -117,9 +133,14 @@ function InstagramIcon(
   );
 }
 
+/**
+ * Icon component for Linkedin.
+ * @param props - SVG properties.
+ * @returns JSX.Element
+ */
 function LinkedinIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
-) {
+): JSX.Element {
   return (
     <svg
       {...props}
@@ -140,7 +161,14 @@ function LinkedinIcon(
   );
 }
 
-function TwitterIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+/**
+ * Icon component for Twitter.
+ * @param props - SVG properties.
+ * @returns JSX.Element
+ */
+function TwitterIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
+): JSX.Element {
   return (
     <svg
       {...props}
