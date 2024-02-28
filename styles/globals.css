@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 33 100% 95%; /* Light orange for the main background */
+    --foreground: 210 10% 25%; /* Adjusted for better visibility on light orange background */
+
+    --card: 33 100% 100%; /* Slightly lighter orange for card backgrounds */
+    --card-foreground: 210 10% 25%; /* Dark color for text on cards, ensuring readability */
+
+    --popover: 33 100% 100%; /* Similar to card, for consistency */
+    --popover-foreground: 210 10% 25%;
+
+    --primary: 33 100% 50%; /* A more saturated orange for primary elements */
+    --primary-foreground: 0 0% 100%; /* White text on primary elements */
+    --primary-light: 33 100% 70%; /* Lighter variant of primary */
+    --primary-dark: 33 100% 30%; /* Darker variant of primary */
+
+    --secondary: 33 100% 90%; /* Lighter orange for secondary elements */
+    --secondary-dark: 33 100% 70%; /* Darker variant of secondary */
+    --secondary-light: 33 100% 95%; /* Lighter variant of secondary */
+    --secondary-foreground: 210 10% 25%; /* Dark text on secondary elements for contrast */
+
+    --muted: 33 100% 98%; /* Very light orange for muted text or elements */
+    --muted-light: 33 100% 98%; /* Lighter variant of muted */
+    --muted-dark: 33 100% 80%; /* Darker variant of muted */
+    --muted-foreground: 210 10% 40%; /* Darker grey for muted text readability */
+
+    --accent: 33 100% 85%; /* Light orange for accent elements */
+    --accent-light: 33 100% 90%; /* Lighter variant of accent */
+    --accent-dark: 33 100% 60%; /* Darker variant of accent */
+    --accent-foreground: 210 10% 25%; /* Dark text on accent elements for contrast */
+
+    --destructive: 0 100% 50%; /* Keeping a standard red for destructive actions */
+    --destructive-light: 0 75% 60%; /* Slightly lighter red for less intensity */
+    --destructive-dark: 0 100% 40%; /* Darker red for prominent visibility in dark mode */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
+
+    --border: 33 100% 80%; /* Light orange borders for subtle separation */
+    --input: 33 100% 100%; /* Input fields background */
+    --ring: 33 100% 50%; /* Focus ring color for accessibility */
+
+    --radius: 0.5rem; /* Border radius for rounded corners */
+  }
+
+  .dark {
+    --background: 20 30% 15%; /* Darker, muted orange for main background */
+    --foreground: 0 0% 95%; /* Light color for text, ensuring readability */
+
+    --card: 20 25% 18%; /* Slightly darker and more muted orange for card backgrounds */
+    --card-foreground: 0 0% 95%; /* Light color for text on cards, ensuring readability */
+
+    --popover: 20 25% 18%; /* Similar to card, for consistency */
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 20 80% 50%; /* A richer, darker orange for primary elements */
+    --primary-foreground: 0 0% 100%; /* White text on primary elements */
+    --primary-light: 30 87% 72%; /* Lighter variant of primary */
+    --primary-dark: 15 66% 28%; /* Darker variant of primary */
+
+    --secondary: 20 30% 20%; /* Darker orange for secondary elements */
+    --secondary-dark: 20 30% 25%; /* Even darker variant of secondary */
+    --secondary-light: 20 30% 30%; /* Slightly lighter variant of secondary */
+    --secondary-foreground: 0 0% 95%; /* Light text on secondary elements for contrast */
+
+    --muted: 20 25% 25%; /* Dark muted orange for muted text or elements */
+    --muted-light: 20 25% 28%; /* Lighter variant of muted */
+    --muted-dark: 20 25% 22%; /* Darker variant of muted */
+    --muted-foreground: 0 0% 90%; /* Light grey for muted text readability */
+
+    --accent: 20 50% 35%; /* Dark orange for accent elements */
+    --accent-light: 20 50% 40%; /* Lighter variant of accent */
+    --accent-dark: 20 50% 30%; /* Darker variant of accent */
+    --accent-foreground: 0 0% 95%; /* Light text on accent elements for contrast */
+
+    --destructive: 0 100% 50%; /* Keeping a standard red for destructive actions */
+    --destructive-light: 0 75% 60%; /* Slightly lighter red for less intensity */
+    --destructive-dark: 0 100% 40%; /* Darker red for prominent visibility */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
+
+    --border: 20 30% 25%; /* Dark orange borders for subtle separation */
+    --input: 20 25% 20%; /* Darker input fields background */
+    --ring: 20 80% 50%; /* Focus ring color, a darker orange for accessibility */
+
+    --radius: 0.5rem; /* Border radius for rounded corners */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
