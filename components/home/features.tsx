@@ -31,7 +31,7 @@ const FeaturesSection: React.FC = () => {
   return (
     <section className="px-4 pb-24 rounded-lg md:px-8 justify-center">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`py-2 text-5xl font-bold mb-4 text-center text-primary ${rubikFont.className}`}
       >
         Features
       </h2>
@@ -58,9 +58,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   description,
 }) => {
   return (
-    <div className="flex-auto w-64 rounded-lg p-4 shadow-md text-foreground border-2">
+    <div className="flex-auto w-64 rounded-lg p-4 shadow-md text-primary-light border-2">
       <h3 className="text-lg font-bold mb-2">{title}</h3>
-      <p className="text-sm leading-loose text-gray-600 dark:text-gray-400">
+      <p className="text-sm leading-loose text-muted-foreground">
         {description}
       </p>
     </div>

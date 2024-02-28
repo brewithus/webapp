@@ -29,7 +29,7 @@ const HowItWorksSection: React.FC = () => {
   return (
     <section className="px-4rounded-lg pb-24 md:px-8 justify-center">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`py-2 text-5xl font-bold mb-4 text-center text-primary ${rubikFont.className}`}
       >
         How It Works
       </h2>
@@ -40,7 +40,7 @@ const HowItWorksSection: React.FC = () => {
               key={index}
               className="flex items-center mb-4 rounded-lg p-4 border-2"
             >
-              <div className="flex-none rounded-full bg-secondary text-foreground flex items-center justify-center h-12 w-12 mr-3">
+              <div className="flex-none font-bold rounded-full bg-secondary text-foreground flex items-center justify-center h-12 w-12 mr-3">
                 {index + 1}
               </div>
               <div className="flex-1">

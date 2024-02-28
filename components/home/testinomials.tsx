@@ -87,7 +87,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section className="px-4  pb-24 rounded-lg md:px-8 justify-center">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`py-2 text-5xl font-bold mb-4 text-center text-primary ${rubikFont.className}`}
       >
         See What Our Users Say
       </h2>
@@ -97,7 +97,7 @@ const TestimonialsSection: React.FC = () => {
             {testimonials.map((testimonial) => (
               <CarouselItem
                 key={testimonial.id}
-                className="basis-1/1 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                className="basis-1/1 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
                 <ReviewCard review={testimonial} />
               </CarouselItem>
@@ -118,7 +118,7 @@ interface ReviewCardProps {
 }
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
-    <Card className="border-2 border-gray-200 dark:border-gray-800 p-2 max-w-xs sm:max-w-full">
+    <Card className="border-2 p-2 max-w-xs sm:max-w-full bg-secondary-light">
       <CardHeader>
         <CardTitle>{review.user}</CardTitle>
         <StarRating rating={review.rating} />
@@ -126,10 +126,10 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
         <CardDescription>{review.location}</CardDescription>
       </CardHeader>
       <CardContent className="flex items-center justify-center p-6">
-        <p className="text-gray-600">{review.review}</p>
+        <p className="text-muted-foreground">{review.review}</p>
       </CardContent>
       <CardFooter className="flex justify-end ">
-        <p className="text-gray-500 text-sm">Posted on {review.date}</p>
+        <p className="text-primary text-sm">Posted on {review.date}</p>
       </CardFooter>
     </Card>
   );

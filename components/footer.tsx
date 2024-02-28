@@ -12,7 +12,7 @@ import { rubikFont } from '@/styles/fonts';
  */
 export default function Footer(): JSX.Element {
   return (
-    <section className="w-full py-2 md:py-4 lg:py-6 bg-zinc-100 dark:bg-zinc-900">
+    <section className="w-full py-2 md:py-4 lg:py-6 bg-secondary">
       <div className="container px-4 md:px-6 flex flex-col items-center text-center">
         <h2
           className={`text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-black dark:text-white ${rubikFont.className}`}
@@ -31,11 +31,7 @@ export default function Footer(): JSX.Element {
               placeholder="Enter your email"
               type="email"
             />
-            <Button
-              className="text-white border-white"
-              type="submit"
-              variant="outline"
-            >
+            <Button type="submit" variant="outline">
               Brew With Us
             </Button>
           </form>
