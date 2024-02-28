@@ -4,85 +4,96 @@
 
 @layer base {
   :root {
-    --background: 33 100% 95%; /* Light orange for the main background */
-    --foreground: 210 10% 25%; /* Adjusted for better visibility on light orange background */
+    /* New Theme Color: Lighter, less saturated orange */
+    --theme-color: 33 31% 100%; /* Base theme color */
 
-    --card: 33 100% 100%; /* Slightly lighter orange for card backgrounds */
-    --card-foreground: 210 10% 25%; /* Dark color for text on cards, ensuring readability */
+    /* Backgrounds */
+    --background: 33 31% 95%; /* Lighter variant for the main background */
+    --card: 33 31% 100%; /* Light background for cards, same as theme for consistency */
+    --popover: 33 31% 100%; /* Same as card, for consistency */
 
-    --popover: 33 100% 100%; /* Similar to card, for consistency */
-    --popover-foreground: 210 10% 25%;
+    /* Text Colors */
+    --foreground: 210 20% 20%; /* Darker blue for better visibility against lighter backgrounds */
+    --card-foreground: 210 20% 20%; /* Ensuring readability on card backgrounds */
+    --popover-foreground: 210 20% 20%;
 
-    --primary: 33 100% 50%; /* A more saturated orange for primary elements */
+    /* Primary Colors */
+    --primary: 33 50% 50%; /* A more saturated variant for primary elements */
     --primary-foreground: 0 0% 100%; /* White text on primary elements */
-    --primary-light: 33 100% 70%; /* Lighter variant of primary */
-    --primary-dark: 33 100% 30%; /* Darker variant of primary */
+    --primary-light: 33 50% 70%; /* Lighter variant of primary */
+    --primary-dark: 33 50% 30%; /* Darker variant of primary */
 
-    --secondary: 33 100% 90%; /* Lighter orange for secondary elements */
-    --secondary-dark: 33 100% 70%; /* Darker variant of secondary */
-    --secondary-light: 33 100% 95%; /* Lighter variant of secondary */
-    --secondary-foreground: 210 10% 25%; /* Dark text on secondary elements for contrast */
+    /* Secondary Colors */
+    --secondary: 33 40% 90%; /* Adjusted to differentiate from the base theme color */
+    --secondary-light: 33 40% 95%; /* Lighter variant of secondary */
+    --secondary-dark: 33 40% 80%; /* Darker variant of secondary */
+    --secondary-foreground: 210 20% 20%; /* Dark text on secondary elements */
 
-    --muted: 33 100% 98%; /* Very light orange for muted text or elements */
-    --muted-light: 33 100% 98%; /* Lighter variant of muted */
-    --muted-dark: 33 100% 80%; /* Darker variant of muted */
-    --muted-foreground: 210 10% 40%; /* Darker grey for muted text readability */
+    /* Muted Colors */
+    --muted: 33 31% 98%; /* Very close to the background, for muted elements */
+    --muted-light: 33 31% 100%; /* Lightest variant, same as theme color */
+    --muted-dark: 33 31% 90%; /* Slightly darker for subtle contrast */
+    --muted-foreground: 210 20% 40%; /* Darker text for readability */
 
-    --accent: 33 100% 85%; /* Light orange for accent elements */
-    --accent-light: 33 100% 90%; /* Lighter variant of accent */
-    --accent-dark: 33 100% 60%; /* Darker variant of accent */
-    --accent-foreground: 210 10% 25%; /* Dark text on accent elements for contrast */
+    /* Accent Colors */
+    --accent: 33 45% 85%; /* Adjusted to stand out against the theme color */
+    --accent-light: 33 45% 90%; /* Lighter variant of accent */
+    --accent-dark: 33 45% 70%; /* Darker variant of accent */
+    --accent-foreground: 210 20% 20%; /* Dark text for contrast */
 
-    --destructive: 0 100% 50%; /* Keeping a standard red for destructive actions */
-    --destructive-light: 0 75% 60%; /* Slightly lighter red for less intensity */
-    --destructive-dark: 0 100% 40%; /* Darker red for prominent visibility in dark mode */
+    /* Destructive Colors */
+    --destructive: 0 100% 50%; /* Red for destructive actions */
+    --destructive-light: 0 75% 60%; /* Lighter red */
+    --destructive-dark: 0 100% 40%; /* Darker red */
     --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
 
-    --border: 33 100% 80%; /* Light orange borders for subtle separation */
-    --input: 33 100% 100%; /* Input fields background */
-    --ring: 33 100% 50%; /* Focus ring color for accessibility */
+    /* Misc */
+    --border: 33 31% 80%; /* Light border for separation */
+    --input: 33 31% 100%; /* Input fields background, same as theme color */
+    --ring: 33 50% 50%; /* Focus ring color, more saturated for visibility */
 
+    /* Radius */
     --radius: 0.5rem; /* Border radius for rounded corners */
   }
 
   .dark {
-    --background: 20 30% 15%; /* Darker, muted orange for main background */
-    --foreground: 0 0% 95%; /* Light color for text, ensuring readability */
+    --background: 220 22% 12%; /* Dark blue-grey for main background, keeping it cool */
+    --foreground: 0 0% 98%; /* Very light color for text, ensuring readability */
 
-    --card: 20 25% 18%; /* Slightly darker and more muted orange for card backgrounds */
-    --card-foreground: 0 0% 95%; /* Light color for text on cards, ensuring readability */
+    --card: 220 20% 15%; /* Cooler blue-grey for card backgrounds */
+    --card-foreground: 0 0% 98%; /* Very light color for text on cards, ensuring readability */
 
-    --popover: 20 25% 18%; /* Similar to card, for consistency */
-    --popover-foreground: 0 0% 95%;
+    --popover: 220 20% 15%; /* Consistent with card backgrounds */
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 20 80% 50%; /* A richer, darker orange for primary elements */
+    --primary: 28 60% 45%; /* A rich, coffee-inspired brown-orange for primary elements */
     --primary-foreground: 0 0% 100%; /* White text on primary elements */
-    --primary-light: 30 87% 72%; /* Lighter variant of primary */
-    --primary-dark: 15 66% 28%; /* Darker variant of primary */
+    --primary-light: 28 60% 55%; /* Lighter, warmer variant of primary */
+    --primary-dark: 28 60% 35%; /* Darker, deeper coffee brown for primary */
 
-    --secondary: 20 30% 20%; /* Darker orange for secondary elements */
-    --secondary-dark: 20 30% 25%; /* Even darker variant of secondary */
-    --secondary-light: 20 30% 30%; /* Slightly lighter variant of secondary */
-    --secondary-foreground: 0 0% 95%; /* Light text on secondary elements for contrast */
+    --secondary: 24 34% 28%; /* Secondary elements with a subtle, muted coffee tone */
+    --secondary-dark: 24 34% 22%; /* Even darker variant of secondary */
+    --secondary-light: 24 34% 38%; /* Slightly lighter, muted coffee tone for secondary */
+    --secondary-foreground: 0 0% 98%; /* Very light text on secondary elements for contrast */
 
-    --muted: 20 25% 25%; /* Dark muted orange for muted text or elements */
-    --muted-light: 20 25% 28%; /* Lighter variant of muted */
-    --muted-dark: 20 25% 22%; /* Darker variant of muted */
+    --muted: 220 15% 18%; /* Keeping muted elements cool */
+    --muted-light: 220 15% 22%; /* Slightly lighter cool muted tone */
+    --muted-dark: 220 15% 14%; /* Darker cool muted tone */
     --muted-foreground: 0 0% 90%; /* Light grey for muted text readability */
 
-    --accent: 20 50% 35%; /* Dark orange for accent elements */
-    --accent-light: 20 50% 40%; /* Lighter variant of accent */
-    --accent-dark: 20 50% 30%; /* Darker variant of accent */
-    --accent-foreground: 0 0% 95%; /* Light text on accent elements for contrast */
+    --accent: 33 100% 50%; /* Brighter coffee-orange for accent elements, adding vibrancy */
+    --accent-light: 33 100% 60%; /* Lighter coffee-orange for a vibrant accent */
+    --accent-dark: 33 100% 40%; /* Darker, rich coffee-orange for accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent elements for contrast */
 
-    --destructive: 0 100% 50%; /* Keeping a standard red for destructive actions */
-    --destructive-light: 0 75% 60%; /* Slightly lighter red for less intensity */
-    --destructive-dark: 0 100% 40%; /* Darker red for prominent visibility */
+    --destructive: 345 85% 45%; /* Vivid red for destructive actions */
+    --destructive-light: 345 85% 55%; /* Slightly lighter red */
+    --destructive-dark: 345 85% 35%; /* Darker red for visibility */
     --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
 
-    --border: 20 30% 25%; /* Dark orange borders for subtle separation */
-    --input: 20 25% 20%; /* Darker input fields background */
-    --ring: 20 80% 50%; /* Focus ring color, a darker orange for accessibility */
+    --border: 28 30% 25%; /* Subtle coffee-inspired borders for separation */
+    --input: 220 20% 14%; /* Dark input fields background, maintaining cool tone */
+    --ring: 28 60% 45%; /* Focus ring in coffee brown, matching the primary color */
 
     --radius: 0.5rem; /* Border radius for rounded corners */
   }
