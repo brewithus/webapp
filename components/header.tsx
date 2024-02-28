@@ -13,9 +13,9 @@ import { Icons } from './icons';
  */
 export default function Header(): JSX.Element {
   return (
-    <div className="container mx-auto px-4 md:px-6 lg:px-8 fixed top-0 z-50 bg-background">
+    <div className="w-full px-4 md:px-6 lg:px-8 fixed top-0 z-50 bg-background">
       <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
-        <Link className="mr-6 lg:flex" href="#">
+        <Link className="mr-6 lg:flex" href="/">
           <Icons.logo size={36} />
           <span className="sr-only">Coffee Shop Finder</span>
         </Link>
