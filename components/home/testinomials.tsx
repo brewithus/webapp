@@ -25,7 +25,7 @@ interface Review {
   rating: number;
 }
 
-const TestimonialsSection = () => {
+const TestimonialsSection: React.FC = () => {
   // Sample testimonials data
   const testimonials: Review[] = [
     {
