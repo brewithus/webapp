@@ -15,7 +15,7 @@ export default function Home(): JSX.Element {
   return (
     <div>
       <HeroSection />
-      <div className="h-36 bg-gradient-to-b from-primary-light to-background dark:from-primary-dark"></div>
+      {/* <div className="h-36 bg-gradient-to-b from-primary-light to-background dark:from-primary-dark"></div> */}
       <FeaturesSection />
       <PopularStoresSection />
       <HowItWorksSection />

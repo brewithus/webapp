@@ -13,9 +13,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
-  const activeStyle = isActive
-    ? 'bg-secondary-light hover:bg-secondary-dark'
-    : ''; // Example of active style with gray background
+  const activeStyle = isActive ? 'bg-secondary hover:bg-secondary-dark' : '';
 
   return (
     <Link

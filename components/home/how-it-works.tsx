@@ -27,9 +27,9 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section className="px-4rounded-lg pb-24 md:px-8 justify-center">
+    <section className="px-4 rounded-lg py-12 justify-center">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center text-primary ${rubikFont.className}`}
+        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
       >
         How It Works
       </h2>
@@ -44,9 +44,13 @@ const HowItWorksSection: React.FC = () => {
                 {index + 1}
               </div>
               <div className="flex-1">
-                <p className="text-lg font-bold">{step.title}</p>
+                <p className="text-lg font-bold text-primary-light">
+                  {step.title}
+                </p>
 
-                <p className="text-zinc-500 text-sm pt-1">{step.description}</p>
+                <p className="text-secondary-foreground text-sm pt-1">
+                  {step.description}
+                </p>
               </div>
             </div>
           ))}

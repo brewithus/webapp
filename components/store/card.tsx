@@ -29,20 +29,14 @@ const StoreCard: React.FC<StoreCardProps> = ({
         <CardDescription>{address}</CardDescription>
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag) => (
-            <Badge
-              key={tag}
-              variant="outline"
-              className="border-secondary-dark"
-            >
+            <Badge key={tag} className="bg-primary-dark">
               {tag}
             </Badge>
           ))}
         </div>
       </CardContent>
       <CardFooter className="flex justify-end py-4 px-4">
-        <Button size={'sm'} variant={'outline'}>
-          Visit
-        </Button>
+        <Button size={'sm'}>Visit</Button>
       </CardFooter>
     </Card>
   );
