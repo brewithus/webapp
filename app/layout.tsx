@@ -14,7 +14,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: 'Coffee Shop Finder',
+  title: 'Brew',
   description: '- Discover Your Next Favorite Coffee Spot',
 };
 
