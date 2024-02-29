@@ -1,31 +1,30 @@
 # CONTRIBUTION GUIDE
 
+## Getting Started
+
+Welcome to the project! We're building an application using Next.js, TailwindCSS, and shadcn/ui. Here's a brief overview to help you get started with contributing:
+
+- **Next.js:** We use Next.js for both our server-side and client-side rendering, leveraging its powerful features for SEO, performance, and developer experience. Familiarize yourself with the [Next.js Documentation](https://nextjs.org/docs) to understand how routing and page creation work. Pay special attention to the file structure under the `/pages` directory, as it directly correlates with the app's routing.
+
+- **TailwindCSS:** Our styling is powered by TailwindCSS, a utility-first CSS framework that allows for rapid UI development. Our project customizes Tailwind's default configuration using the `tailwind.config.js` file and defines global styles in `styles/global.css`. Learn more about TailwindCSS by visiting the [official documentation](https://tailwindcss.com/docs). When contributing UI changes, ensure your modifications adhere to the established color themes and respond appropriately to both light and dark modes, as defined in our global CSS variables.
+
+- **shadcn/ui:** We use components from shadcn/ui to build our UI efficiently. This library provides a set of customizable components that fit well with our design system. While you're encouraged to use and modify these components, please ensure your changes do not break existing functionalities. Check out the [shadcn/ui documentation](https://ui.shadcn.com/docs) for more information on available components and usage guidelines. Check the "pre-installed" components in `components/ui/` folder before install any new component.
+
 ## Branching Strategy and Pull Requests
 
-Our project utilizes two main branches to manage the development and release of the application:
+- **Branching:** We operate with two main branches:
 
-- **`prod` (Production Branch):** This branch contains code that has been fully tested and is ready to be deployed to production. It represents the stable version of our application.
+  - `prod` (Production Branch): Contains code ready for production deployment.
+  - `latest` (Latest Development Branch): The primary development branch for all new features, enhancements, and fixes.
 
-- **`latest` (Latest Development Branch):** This branch serves as the primary development branch. All new features, enhancements, and bug fixes are merged into this branch before being considered for release.
+- **Contributing:** To contribute, branch off from `latest`, use descriptive branch names (e.g., `feature/add-coffee-shop-filters`), and submit a pull request (PR) back into `latest` once your work is complete. PRs require at least one review.
 
-### Contributing Through Pull Requests (PRs)
+## Guidelines
 
-To contribute to the project, please follow these steps:
+- Adhere to the project's coding standards and guidelines.
+- Focus branches on single features or fixes.
+- Regularly sync with `latest` to minimize conflicts.
+- Write clear, meaningful commit messages.
+- Update documentation as needed.
 
-1. **Branch off from `latest`:** Always create your feature or bugfix branch from the `latest` branch. This ensures that you're working with the most recent development code.
-
-2. **Naming Your Branch:** Use a descriptive name for your branch that reflects the feature or fix you're working on. For example, `feature/add-coffee-shop-filters` or `fix/map-display-issue`.
-
-3. **Submitting a Pull Request:** Once your work is complete and tested locally, submit a pull request to merge your branch into the `latest` branch. Ensure your PR title and description clearly describe the changes and any implications they have on the project.
-
-4. **Review Process:** Pull requests require a thorough review by at least one team member. This process ensures that all code is consistent with the project's standards and objectives. Feedback may be given, and revisions may be required before the PR is approved.
-
-5. **Merging:** After your PR has been reviewed and approved, it will be merged into the `latest` branch. Periodically, after thorough testing and verification, changes from the `latest` branch will be merged into the `prod` branch for release.
-
-### Guidelines
-
-- Ensure your code adheres to the project's coding standards and guidelines.
-- Keep your branches focused on a single feature or fix to simplify the review process.
-- Regularly sync your branch with the `latest` branch to avoid conflicts.
-- Provide detailed and meaningful commit messages.
-- Document any changes or additions to the project's documentation as necessary.
+By following these guidelines, you'll help maintain the quality and consistency of the project. Thank you for your contribution!
