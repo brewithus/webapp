@@ -118,7 +118,7 @@ interface ReviewCardProps {
 }
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
-    <Card className="border-2 p-2 max-w-xs sm:max-w-full bg-secondary">
+    <Card className="border-2 p-2 max-w-xs sm:max-w-full bg-secondary/50">
       <CardHeader>
         <CardTitle>{review.user}</CardTitle>
         <StarRating rating={review.rating} />

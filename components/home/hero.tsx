@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/button';
-import { bigTitleFont, poppinsFont, rubikFont } from '@/styles/fonts';
+import { bigTitleFont, poppinsFont } from '@/styles/fonts';
 
 const HeroSection: React.FC = () => {
   return (

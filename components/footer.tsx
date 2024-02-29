@@ -12,7 +12,7 @@ import { rubikFont } from '@/styles/fonts';
  */
 export default function Footer(): JSX.Element {
   return (
-    <section className="w-full py-2 md:py-4 lg:py-6 bg-secondary">
+    <section className="w-full py-2 md:py-4 lg:py-6 bg-secondary-dark/50">
       <div className="container px-4 md:px-6 flex flex-col items-center text-center">
         <h2
           className={`text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-secondary-foreground ${rubikFont.className}`}

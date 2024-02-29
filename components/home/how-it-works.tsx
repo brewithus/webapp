@@ -1,6 +1,7 @@
 // Import React and any other dependencies you might need
 import { rubikFont } from '@/styles/fonts';
 import React from 'react';
+import { Separator } from '../ui/separator';
 
 /**
  * How It Works section for the Home page.
@@ -47,6 +48,7 @@ const HowItWorksSection: React.FC = () => {
                 <p className="text-lg font-bold text-primary-light">
                   {step.title}
                 </p>
+                <Separator />
 
                 <p className="text-secondary-foreground text-sm pt-1">
                   {step.description}

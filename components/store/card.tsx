@@ -23,7 +23,7 @@ const StoreCard: React.FC<StoreCardProps> = ({
   tags,
 }) => {
   return (
-    <Card className="border-2  p-2 max-w-xs sm:max-w-full bg-secondary">
+    <Card className="border-2  p-2 max-w-xs sm:max-w-full bg-secondary/50">
       <CardContent className="pt-4 px-4 pb-2">
         <CardTitle className="py-2 font-bold">{name}</CardTitle>
         <CardDescription>{address}</CardDescription>
