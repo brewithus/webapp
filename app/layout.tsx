@@ -21,6 +21,7 @@ export const metadata: Metadata = {
 
 /**
  * Root layout component that wraps the entire application.
+ *
  * This component sets up the page's HTML structure and applies global styles,
  * including the font family defined through the `Inter` font.
  * @param {{ children: React.ReactNode }} props The properties passed to the component.

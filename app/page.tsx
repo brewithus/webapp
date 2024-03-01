@@ -8,6 +8,7 @@ import TestimonialsSection from '@/components/home/testinomials';
 
 /**
  * Home page component.
+ *
  * Displays the home page with a clickable button.
  * @returns The home page React element.
  */
