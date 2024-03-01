@@ -3,10 +3,11 @@ import { Inter as FontSans } from 'next/font/google';
 
 import '../styles/globals.css';
 import React from 'react'; // Ensure React is imported for JSX to work
-import { ThemeProvider } from '../components/theme-provider';
+import { ThemeProvider } from '../context/ThemeProvider';
 import { cn } from '../lib/utils';
 import Header from '../components/header';
 import Footer from '@/components/footer';
+import { UserProvider } from '@/context/UserContext';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 
 /**
  * Root layout component that wraps the entire application.
+ *
  * This component sets up the page's HTML structure and applies global styles,
  * including the font family defined through the `Inter` font.
  * @param {{ children: React.ReactNode }} props The properties passed to the component.
@@ -40,9 +42,11 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <div className="min-h-screen pt-20">{children}</div>
-          <Footer />
+          <UserProvider>
+            <Header />
+            <div className="min-h-screen pt-20">{children}</div>
+            <Footer />
+          </UserProvider>
         </ThemeProvider>
       </body>
     </html>

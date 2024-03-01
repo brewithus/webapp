@@ -11,6 +11,7 @@ import StoreCard from '../store/card';
 import { rubikFont } from '@/styles/fonts';
 
 interface CoffeeShop {
+  id: string;
   name: string;
   picture: string;
   address: string;
@@ -18,6 +19,7 @@ interface CoffeeShop {
 }
 const coffeeShops: CoffeeShop[] = [
   {
+    id: 'the-daily-grind',
     name: 'The Daily Grind',
     picture:
       'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
@@ -25,6 +27,7 @@ const coffeeShops: CoffeeShop[] = [
     tags: ['Cozy', 'WiFi', 'Coffee', 'Tea', 'Pastries'],
   },
   {
+    id: 'bean-there-done-that',
     name: 'Bean There, Done That',
     picture:
       'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
@@ -32,6 +35,7 @@ const coffeeShops: CoffeeShop[] = [
     tags: ['Modern', 'Coffee', 'Cold Brew', 'Sandwiches'],
   },
   {
+    id: 'perk-up',
     name: 'Perk Up!',
     picture:
       'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
@@ -39,6 +43,7 @@ const coffeeShops: CoffeeShop[] = [
     tags: ['Drive-Thru', 'Coffee', 'Lattes', 'Smoothies'],
   },
   {
+    id: 'the-coffee-nook',
     name: 'The Coffee Nook',
     picture:
       'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
@@ -46,6 +51,7 @@ const coffeeShops: CoffeeShop[] = [
     tags: ['Independent', 'Coffee', 'Tea', 'Snacks'],
   },
   {
+    id: 'brewhaha',
     name: 'Brewhaha',
     picture:
       'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
