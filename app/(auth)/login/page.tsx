@@ -38,9 +38,9 @@ export default function LoginPage(): JSX.Element {
       </Link>
 
       <div className="p-0 sm:p-12">
-        <div className="rounded-lg border-0 sm:border-2 p-4 w-full sm:w-[734px] flex flex-col justify-center items-center px-6 sm:px-16">
+        <div className="rounded-lg border-0 md:border-2 p-4 w-full sm:w-[734px] flex flex-col justify-center items-center px-6 sm:px-16">
           <Icons.logo className="mx-auto h-10 w-10" />
-          <div className="font-extrabold text-3xl sm:text-5xl ">
+          <div className="font-extrabold text-3xl md:text-4xl ">
             Log in to Brew
           </div>
           <Separator className="my-4" />
