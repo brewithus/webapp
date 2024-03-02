@@ -6,14 +6,15 @@ import Link from 'next/link';
 import type { JSX, SVGProps } from 'react'; // Changed to import type
 import { rubikFont } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
+import type { AdditionalProps } from './ui';
 
 /**
- * Footer component with subscription form and social media links.
- * @returns JSX.Element
+ * Renders the footer section of the application
+ * @param {AdditionalProps} props - The props object for the Footer component.
+ * @param {string} props.className - Optional CSS class to apply to the footer element for custom styling.
+ * @returns {JSX.Element} The Footer component with subscription form and social media links.
  */
-export function Footer({
-  className,
-}: React.HTMLAttributes<HTMLElement>): JSX.Element {
+export function Footer({ className }: AdditionalProps): JSX.Element {
   return (
     <footer className={cn(className)}>
       <div className="w-full py-2 md:py-4 lg:py-6 bg-secondary-dark/50">

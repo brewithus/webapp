@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
@@ -6,13 +7,17 @@ import { mainConfig } from '@/config/main';
 import { MainNav } from '@/components/nav/main';
 import { Footer } from '@/components/footer';
 
-interface MarketingLayoutProps {
+interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-export default async function MarketingLayout({
-  children,
-}: MarketingLayoutProps) {
+/**
+ * MainLayout serves as the primary layout for the application, encompassing a header, main content area, and footer.
+ * It provides a consistent structure and navigation experience across the app.
+ * @param {React.ReactNode} children - The main content to be displayed within the layout.
+ * @returns {JSX.Element} The layout component containing the application's global header, main content, and footer.
+ */
+export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="container z-40 bg-background">
