@@ -62,7 +62,10 @@ const coffeeShops: CoffeeShop[] = [
 
 const PopularStoresSection: React.FC = () => {
   return (
-    <section className="px-4 py-12 rounded-lg md:px-8 justify-center">
+    <section
+      id="popular"
+      className="px-4 py-12 rounded-lg md:px-8 justify-center"
+    >
       <h2
         className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
       >
