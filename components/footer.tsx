@@ -5,73 +5,78 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import type { JSX, SVGProps } from 'react'; // Changed to import type
 import { rubikFont } from '@/styles/fonts';
+import { cn } from '@/lib/utils';
 
 /**
  * Footer component with subscription form and social media links.
  * @returns JSX.Element
  */
-export default function Footer(): JSX.Element {
+export function Footer({
+  className,
+}: React.HTMLAttributes<HTMLElement>): JSX.Element {
   return (
-    <section className="w-full py-2 md:py-4 lg:py-6 bg-secondary-dark/50">
-      <div className="container px-4 md:px-6 flex flex-col items-center text-center">
-        <h2
-          className={`text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-secondary-foreground ${rubikFont.className}`}
-        >
-          Join Our Coffee Journey
-        </h2>
-        <p className="my-2 mx-auto max-w-[700px] text-sm md:text-md lg:text-lg text-secondary-foreground/90">
-          Get the latest updates on the best coffee spots near you. Exclusive
-          insights, early access to new features, and more, straight to your
-          inbox.
-        </p>
-        <div className="w-full max-w-md space-y-2 my-2">
-          <form className="flex space-x-2">
-            <Input
-              className="max-w-lg flex-1 bg-white text-black"
-              placeholder="Enter your email"
-              type="email"
-            />
-            <Button type="submit" variant="outline">
-              Brew With Us
-            </Button>
-          </form>
+    <footer className={cn(className)}>
+      <div className="w-full py-2 md:py-4 lg:py-6 bg-secondary-dark/50">
+        <div className="container px-4 md:px-6 flex flex-col items-center text-center">
+          <h2
+            className={`text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-secondary-foreground ${rubikFont.className}`}
+          >
+            Join Our Coffee Journey
+          </h2>
+          <p className="my-2 mx-auto max-w-[700px] text-sm md:text-md lg:text-lg text-secondary-foreground/90">
+            Get the latest updates on the best coffee spots near you. Exclusive
+            insights, early access to new features, and more, straight to your
+            inbox.
+          </p>
+          <div className="w-full max-w-md space-y-2 my-2">
+            <form className="flex space-x-2">
+              <Input
+                className="max-w-lg flex-1 bg-white text-black"
+                placeholder="Enter your email"
+                type="email"
+              />
+              <Button type="submit" variant="outline">
+                Brew With Us
+              </Button>
+            </form>
+          </div>
+          <div className="flex justify-center space-x-4 my-2">
+            <Link
+              aria-label="Facebook page"
+              className="text-black dark:text-white"
+              href="#"
+            >
+              <FacebookIcon className="h-6 w-6" />
+            </Link>
+            <Link
+              aria-label="Twitter profile"
+              className="text-black dark:text-white"
+              href="#"
+            >
+              <TwitterIcon className="h-6 w-6" />
+            </Link>
+            <Link
+              aria-label="Instagram profile"
+              className="text-black dark:text-white"
+              href="#"
+            >
+              <InstagramIcon className="h-6 w-6" />
+            </Link>
+            <Link
+              aria-label="LinkedIn profile"
+              className="text-black dark:text-white"
+              href="#"
+            >
+              <LinkedinIcon className="h-6 w-6" />
+            </Link>
+          </div>
+          <p className="text-xs mt-2 text-muted-foreground">
+            Discover new flavors, exclusive offers, and never miss an update
+            from the world of coffee.
+          </p>
         </div>
-        <div className="flex justify-center space-x-4 my-2">
-          <Link
-            aria-label="Facebook page"
-            className="text-black dark:text-white"
-            href="#"
-          >
-            <FacebookIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            aria-label="Twitter profile"
-            className="text-black dark:text-white"
-            href="#"
-          >
-            <TwitterIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            aria-label="Instagram profile"
-            className="text-black dark:text-white"
-            href="#"
-          >
-            <InstagramIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            aria-label="LinkedIn profile"
-            className="text-black dark:text-white"
-            href="#"
-          >
-            <LinkedinIcon className="h-6 w-6" />
-          </Link>
-        </div>
-        <p className="text-xs mt-2 text-muted-foreground">
-          Discover new flavors, exclusive offers, and never miss an update from
-          the world of coffee.
-        </p>
       </div>
-    </section>
+    </footer>
   );
 }
 
