@@ -43,7 +43,7 @@ export function MainNav({ items, children }: MainNavProps): JSX.Element {
 
   return (
     <>
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center md:hidden">
         <Button
           variant={'ghost'}
           className="relative h-9 w-8 px-0 hover:bg-primary/50"
