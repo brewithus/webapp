@@ -10,16 +10,25 @@ import type { MainNavItem } from '@/types';
 interface MobileNavProps {
   items: MainNavItem[];
   children?: React.ReactNode;
+  isOpen: boolean; // Added to represent the open state
   onClose: () => void;
 }
 
+/**
+ * Renders a mobile navigation menu that is toggleable via the `isOpen` prop.
+ *
+ * The navigation presents the site's logo and a list of navigation items. It uses the `useLockBody`
+ * hook to prevent body scroll when open. The `onClose` callback is invoked to close the menu.
+ * @param {MobileNavProps} props - The props for the MobileNav component.
+ * @returns {JSX.Element} - The MobileNav component.
+ */
 export function MobileNav({
   items,
   children,
+  isOpen,
   onClose,
 }: MobileNavProps): JSX.Element {
-  useLockBody();
-  // Reference to the menu container
+  useLockBody(isOpen); // Pass the `isOpen` state to the hook
 
   return (
     <div
