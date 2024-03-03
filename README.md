@@ -18,7 +18,7 @@ You can set up the Coffee Shop Recommender application in your local development
 Through Command Line tools
 
 ```bash
-git clone https://github.com/CS4800-02-RestaurantRecommender/Site.git
+git clone https://github.com/CS4800-02-CoffeeShopRecommender/Site.git
 cd Site
 ```
 
