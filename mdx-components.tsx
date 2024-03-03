@@ -147,7 +147,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: ({ className, ...props }) => (
       <pre
         className={cn(
-          'mb-4 mt-6 overflow-x-auto rounded-lg border bg-black/80 py-4 pl-4',
+          'mb-4 mt-6 overflow-x-auto rounded-lg border bg-black/80 py-4 pl-4 text-white',
           className,
         )}
         {...props}
@@ -155,7 +155,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     code: ({ className, ...props }) => (
       <code
-        className={cn('relative font-mono text-sm text-white', className)}
+        className={cn('relative font-mono text-sm', className)}
         {...props}
       />
     ),
