@@ -51,7 +51,9 @@ export function MainNav({ items, children }: MainNavProps): JSX.Element {
         >
           {showMobileMenu ? <Icons.close /> : <Menu />}
         </Button>
-        <ModeToggle />
+        <div className="block">
+          <ModeToggle />
+        </div>
       </div>
       {showMobileMenu && items && (
         <MobileNav
@@ -73,7 +75,9 @@ export function MainNav({ items, children }: MainNavProps): JSX.Element {
         </Link>
         {items?.length ? (
           <nav className="hidden gap-6 md:flex">
-            <ModeToggle />
+            <div className="block">
+              <ModeToggle />
+            </div>
             {items?.map((item, index) => (
               <NavLink key={index} href={item.disabled ? '#' : item.href}>
                 {item.title}
