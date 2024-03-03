@@ -1,16 +1,20 @@
-import React from 'react';
+'use client';
+import * as React from 'react';
+
+import Content from '@/content/about.mdx';
 
 /**
- * AboutPage Component
+ * Page component that renders the About page content.
  *
- * This component renders the About page of the application. It's a simple functional component
- * that returns a div containing text. This page is meant to provide users with information about
- * the application, its purpose, the team behind it, or any other relevant information that helps
- * users understand more about the site or service.
- * @returns {JSX.Element} The JSX code for rendering the About Page.
+ * This component serves as a wrapper for the About page, importing and displaying MDX content
+ * from a specific file. It applies consistent padding around the content to ensure proper
+ * layout and readability across various screen sizes.
+ * @returns {JSX.Element} The rendered About page content.
  */
-const AboutPage = (): JSX.Element => {
-  return <div>About Page</div>;
-};
-
-export default AboutPage;
+export default function Page(): JSX.Element {
+  return (
+    <div className="px-6 xs:px-8 sm:px-12 md:px-[15%] py-8">
+      <Content />
+    </div>
+  );
+}
