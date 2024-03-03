@@ -73,7 +73,7 @@ export default function LoginPage(): JSX.Element {
             </div>
             <Button className="rounded-[8px] my-2 font-bold">Log In</Button>
             <div className="flex items-center flex-col text-sm">
-              <Link href="/reset-password" className="underline font-semibold">
+              <Link href="/forgot-password" className="underline font-semibold">
                 Forgot your password?
               </Link>
             </div>
