@@ -2,6 +2,7 @@ import { Footer } from '@/components/footer';
 import { MainNav } from '@/components/nav/main';
 import { buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { passwordResetConfig } from '@/config/password-reset';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import React from 'react';
@@ -21,7 +22,7 @@ export default function PasswordLayout({
     <div className="flex min-h-screen flex-col">
       <header className="px-8 md:px-12 z-40 bg-secondary-dark/50">
         <div className="flex h-20 items-center justify-between py-6">
-          <MainNav />
+          <MainNav items={passwordResetConfig.mainNav} />
 
           <nav className="flex flex-row gap-2 items-center">
             <Input
