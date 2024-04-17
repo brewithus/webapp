@@ -1,0 +1,49 @@
+
+.stars {
+    /* Styles for the stars and review count */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ratingBar {
+    /* Styles for each rating bar container */
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Add some space between bars */
+}
+
+.ratingLabel {
+    /* Styles for the rating label (e.g., "5 stars") */
+    min-width: 50px; /* Adjust as needed */
+    margin-right: 10px; /* Give some space between label and bar */
+}
+
+.bar {
+    /* Styles for the background of the rating bar */
+    background: #ddd; /* Light grey background */
+    width: 50%; /* Set to half width of the parent container */
+    height: 10px;
+    border-radius: 5px;
+    position: relative; /* To position the filledBar absolute to this */
+}
+
+.filledBar {
+    /* Styles for the filled part of each rating bar */
+    background: red; /* Or the color you prefer */
+    height: 100%;
+    border-radius: 5px;
+    position: absolute; /* Positioning absolute within .bar */
+    left: 0;
+}
+.overallRatingLabel {
+    font-weight: bold; /* This makes the font weight bold */
+}
+
+.review {
+    text-align: center;
+    font-size: 24px; 
+    font-weight: bold;
+    text-decoration-color: burlywood; 
+    margin-bottom: 20px; 
+}
