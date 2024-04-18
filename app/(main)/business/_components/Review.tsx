@@ -1,6 +1,6 @@
 // components/Review.tsx
 import React from 'react';
-import { Review } from './type'; // Adjust the import based on your file structure
+import type { Review } from './type'; // Adjust the import to be type-only
 
 interface ReviewProps {
   review: Review;

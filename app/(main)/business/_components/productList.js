@@ -1,6 +1,6 @@
 import ProductCard from "./productCard"
-import styles from "../styles/ProductList.module.css";
-import menu from "../mock_data/cofeeShopData.json"
+import styles from "../_styles/ProductList.module.css";
+import menu from "../_mock_data/cofeeShopData.json"
 const ProductList = ({ coffeeShopId }) => {
     const coffeeShop = menu.find(shop => shop.id === coffeeShopId);
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewComponent from './Review';
-import  {Review}  from './type'; // Adjust the import based on your file structure
-import styles from '../styles/Review.module.css';
+import type { Review } from './type'; // Use `import type` for type-only imports
+import styles from '../_styles/Review.module.css';
 
 interface ReviewSectionProps {
   reviews: Review[];
@@ -11,18 +11,22 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
     // Calculate the average rating
     const averageRating = reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
   
-    // Calculate the distribution of ratings
-    const ratingDistribution = Array(5).fill(0);
+    // Calculate the distribution of ratings, explicitly stating the type as number[]
+    const ratingDistribution: number[] = Array(5).fill(0);
     reviews.forEach((review) => {
-      ratingDistribution[review.rating - 1]++;
+      if (review.rating >= 1 && review.rating <= 5) { // Ensure rating is within expected range
+        ratingDistribution[review.rating - 1]++;
+      }
     });
-    // console.log(ratingDistribution);
+    
+    // Ensure Math.max argument is safe by providing a default value (0) for empty arrays
+    const maxRatingCount = Math.max(0, ...ratingDistribution);
+
     return (
-        
       <div className="review-section mt-8">
         <p className={styles.review}>Reviews</p>
         <div className={styles.overallRating}>
-        <div className={styles.overallRatingLabel}>Overall rating</div>
+          <div className={styles.overallRatingLabel}>Overall rating</div>
           <div className={styles.stars}>
             {'⭐'.repeat(Math.round(averageRating))}
             <span>({reviews.length} reviews)</span>
@@ -34,11 +38,11 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
                 <div className={styles.bar}>
                     <div
                         className={styles.filledBar}
-                        style={{ width: `${(count / Math.max(...ratingDistribution)) * 100}%` }}
+                        style={{ width: `${(count / (maxRatingCount || 1)) * 100}%` }}
                     />
                 </div>
             </div>
-        ))}
+          ))}
         </div>
 
         {reviews.map((review) => (
@@ -46,6 +50,6 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
         ))}
       </div>
     );
-  };
-  
-  export default ReviewSection;
+};
+
+export default ReviewSection;
