@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import React from 'react';
-import ProductList from '../components/productList'
-import coffeeShopsData from '../mock_data/cofeeShopData.json'
-import GoogleMaps from '../components/Googlemap';
-import ReviewSection from '../components/ReviewSection';
+import ProductList from '../_components/productList'
+import coffeeShopsData from '../_mock_data/cofeeShopData.json'
+import GoogleMaps from '../_components/Googlemap';
+import ReviewSection from '../_components/ReviewSection';
 interface PageProps {
   /**
    * The parameters passed to the page, including the id of the store.
@@ -54,8 +54,6 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
   }
 
   // Directly use coffeeShop.menuItems and coffeeShop.reviews
-  const menuItems = coffeeShop.menuItems;
-  const coffeeShopReviews = coffeeShop.reviews;
   return (
     <div className="container mx-auto p-4">
       <div className="relative">
