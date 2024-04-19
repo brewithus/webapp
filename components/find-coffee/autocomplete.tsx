@@ -42,7 +42,7 @@ const GoogleMapsSearchAutocomplete: React.FC<Props> = ({
     >
       <Input
         type="text"
-        placeholder={defaultAddress ?? 'Search'}
+        placeholder={defaultAddress !== '' ? defaultAddress : 'Search'}
         className="bg-transparent py-3 text-sm outline-none placeholder:text-black/50 disabled:cursor-not-allowed disabled:opacity-50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black"
       />
     </Autocomplete>
