@@ -19,7 +19,7 @@ const ProductList: React.FC<Props> = ({ items }) => {
       >
         Menu
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 px-4">
         {items.map((item, index) => (
           <ProductCard key={index} {...item} />
         ))}

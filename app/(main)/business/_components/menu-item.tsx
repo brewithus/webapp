@@ -7,7 +7,7 @@ import { MenuItem } from '../_types';
 const ProductCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
   return (
     <div className="w-full bg-secondary/50 flex items-start gap-2 rounded-lg p-2">
-      <div className="flex-none w-20 md:w-36">
+      <div className="flex-none w-20 md:w-24">
         {/* Fixed width of 48px (w-12) */}
         <Image
           src={`/images/${id}.jpg`}
