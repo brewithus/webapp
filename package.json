@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@googlemaps/js-api-loader": "^1.16.6",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.1.1",
@@ -45,11 +44,11 @@
     "vaul": "^0.9.0"
   },
   "devDependencies": {
-    "@types/google.maps": "^3.55.4",
+    "@types/google.maps": "^3.55.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",
