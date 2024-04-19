@@ -20,13 +20,7 @@ interface StoreCardProps {
   tags: string[];
 }
 
-const StoreCard: React.FC<StoreCardProps> = ({
-  id,
-  name,
-  picture,
-  address,
-  tags,
-}) => {
+const StoreCard: React.FC<StoreCardProps> = ({ id, name, address, tags }) => {
   const router = useRouter();
   return (
     <Card className="border-2  p-2 max-w-xs sm:max-w-full bg-secondary/50">

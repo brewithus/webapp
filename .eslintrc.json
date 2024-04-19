@@ -9,7 +9,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsdoc/recommended-typescript-error",
-    "standard-with-typescript",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "overrides": [],

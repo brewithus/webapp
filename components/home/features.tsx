@@ -10,17 +10,17 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    icon: 'star',
+    icon: '⭐',
     title: 'Personalized Recommendations',
     description: 'Get matched with shops based on your preferences.',
   },
   {
-    icon: 'filter',
+    icon: '🔍',
     title: 'Filter by Restrictions',
     description: 'Find shops that cater to dietary needs.',
   },
   {
-    icon: 'map',
+    icon: '📍',
     title: 'Interactive Maps',
     description: 'Easily explore coffee shops in your area.',
   },
@@ -58,7 +58,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   description,
 }) => {
   return (
-    <div className="flex-auto w-64 rounded-lg p-4 text-primary-light border-2">
+    <div className="relative flex-auto w-64 rounded-lg p-4 text-primary-light border-2">
+      <span className="absolute top-2 right-2">{icon}</span>
       <h3 className="text-lg font-bold mb-2">{title}</h3>
       <p className="text-sm leading-loose text-muted-foreground">
         {description}
