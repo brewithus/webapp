@@ -19,10 +19,11 @@ const GoogleMapsSearchAutocomplete: React.FC<Props> = ({
   const [searchResult, setSearchResult] =
     React.useState<google.maps.places.Autocomplete>();
 
+  // eslint-disable-next-line jsdoc/require-jsdoc
   function onLoad(autocomplete: google.maps.places.Autocomplete) {
     setSearchResult(autocomplete);
   }
-
+  // eslint-disable-next-line jsdoc/require-jsdoc
   function locationSelected() {
     if (searchResult) {
       const place = searchResult.getPlace();
