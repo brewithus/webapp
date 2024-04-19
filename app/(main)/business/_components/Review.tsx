@@ -1,21 +1,36 @@
 // components/Review.tsx
 import React from 'react';
-import type { Review } from './type'; // Adjust the import to be type-only
+import { Review } from '../_types';
+import DisplayReviewStars from './stars';
+import Image from 'next/image';
 
-interface ReviewProps {
-  review: Review;
-}
-
-const ReviewComponent: React.FC<ReviewProps> = ({ review }) => {
+const ReviewComponent: React.FC<Review> = ({ user, rating, text }) => {
   return (
-    <div className="review p-4 border-b">
-      <div className="review-header flex justify-between items-center">
-        <h3 className="review-author font-semibold">{review.author}</h3>
-        <div className="review-rating">
-          {'⭐'.repeat(review.rating)}
-        </div>
+    <div className="p-4 flex gap-2 w-full">
+      <div className="flex-none w-16 md:w-24 ">
+        {/* Fixed width of 48px (w-12) */}
+        <Image
+          src={user.image_url !== '' ? user.image_url : '/dummies/avatar1.png'}
+          alt={user.name}
+          height={0}
+          width={0}
+          sizes="100vw"
+          style={{ width: '100%', height: 'auto', objectFit: 'cover' }} // optional
+          className="rounded-md aspect-square"
+          priority
+        />
       </div>
-      <p className="review-comment mt-2">{review.comment}</p>
+      <div className="flex flex-col w-full gap">
+        <div className="flex flex-wrap gap-1 justify-between items-center">
+          <span className="font-semibold">{user.name}</span>
+          <DisplayReviewStars
+            rating={rating}
+            className="text-primary-light gap-[2px]"
+            size={20}
+          />
+        </div>
+        <p className="text-sm text-foreground/70 line-clamp-3">{text}</p>
+      </div>
     </div>
   );
 };

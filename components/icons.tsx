@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 // eslint-disable-next-line import/no-duplicates
 import type { LucideProps } from 'lucide-react';
+import { EmptyStarSvg } from './svgs/star';
 
 export type Icon = LucideIcon;
 
@@ -70,5 +71,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  emptyStar: ({ ...props }: LucideProps) => <EmptyStarSvg {...props} />,
+
   check: Check,
 };
