@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import MultiSelectCombobox from './TagsSelection';
-import PlacesAutocomplete from './PlacesAutocomplete';
+// import PlacesAutocomplete from './PlacesAutocomplete';
 import { Separator } from '../ui/separator';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
+import GoogleSearchAutocomplete from './autocomplete';
 
 const FindCoffeeSpot: React.FC<{ className?: string }> = ({
   className,
@@ -22,6 +23,7 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
   const handleSelectAddress = (address: string): void => {
     // Update the state with the new address and its lat/lng
     setSelectedAddress(address);
+    localStorage.setItem('lastSelectedAddress', address);
   };
 
   const handleFindCoffeeSpotsClick = (): void => {
@@ -41,6 +43,16 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
     router.push(`/search?${queryParams}`);
   };
 
+  React.useEffect(() => {
+    const lastSelected: string | null = localStorage.getItem(
+      'lastSelectedAddress',
+    );
+
+    if (lastSelected) {
+      setSelectedAddress(lastSelected);
+    }
+  }, []);
+
   return (
     <div className={cn('w-full flex flex-col items-center gap-4', className)}>
       <div className="flex flex-row gap-3 items-center bg-white/80 rounded-lg px-4 w-full h-fit">
@@ -51,7 +63,11 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
           />
         </div>
         <Separator orientation="vertical" className="h-3/4" />
-        <PlacesAutocomplete onSelectAddress={handleSelectAddress} />
+        {/* <PlacesAutocomplete onSelectAddress={handleSelectAddress} /> */}
+        <GoogleSearchAutocomplete
+          onSelectAddress={handleSelectAddress}
+          defaultAddress={selectedAddress}
+        />
       </div>
       <Button className="font-bold" onClick={handleFindCoffeeSpotsClick}>
         Find Coffee Spots

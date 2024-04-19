@@ -2,7 +2,7 @@
 
 // components/PlacesCombobox.tsx
 import * as React from 'react';
-import { useLoadScript } from '@react-google-maps/api';
+import { useLoadScript, Autocomplete } from '@react-google-maps/api';
 import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
