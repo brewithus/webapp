@@ -9,6 +9,8 @@ import { Business } from '../_types';
 import { mockBusiness } from '../_mock_data/cofeeShopData';
 import DisplayReviewStars from '../_components/stars';
 import { poppinsFont, rubikFont } from '@/styles/fonts';
+import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
 
 interface PageProps {
   /**
@@ -27,7 +29,23 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
   const coffeeShop = findCoffeeShop(params.id);
 
   if (!coffeeShop) {
-    return <div>Coffee shop not found</div>;
+    return (
+      <div className="flex items-center justify-center h-full py-[20vh] min-h-[300px]">
+        <div className="flex flex-row h-24 gap-8 items-center justify-center p-4 border rounded-lg">
+          <h2 className="text-3xl">404</h2>
+          <Separator orientation="vertical" />
+          <div className="flex flex-col items-center justify-center gap-3">
+            <p>Could not find requested resource</p>
+            <Link
+              href="/"
+              className="rounded-lg bg-secondary px-3 py-2 hover:bg-secondary/90"
+            >
+              Return Home
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   // Directly use coffeeShop.menuItems and coffeeShop.reviews
