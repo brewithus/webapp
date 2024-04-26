@@ -34,7 +34,7 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
           </nav>
         </div>
       </SensitiveHeader>
-      <main className="flex-1">{children}</main>
+      <main className="mt-20 grow">{children}</main>
       <Footer />
     </div>
   );

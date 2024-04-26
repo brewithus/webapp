@@ -14,7 +14,7 @@ import TestimonialsSection from '@/components/home/testinomials';
  */
 export default function Home(): JSX.Element {
   return (
-    <div className="mt-12">
+    <div>
       <HeroSection />
       <FeaturesSection />
       <PopularStoresSection />
