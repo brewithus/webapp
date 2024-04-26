@@ -12,7 +12,7 @@ interface MapContainerProps {
 const containerStyle = {
   width: '100%',
   height: '100%',
-  // borderRadius: '4px',
+  borderRadius: '4px',
 };
 
 const defaultCPP = {

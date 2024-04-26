@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import MultiSelectCombobox from './TagsSelection';
-// import PlacesAutocomplete from './PlacesAutocomplete';
 import { Separator } from '../ui/separator';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';

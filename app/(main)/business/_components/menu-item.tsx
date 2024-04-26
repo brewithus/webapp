@@ -6,7 +6,7 @@ import { MenuItem } from '../_types';
 
 const ProductCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
   return (
-    <div className="w-full bg-secondary/50 flex items-start gap-2 rounded-lg p-2">
+    <div className="w-full bg-secondary-dark/70 shadow-md flex items-start gap-2 rounded-lg p-2">
       <div className="flex-none w-20 md:w-24">
         {/* Fixed width of 48px (w-12) */}
         <Image
@@ -24,7 +24,7 @@ const ProductCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
       <div className="flex flex-col w-full">
         <p
           className={cn(
-            'text-secondary-foreground font-medium flex flex-wrap justify-between mb-1',
+            'text-secondary-foreground font-medium flex flex-wrap justify-between mb-1 gap-1',
             poppinsFont.className,
           )}
         >
