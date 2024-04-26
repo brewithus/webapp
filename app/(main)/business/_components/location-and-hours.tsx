@@ -29,14 +29,19 @@ export default function Locations({
 }: LocationsProps): JSX.Element {
   return (
     <div className="flex flex-col gap-2">
-      <p
-        className={cn(
-          'text-3xl font-bold text-center p-4 w-full border-b',
-          rubikFont.className,
-        )}
+      <div
+        id="biz-location"
+        className="flex self-start items-center gap-2 justify-between p-4 w-full border-b"
       >
-        Location & Hours
-      </p>
+        <p
+          className={cn(
+            'text-3xl font-bold text-center text-foreground/90',
+            rubikFont.className,
+          )}
+        >
+          Location & Hours
+        </p>
+      </div>
       <div className="flex w-full px-4 flex-col sm:flex-row gap-4">
         {/* Map container */}
         <div className="h-[300px] w-full">
