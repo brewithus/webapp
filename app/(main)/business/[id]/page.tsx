@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 import { Business } from '../_types';
 import { mockBusiness } from '../_mock_data/cofeeShopData';
 import DisplayReviewStars from '../_components/stars';
-import { poppinsFont } from '@/styles/fonts';
+import { poppinsFont, rubikFont } from '@/styles/fonts';
 
 interface PageProps {
   /**
@@ -36,7 +36,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
       <div className="w-full max-w-[1028px] flex flex-col gap-4">
         {/* Coffee Shop Image */}
         <div
-          className="relative h-[50vh] justify-center bg-primary-light dark:bg-primary-dark"
+          className="relative h-[40vh] min-h-[300px] max-h-[500px] justify-center bg-primary-light dark:bg-primary-dark"
           style={{
             backgroundImage: `url('${coffeeShop.picture}')`,
             backgroundSize: 'cover', // Cover the entire section
@@ -45,8 +45,10 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
           }}
         >
           {/* Overlay Info */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 backdrop-blur-sm w-fit rounded-lg flex flex-col gap-1">
-            <h1 className="text-4xl font-bold">{coffeeShop.name}</h1>
+          <div className="absolute bottom-0 left-0 right-0 p-4 w-fit rounded-tr-lg flex flex-col gap-1 bg-black/50  text-white">
+            <div className={cn('text-4xl font-bold', rubikFont.className)}>
+              {coffeeShop.name}
+            </div>
             {/* Rating and Review Section */}
             <div className="text-2xl flex items-center gap-2">
               {coffeeShop.rating && (
@@ -90,10 +92,10 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
           address={coffeeShop.address}
           hours={coffeeShop.hours}
           phone="+1 234 567 8900"
-          // location={{
-          //   lat: coffeeShop.location.latitude,
-          //   lng: coffeeShop.location.longitude,
-          // }}
+          location={{
+            lat: coffeeShop.location.latitude,
+            lng: coffeeShop.location.longitude,
+          }}
         />
 
         {/* Review Section */}

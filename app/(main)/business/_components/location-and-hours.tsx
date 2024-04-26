@@ -4,6 +4,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { rubikFont } from '@/styles/fonts';
 import MapContainer from './google-map';
+import { Globe, MapPin, Phone } from 'lucide-react';
 
 interface LocationsProps {
   id: string;
@@ -24,6 +25,7 @@ export default function Locations({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   hours,
   phone,
+  location,
 }: LocationsProps): JSX.Element {
   return (
     <div className="flex flex-col gap-2">
@@ -35,49 +37,28 @@ export default function Locations({
       >
         Location & Hours
       </p>
-      <div className="flex w-full px-4 flex-col sm:flex-row">
+      <div className="flex w-full px-4 flex-col sm:flex-row gap-4">
         {/* Map container */}
         <div className="h-[300px] w-full">
-          <MapContainer />
+          <MapContainer position={location} />
         </div>
 
         {/* Information container */}
-        <div
-          className="min-w-[250px]"
-          style={{
-            padding: '20px',
-            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-            borderRadius: '8px',
-            maxWidth: '300px',
-            margin: '20px',
-          }}
-        >
+        <div className="w-full max-w-[300px] min-w-[250px] px-2 flex flex-col gap-2 justify-center text-foreground/70">
           <a
-            href={`http://${id}.com`}
+            href={'#'}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
+            className="hover:text-foreground/80"
           >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '16px',
-              }}
-            >
-              <span style={{ marginRight: '8px' }}>🔗</span>
+            <div className="flex items-center gap-2">
+              <Globe />
               {id + '.com'}
             </div>
           </a>
 
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginBottom: '16px',
-            }}
-          >
-            <span style={{ marginRight: '8px' }}>📞</span>
+          <div className="flex items-center gap-2">
+            <Phone />
             {phone}
           </div>
 
@@ -85,19 +66,15 @@ export default function Locations({
             href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'inherit' }}
+            className="group flex flex-col gap-1"
           >
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '16px',
-              }}
-            >
-              <span style={{ marginRight: '8px' }}>📍</span>
+            <div className="group-hover:text-foreground flex items-center gap-2">
+              <MapPin />
+              {address}
+            </div>
+            <div className="flex items-center gap-1 rounded-md bg-primary-light/50 py-2 px-4 w-fit font-semibold text-sm group-hover:text-foreground group-hover:bg-primary-light/80">
               Get Directions
             </div>
-            <p style={{ margin: '0' }}>{address}</p>
           </a>
         </div>
       </div>

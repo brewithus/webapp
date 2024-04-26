@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const ReviewComponent: React.FC<Review> = ({ user, rating, text }) => {
   return (
-    <div className="p-4 flex gap-2 w-full">
+    <div className="p-4 flex gap-2 w-full ">
       <div className="flex-none w-16 md:w-24 ">
         {/* Fixed width of 48px (w-12) */}
         <Image
@@ -20,7 +20,7 @@ const ReviewComponent: React.FC<Review> = ({ user, rating, text }) => {
           priority
         />
       </div>
-      <div className="flex flex-col w-full gap">
+      <div className="flex flex-col w-full gap border-b border-foreground/50">
         <div className="flex flex-wrap gap-1 justify-between items-center">
           <span className="font-semibold">{user.name}</span>
           <DisplayReviewStars
