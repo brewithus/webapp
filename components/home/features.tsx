@@ -35,7 +35,7 @@ const FeaturesSection: React.FC = () => {
       >
         Features
       </h2>
-      <div className="flex gap-4 justify-items-center md:px-24 lg:px-48">
+      <div className="flex flex-wrap gap-4 justify-items-center md:px-24 lg:px-48">
         {features.map((feature) => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
