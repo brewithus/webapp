@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils';
 import { poppinsFont } from '@/styles/fonts';
 import { MenuItem } from '../_types';
 
-const ProductCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
+const MenuItemCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
   return (
-    <div className="w-full bg-secondary-dark/70 shadow-md flex items-start gap-2 rounded-lg p-2">
+    <div className="group w-full max-w-[80vw] border-2 border-secondary-dark shadow-sm flex items-start gap-2 rounded-lg p-2">
       <div className="flex-none w-20 md:w-24">
         {/* Fixed width of 48px (w-12) */}
         <Image
@@ -24,14 +24,17 @@ const ProductCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
       <div className="flex flex-col w-full">
         <p
           className={cn(
-            'text-secondary-foreground font-medium flex flex-wrap justify-between mb-1 gap-1',
+            'text-foreground/90 font-medium flex flex-wrap justify-between mb-1 gap-1',
             poppinsFont.className,
           )}
         >
-          {name}
+          <div className="relative group-hover:text-foreground transition-all duration-200">
+            {name}
+            <div className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full bg-primary transition-all duration-200" />
+          </div>
           <span className="text-primary">{price}</span>
         </p>
-        <p className="text-secondary-foreground/50 text-sm line-clamp-3">
+        <p className="text-secondary-foreground/70 text-sm line-clamp-3">
           {description}
         </p>
       </div>
@@ -39,4 +42,4 @@ const ProductCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
   );
 };
 
-export default ProductCard;
+export default MenuItemCard;

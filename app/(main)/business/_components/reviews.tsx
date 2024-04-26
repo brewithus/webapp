@@ -28,14 +28,19 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <p
-        className={cn(
-          'text-3xl font-bold text-center p-4 w-full border-b',
-          rubikFont.className,
-        )}
+      <div
+        id="biz-location"
+        className="flex self-start items-center gap-2 justify-between p-4 w-full border-b"
       >
-        Reviews
-      </p>
+        <p
+          className={cn(
+            'text-3xl font-bold text-center text-foreground/90',
+            rubikFont.className,
+          )}
+        >
+          Reviews
+        </p>
+      </div>
       <div className="mx-4 flex flex-col sm:flex-row gap-8">
         <div className="flex flex-col gap-1">
           <div className="text-lg font-bold">Overall rating</div>
