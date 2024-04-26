@@ -2,8 +2,8 @@ import React from 'react';
 
 import HeroSection from '@/components/home/hero';
 import FeaturesSection from '@/components/home/features';
-import PopularStoresSection from '@/components/home/populars';
 import HowItWorksSection from '@/components/home/how-it-works';
+import PopularStoresSection from '@/components/home/populars';
 import TestimonialsSection from '@/components/home/testinomials';
 
 /**
@@ -14,9 +14,8 @@ import TestimonialsSection from '@/components/home/testinomials';
  */
 export default function Home(): JSX.Element {
   return (
-    <div>
+    <div className="mt-12">
       <HeroSection />
-      {/* <div className="h-36 bg-gradient-to-b from-primary-light to-background dark:from-primary-dark"></div> */}
       <FeaturesSection />
       <PopularStoresSection />
       <HowItWorksSection />

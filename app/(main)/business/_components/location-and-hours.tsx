@@ -44,8 +44,24 @@ export default function Locations({
       </div>
       <div className="flex w-full px-4 flex-col sm:flex-row gap-4">
         {/* Map container */}
-        <div className="h-[300px] w-full">
-          <MapContainer position={location} />
+        <div className="w-full flex flex-col gap-2">
+          <div className="h-[300px] w-full">
+            <MapContainer position={location} />
+          </div>
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col gap-1"
+          >
+            <div className="group-hover:text-foreground flex items-center gap-2">
+              <MapPin />
+              {address}
+            </div>
+            <div className="flex items-center gap-1 rounded-md bg-primary-light/50 py-2 px-4 w-fit font-semibold text-sm group-hover:text-foreground group-hover:bg-primary-light/80">
+              Get Directions
+            </div>
+          </a>
         </div>
 
         {/* Information container */}
@@ -66,21 +82,6 @@ export default function Locations({
             <Phone />
             {phone}
           </div>
-
-          <a
-            href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col gap-1"
-          >
-            <div className="group-hover:text-foreground flex items-center gap-2">
-              <MapPin />
-              {address}
-            </div>
-            <div className="flex items-center gap-1 rounded-md bg-primary-light/50 py-2 px-4 w-fit font-semibold text-sm group-hover:text-foreground group-hover:bg-primary-light/80">
-              Get Directions
-            </div>
-          </a>
         </div>
       </div>
     </div>

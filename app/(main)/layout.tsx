@@ -6,6 +6,7 @@ import { mainConfig } from '@/config/main';
 import { MainNav } from '@/components/nav/main';
 import { Footer } from '@/components/footer';
 import Link from 'next/link';
+import SensitiveHeader from '@/components/header';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ interface MainLayoutProps {
 export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="z-40 bg-secondary-dark/50 px-8 md:px-12">
+      <SensitiveHeader>
         <div className="flex h-20 items-center justify-between py-6">
           <MainNav items={mainConfig.mainNav} />
           <nav>
@@ -32,7 +33,7 @@ export default function MainLayout({ children }: MainLayoutProps): JSX.Element {
             </Link>
           </nav>
         </div>
-      </header>
+      </SensitiveHeader>
       <main className="flex-1">{children}</main>
       <Footer />
     </div>

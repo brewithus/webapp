@@ -15,9 +15,9 @@ const HeroSection: React.FC = () => {
     >
       <div className="flex flex-col justify-center items-center h-full backdrop-blur px-4 md:px-24 lg:px-32 xl:px-48 gap-4">
         <h1
-          className={`text-7xl font-bold text-center text-white ${bigTitleFont.className}`}
+          className={`text-7xl font-bold text-center text-black ${bigTitleFont.className}`}
         >
-          Discover Your Next Favorite Coffee Spot ☕
+          Discover Your Next Favorite Coffee Spot
         </h1>
         <p
           className={`text-lg text-muted-foreground text-center p text-white ${poppinsFont.className}`}
