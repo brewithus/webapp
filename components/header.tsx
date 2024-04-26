@@ -13,7 +13,6 @@ const SensitiveHeader: React.FC<SensitiveHeaderProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [isOnTop, setIsOnTop] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,7 +21,6 @@ const SensitiveHeader: React.FC<SensitiveHeaderProps> = ({
 
       setIsVisible(currentScrollPos <= 150 || !isScrollingDown);
       setPrevScrollPos(currentScrollPos);
-      setIsOnTop(currentScrollPos < 30);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -35,10 +33,9 @@ const SensitiveHeader: React.FC<SensitiveHeaderProps> = ({
   return (
     <header
       className={cn(
-        'fixed top-0 right-0 left-0 z-40 bg-secondary-dark/80 px-8 md:px-12 transition-all duration-500',
+        'fixed top-0 right-0 left-0 z-40 bg-secondary-dark px-8 md:px-12 transition-all duration-300',
         className,
         !isVisible && '-translate-y-full',
-        isOnTop && 'bg-secondary-dark',
       )}
     >
       {children}
