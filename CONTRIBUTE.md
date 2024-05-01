@@ -1,30 +1,109 @@
 # CONTRIBUTION GUIDE
 
+## Summary
+
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Branching Strategy and Pull Requests](#branching-strategy-and-pull-requests)
+- [Project Structure](#project-structure)
+- [Commit Style Guide](#commit-style-guide)
+- [Coding Standards](#coding-standards)
+
 ## Getting Started
 
-Welcome to the project! We're building an application using Next.js, TailwindCSS, and shadcn/ui. Here's a brief overview to help you get started with contributing:
+Welcome to the project! We are developing a web application using technologies such as Next.js, TailwindCSS, and shadcn/ui. This guide provides you with all the information you need to start contributing effectively.
 
-- **Next.js:** We use Next.js for both our server-side and client-side rendering, leveraging its powerful features for SEO, performance, and developer experience. Familiarize yourself with the [Next.js Documentation](https://nextjs.org/docs) to understand how routing and page creation work. Pay special attention to the file structure under the `/pages` directory, as it directly correlates with the app's routing.
+### Key Technologies
 
-- **TailwindCSS:** Our styling is powered by TailwindCSS, a utility-first CSS framework that allows for rapid UI development. Our project customizes Tailwind's default configuration using the `tailwind.config.js` file and defines global styles in `styles/global.css`. Learn more about TailwindCSS by visiting the [official documentation](https://tailwindcss.com/docs). When contributing UI changes, ensure your modifications adhere to the established color themes and respond appropriately to both light and dark modes, as defined in our global CSS variables.
+- **[Next.js](https://nextjs.org/docs)**: Used for both server-side and client-side rendering.
+- **[TailwindCSS](https://tailwindcss.com/docs)**: A utility-first CSS framework used for rapid UI development.
+- **[shadcn/ui](https://ui.shadcn.com/docs)**: A library of customizable UI components.
 
-- **shadcn/ui:** We use components from shadcn/ui to build our UI efficiently. This library provides a set of customizable components that fit well with our design system. While you're encouraged to use and modify these components, please ensure your changes do not break existing functionalities. Check out the [shadcn/ui documentation](https://ui.shadcn.com/docs) for more information on available components and usage guidelines. Check the "pre-installed" components in `components/ui/` folder before install any new component.
+## Prerequisites
+
+- **Docker and Docker-compose** installed, or
+- **Node.js** v20.x/v21.x if you're developing locally.
+
+### Setting up your development environment
+
+1. Clone the repo:
+   ```
+   git clone https://github.com/brewithus/webapp.git
+   ```
+2. Check out your branch:
+   ```
+   git checkout your-branch-name
+   ```
+3. To start the application:
+
+- With Docker:
+  ```
+  docker-compose up -d
+  ```
+- Locally:
+  ```
+  npm install
+  npm run dev
+  ```
 
 ## Branching Strategy and Pull Requests
 
-- **Branching:** We operate with two main branches:
+- **Main Branches**:
+  - `prod`: Production-ready code.
+  - `latest`: Active development branch.
 
-  - `prod` (Production Branch): Contains code ready for production deployment.
-  - `latest` (Latest Development Branch): The primary development branch for all new features, enhancements, and fixes.
+### Contributing:
 
-- **Contributing:** To contribute, branch off from `latest`, use descriptive branch names (e.g., `feature/add-coffee-shop-filters`), and submit a pull request (PR) back into `latest` once your work is complete. PRs require at least one review.
+- Branch off from `latest`.
+- Use descriptive names for your branches (e.g., `feature/add-coffee-shop-filters`).
+- Submit a pull request (PR) to `latest` for review.
 
-## Guidelines
+## Project Structure
 
-- Adhere to the project's coding standards and guidelines.
-- Focus branches on single features or fixes.
-- Regularly sync with `latest` to minimize conflicts.
-- Write clear, meaningful commit messages.
-- Update documentation as needed.
+- `/app`: Layouts and pages with file-based routing.
+- `/components`: Reusable components.
+- `/config`: Configuration files.
+- `/content`: Content files, primarily MDX.
+- `/hooks`: Reusable hooks.
+- `/lib`: Utility functions.
+- `/public`: Public assets.
+- `/styles`: Styling files.
+- `/types`: TypeScript types.
 
-By following these guidelines, you'll help maintain the quality and consistency of the project. Thank you for your contribution!
+## Commit Style Guide
+
+- **Format**: `$type($scope): $message`
+- **Example**: `docs: add commit style guide`
+- **Length**: Maximum of 98 characters.
+
+```
+<type>(<scope>): <short summary>
+  │       │             │
+  │       │             └─⫸ a short, imperative tense description of the change
+  │       │
+  │       └─⫸ Commit Scope (optional)
+  │
+  └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
+```
+
+### Commit Types:
+
+- `build`: Changes that affect the build system.
+- `ci`: Changes to our CI configuration.
+- `docs`: Documentation changes.
+- `feat`: New feature.
+- `fix`: Bug fix.
+- `perf`: Performance improvement.
+- `refactor`: Code refactoring.
+- `test`: Adding or fixing tests.
+
+### Automated Checks:
+
+- **Formatting**: Run `npm run format` to apply Prettier formatting.
+- **Linting**: Run `npm run lint` to check for issues. Use `npm run lint:fix` to auto-fix many issues, but review changes.
+
+## Coding Standards
+
+- Follow project-specific coding conventions.
+- Use ESLint for type-checking.
+- Ensure all code changes match the existing code style.

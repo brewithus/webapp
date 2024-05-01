@@ -1,5 +1,8 @@
 # Coffee Shop Recommender
 
+[![github actions](https://github.com/brewithus/webapp/actions/workflows/cicd.yml/badge.svg)](https://github.com/brewithus/webapp/actions/workflows/cicd.yml)
+[![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io)
+
 Welcome to the Coffee Shop Recommender project! This application is designed to help users discover coffee shops and boba places based on their preferences, including location, price range, ratings, and dietary restrictions.
 
 ## Technology Stack
@@ -10,6 +13,18 @@ Welcome to the Coffee Shop Recommender project! This application is designed to 
 ## Getting Started
 
 You can set up the Coffee Shop Recommender application in your local development environment by following the instructions below. Choose between the traditional setup and a Docker-based setup, depending on your preferences and requirements.
+
+### Docker Compose Setup
+
+If you prefer using Docker, ensure Docker and Docker Compose are installed on your machine.
+
+**Start the application**
+
+```bash
+docker-compose up --build
+```
+
+This command builds and starts the application in development mode. The app will be accessible at `http://localhost:3000`.
 
 ### Traditional Setup
 
@@ -40,21 +55,9 @@ npm run dev
 
 Navigate to `http://localhost:3000` to view the app.
 
-### Docker Compose Setup
-
-If you prefer using Docker, ensure Docker and Docker Compose are installed on your machine.
-
-**Start the application**
-
-```bash
-docker-compose up --build
-```
-
-This command builds and starts the application in development mode. The app will be accessible at `http://localhost:3000`.
-
 ## Contributing
 
-This project is currently open for contributions only from team members as part of a class project. If you're a team member and want to contribute, please follow the project's coding standards and submit your pull requests for review. Read [CONTRIBUTION GUIDE](https://github.com/CS4800-02-RestaurantRecommender/Site/blob/prod/CONTRIBUTE.md)
+This project is currently open for contributions only from team members as part of a class project. If you're a team member and want to contribute, please follow the project's coding standards and submit your pull requests for review. Read [CONTRIBUTION GUIDE](https://github.com/brewithus/webapp/blob/latest/CONTRIBUTE.md)
 
 If you're not a team member but have feedback or suggestions, feel free to open an issue to discuss your ideas. While direct code contributions are restricted to team members, your input is valuable and appreciated.
 
