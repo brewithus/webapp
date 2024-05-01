@@ -5,7 +5,7 @@ import Locations from '../_components/location-and-hours';
 import ReviewSection from '../_components/reviews';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { Business } from '../_types';
+import { type Business } from '../_types';
 import { mockBusiness } from '../_mock_data/cofeeShopData';
 import DisplayReviewStars from '../_components/stars';
 import { poppinsFont, rubikFont } from '@/styles/fonts';

@@ -1,6 +1,6 @@
 // components/Review.tsx
 import React from 'react';
-import { Review } from '../_types';
+import { type Review } from '../_types';
 import DisplayReviewStars from './stars';
 import Image from 'next/image';
 

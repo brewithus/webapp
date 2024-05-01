@@ -20,11 +20,11 @@ const GoogleMapsSearchAutocomplete: React.FC<Props> = ({
     React.useState<google.maps.places.Autocomplete>();
 
   // eslint-disable-next-line jsdoc/require-jsdoc
-  function onLoad(autocomplete: google.maps.places.Autocomplete) {
+  function onLoad(autocomplete: google.maps.places.Autocomplete): void {
     setSearchResult(autocomplete);
   }
   // eslint-disable-next-line jsdoc/require-jsdoc
-  function locationSelected() {
+  function locationSelected(): void {
     if (searchResult) {
       const place = searchResult.getPlace();
       onSelectAddress(place.formatted_address ?? '');

@@ -1,4 +1,4 @@
-import { PasswordResetConfig } from '@/types';
+import { type PasswordResetConfig } from '@/types';
 
 export const passwordResetConfig: PasswordResetConfig = {
   mainNav: [

@@ -22,8 +22,6 @@ interface LocationsProps {
 export default function Locations({
   id,
   address,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  hours,
   phone,
   location,
 }: LocationsProps): JSX.Element {

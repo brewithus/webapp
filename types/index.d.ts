@@ -1,12 +1,12 @@
-export type NavItem = {
+export interface NavItem {
   title: string;
   href: string;
   disabled?: boolean;
-};
+}
 
 export type MainNavItem = NavItem;
 
-export type SiteConfig = {
+export interface SiteConfig {
   name: string;
   description: string;
   url: string;
@@ -14,12 +14,12 @@ export type SiteConfig = {
   links: {
     github: string;
   };
-};
+}
 
-export type MarketingConfig = {
+export interface MarketingConfig {
   mainNav: MainNavItem[];
-};
+}
 
-export type PasswordResetConfig = {
+export interface PasswordResetConfig {
   mainNav: MainNavItem[];
-};
+}
