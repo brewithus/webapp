@@ -22,7 +22,7 @@ const defaultCPP = {
 
 const MapContainer: React.FC<MapContainerProps> = ({ className, position }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: googleMapsApiKey, // Ensure your API key is correctly provided
+    googleMapsApiKey, // Ensure your API key is correctly provided
     libraries: ['places', 'maps', 'marker', 'drawing'],
   });
 

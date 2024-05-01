@@ -15,7 +15,7 @@ const SensitiveHeader: React.FC<SensitiveHeaderProps> = ({
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       const currentScrollPos = window.scrollY;
       const isScrollingDown = currentScrollPos > prevScrollPos;
 

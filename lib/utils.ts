@@ -21,12 +21,12 @@ export function cn(...inputs: ClassValue[]): string {
  * @template T
  */
 export function chunkArray<T>(array: T[], size: number): T[][] {
-  return array.reduce((chunks, item, index) => {
+  return array.reduce<T[][]>((chunks, item, index) => {
     if (index % size === 0) {
       chunks.push([item]);
     } else {
       chunks[chunks.length - 1].push(item);
     }
     return chunks;
-  }, [] as T[][]);
+  }, []);
 }

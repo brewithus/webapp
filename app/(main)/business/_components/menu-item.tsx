@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { poppinsFont } from '@/styles/fonts';
-import { MenuItem } from '../_types';
+import { type MenuItem } from '../_types';
 
 const MenuItemCard: React.FC<MenuItem> = ({ id, name, description, price }) => {
   return (
