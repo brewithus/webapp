@@ -15,6 +15,7 @@ import Section from '../_components/section';
 
 import { Dot } from 'lucide-react';
 import DisplayAttributes from '../_components/display-attributes';
+import BizImages from '../_components/biz-images';
 
 interface PageProps {
   /**
@@ -58,14 +59,22 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
       <div className="w-full max-w-[1028px] flex flex-col gap-4 pb-8">
         {/* Coffee Shop Image */}
         <div
-          className="relative h-[40vh] min-h-[400px] max-h-[500px] justify-center bg-primary-light dark:bg-primary-dark"
-          style={{
-            backgroundImage: `url('${biz.image_url}')`,
-            backgroundSize: 'cover', // Cover the entire section
-            backgroundPosition: 'center', // Center the background image
-            backgroundRepeat: 'no-repeat', // Do not repeat the image
-          }}
+          className="relative h-[400px] justify-center bg-primary-light dark:bg-primary-dark"
+          // style={{
+          //   backgroundImage: `url('${biz.image_url}')`,
+          //   backgroundSize: 'cover', // Cover the entire section
+          //   backgroundPosition: 'center', // Center the background image
+          //   backgroundRepeat: 'no-repeat', // Do not repeat the image
+          // }}
         >
+          {/* images */}
+          <BizImages images={biz.photos} />
+          {/* <Image
+            src={biz.image_url}
+            alt={`demo`}
+            layout="fill" // This makes the image take over the container
+            objectFit="cover" // Adjust this as needed
+          /> */}
           {/* Overlay Info */}
           <div className="absolute bottom-0 left-0 right-0 p-4 w-fit rounded-tr-lg flex flex-col gap-1 bg-black/50  text-white">
             <div className={cn('text-4xl font-bold', rubikFont.className)}>
