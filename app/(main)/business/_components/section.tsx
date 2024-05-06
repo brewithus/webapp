@@ -12,7 +12,7 @@ const Section: React.FC<Props> = ({ title, children, className }) => {
   return (
     <div className="flex flex-col gap-2">
       <div
-        id="biz-location"
+        id={title.toLowerCase().split(' ').join('-')}
         className="flex self-start items-center gap-2 justify-between px-4 py-2 w-full border-b"
       >
         <p
