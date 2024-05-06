@@ -23,17 +23,16 @@ import {
   User,
   X,
   type IconNode as LucideIcon,
-  Coffee,
-  // eslint-disable-next-line import/no-duplicates
+  type LucideProps,
 } from 'lucide-react';
-// eslint-disable-next-line import/no-duplicates
-import type { LucideProps } from 'lucide-react';
+
 import { EmptyStarSvg } from './svgs/star';
+import BrewLogo from './svgs/brew-logo';
 
 export type Icon = LucideIcon;
 
 export const Icons = {
-  logo: Coffee,
+  logo: ({ ...props }: LucideProps) => <BrewLogo {...props} />,
   close: X,
   spinner: Loader2,
   chevronLeft: ChevronLeft,
@@ -72,6 +71,5 @@ export const Icons = {
     </svg>
   ),
   emptyStar: ({ ...props }: LucideProps) => <EmptyStarSvg {...props} />,
-
   check: Check,
 };
