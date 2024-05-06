@@ -48,6 +48,7 @@ const BizImages: React.FC<Props> = ({ images }) => {
                 width={1024}
                 height={400}
                 className="h-full w-auto"
+                priority
               />
             </CarouselItem>
           ))}
