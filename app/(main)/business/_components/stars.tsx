@@ -15,10 +15,10 @@ const DisplayReviewStars: React.FC<StarsProps> = ({
 }) => {
   return (
     <div className={cn('flex items-center gap-1', className)}>
-      {Array.from({ length: Math.floor(rating ?? 0) }).map((_, index) => (
+      {Array.from({ length: Math.round(rating ?? 0) }).map((_, index) => (
         <Icons.emptyStar key={index} size={size ?? 24} />
       ))}
-      {Array.from({ length: 5 - Math.floor(rating ?? 0) }).map((_, index) => (
+      {Array.from({ length: 5 - Math.round(rating ?? 0) }).map((_, index) => (
         <Icons.emptyStar
           key={rating + index}
           className="text-gray-500"

@@ -1,0 +1,265 @@
+{
+  "id": "K-3eiVb-dAkC3ujgnT4QSQ",
+  "alias": "nobibi-ice-cream-and-tea-pomona",
+  "name": "Nobibi Ice Cream & Tea",
+  "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/9Hq6bKZLWq3hWN4HsEeSsA/o.jpg",
+  "is_claimed": true,
+  "is_closed": false,
+  "url": "https://www.yelp.com/biz/nobibi-ice-cream-and-tea-pomona?adjust_creative=r6VX33nwXOpudXpisbQp5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=r6VX33nwXOpudXpisbQp5w",
+  "phone": "+19098957192",
+  "display_phone": "(909) 895-7192",
+  "review_count": 87,
+  "categories": [
+    {
+      "alias": "icecream",
+      "title": "Ice Cream & Frozen Yogurt"
+    },
+    {
+      "alias": "coffee",
+      "title": "Coffee & Tea"
+    },
+    {
+      "alias": "bubbletea",
+      "title": "Bubble Tea"
+    }
+  ],
+  "rating": 4.8,
+  "location": {
+    "address1": "3560 W Temple Ave",
+    "address2": "Ste D",
+    "address3": "",
+    "city": "Pomona",
+    "zip_code": "91768",
+    "country": "US",
+    "state": "CA",
+    "display_address": ["3560 W Temple Ave", "Ste D", "Pomona, CA 91768"],
+    "cross_streets": ""
+  },
+  "coordinates": {
+    "latitude": 34.04863361429603,
+    "longitude": -117.81060003243655
+  },
+  "photos": [
+    "https://s3-media3.fl.yelpcdn.com/bphoto/9Hq6bKZLWq3hWN4HsEeSsA/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/8fLL6dpCZ4QpGWGlSaQqjw/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/VJPT4kWVn1ilTlhyKRb7qA/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/46lsiEYVa4IzAd3H1y03Aw/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/jjL-ex-C97Tf0RlkBDUtow/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/sULtlfShuWom9XCrHh6jYw/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/otu4m1ConX2cu5-wmgcWEA/o.jpg",
+    "https://s3-media1.fl.yelpcdn.com/bphoto/7PcenLtHQotnqRqXo2chtA/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/6A47QbaQ0LZuGMevUiqqRA/o.jpg",
+    "https://s3-media1.fl.yelpcdn.com/bphoto/1hS_IgagssgvYGnRodJSQQ/o.jpg",
+    "https://s3-media2.fl.yelpcdn.com/bphoto/0hPPWNnnrg4NbA8wU2rVmw/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/Qx9DUuySGWOxQDGnk_cLXQ/o.jpg"
+  ],
+  "photo_details": [
+    {
+      "photo_id": "9Hq6bKZLWq3hWN4HsEeSsA",
+      "url": "https://s3-media3.fl.yelpcdn.com/bphoto/9Hq6bKZLWq3hWN4HsEeSsA/o.jpg",
+      "caption": null,
+      "width": 1008,
+      "height": 756,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "food"
+    },
+    {
+      "photo_id": "8fLL6dpCZ4QpGWGlSaQqjw",
+      "url": "https://s3-media4.fl.yelpcdn.com/bphoto/8fLL6dpCZ4QpGWGlSaQqjw/o.jpg",
+      "caption": "Nobibi Pomona Ice Cream Menu",
+      "width": 5094,
+      "height": 3304,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "menu"
+    },
+    {
+      "photo_id": "VJPT4kWVn1ilTlhyKRb7qA",
+      "url": "https://s3-media3.fl.yelpcdn.com/bphoto/VJPT4kWVn1ilTlhyKRb7qA/o.jpg",
+      "caption": "Nobibi Pomona Drink Menu",
+      "width": 5102,
+      "height": 3306,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "menu"
+    },
+    {
+      "photo_id": "46lsiEYVa4IzAd3H1y03Aw",
+      "url": "https://s3-media4.fl.yelpcdn.com/bphoto/46lsiEYVa4IzAd3H1y03Aw/o.jpg",
+      "caption": "Try our new egg Puffle flavor",
+      "width": 813,
+      "height": 1000,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": null
+    },
+    {
+      "photo_id": "jjL-ex-C97Tf0RlkBDUtow",
+      "url": "https://s3-media3.fl.yelpcdn.com/bphoto/jjL-ex-C97Tf0RlkBDUtow/o.jpg",
+      "caption": "Come to try our fresh Coconut Pudding",
+      "width": 815,
+      "height": 1000,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": null
+    },
+    {
+      "photo_id": "sULtlfShuWom9XCrHh6jYw",
+      "url": "https://s3-media3.fl.yelpcdn.com/bphoto/sULtlfShuWom9XCrHh6jYw/o.jpg",
+      "caption": "Egg Puff Ice Cream",
+      "width": 4341,
+      "height": 6512,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "food"
+    },
+    {
+      "photo_id": "otu4m1ConX2cu5-wmgcWEA",
+      "url": "https://s3-media4.fl.yelpcdn.com/bphoto/otu4m1ConX2cu5-wmgcWEA/o.jpg",
+      "caption": "Dor Ice Cream",
+      "width": 4480,
+      "height": 6720,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "food"
+    },
+    {
+      "photo_id": "7PcenLtHQotnqRqXo2chtA",
+      "url": "https://s3-media1.fl.yelpcdn.com/bphoto/7PcenLtHQotnqRqXo2chtA/o.jpg",
+      "caption": "Ninja Ice Cream",
+      "width": 4240,
+      "height": 6359,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "food"
+    },
+    {
+      "photo_id": "6A47QbaQ0LZuGMevUiqqRA",
+      "url": "https://s3-media3.fl.yelpcdn.com/bphoto/6A47QbaQ0LZuGMevUiqqRA/o.jpg",
+      "caption": "Strawberry Blush Ice Cream",
+      "width": 6622,
+      "height": 4415,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "food"
+    },
+    {
+      "photo_id": "1hS_IgagssgvYGnRodJSQQ",
+      "url": "https://s3-media1.fl.yelpcdn.com/bphoto/1hS_IgagssgvYGnRodJSQQ/o.jpg",
+      "caption": "Smore Ice Cream",
+      "width": 6720,
+      "height": 4480,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": null
+    },
+    {
+      "photo_id": "0hPPWNnnrg4NbA8wU2rVmw",
+      "url": "https://s3-media2.fl.yelpcdn.com/bphoto/0hPPWNnnrg4NbA8wU2rVmw/o.jpg",
+      "caption": "Brown Sugar Bobo Cup",
+      "width": 6720,
+      "height": 4480,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "food"
+    },
+    {
+      "photo_id": "Qx9DUuySGWOxQDGnk_cLXQ",
+      "url": "https://s3-media3.fl.yelpcdn.com/bphoto/Qx9DUuySGWOxQDGnk_cLXQ/o.jpg",
+      "caption": "Sakura Blossom and Lychee Dragon Fruit",
+      "width": 6720,
+      "height": 4480,
+      "is_user_submitted": false,
+      "user_id": null,
+      "label": "drink"
+    }
+  ],
+  "photo_count": 280,
+  "price": "$$",
+  "hours": [
+    {
+      "open": [
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 0
+        },
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 1
+        },
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 2
+        },
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 3
+        },
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 4
+        },
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 5
+        },
+        {
+          "is_overnight": false,
+          "start": "1200",
+          "end": "2130",
+          "day": 6
+        }
+      ],
+      "hours_type": "REGULAR",
+      "is_open_now": true
+    }
+  ],
+  "attributes": {
+    "business_url": "https://nobibi.com",
+    "about_this_biz_business_recommendation": [],
+    "about_this_biz_history": "We are Nobibi, and we love ice cream, and we love serving it to people who love it too.\nOur mission is to make sure that everyone can enjoy handcrafted frozen treats made from Fresh fruit and the finest ice cream in a boutique setting - and that's what we do best at Nobibi.\nWe believe that ice cream should be a party, and we take pride in creating imaginative flavors that taste as tantalizing as they look. We want your visit to be an adventure - from the moment you walk through the door until the last lick of your cone.\nWe’ll make sure every bite of our creamy creations keep you coming back for more!",
+    "about_this_biz_specialties": "Soft Gelato Ice Cream (Vanilla, Black Sesame, Matcha, Ube and change seasonally)\nSpecial item: 24K Edible Gold Foil, Black Ninja, Mini Cloud Dream Cloud and Eggpuff ice cream. \nSpecialty drinks such as sparkling fruit crush, fresh fruit slush, master milk tea, blended fresh milk, fresh fruit tea, falcons whipped coffee",
+    "about_this_biz_year_established": "2020",
+    "bike_parking": false,
+    "business_accepts_credit_cards": true,
+    "business_parking": {
+      "valet": false,
+      "garage": false,
+      "street": true,
+      "lot": false,
+      "validated": false
+    },
+    "caters": true,
+    "dogs_allowed": false,
+    "drive_thru": false,
+    "noise_level": "average",
+    "restaurants_delivery": true,
+    "restaurants_take_out": true,
+    "wi_fi": "free",
+    "outdoor_seating": true,
+    "business_temp_closed": null,
+    "menu_url": null,
+    "waitlist_reservation": null
+  },
+  "transactions": ["pickup", "delivery"],
+  "messaging": {
+    "url": "https://www.yelp.com/raq/K-3eiVb-dAkC3ujgnT4QSQ?adjust_creative=r6VX33nwXOpudXpisbQp5w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=r6VX33nwXOpudXpisbQp5w#popup%3Araq",
+    "use_case_text": "Message the Business",
+    "response_rate": null,
+    "response_time": null
+  },
+  "yelp_menu_url": "https://www.yelp.com/menu/nobibi-ice-cream-and-tea-pomona"
+}
