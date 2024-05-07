@@ -15,8 +15,7 @@ Welcome to the Coffee Shop Recommender project! This application is designed to 
 ## 🔗 &nbsp; tl;dr Quick Links
 
 - [Project Website](https://brewith.us)
-- [Contributing Guide](/CONTRIBUTING.md)
-- [LICENSE](/LICENSE)
+- [Contributing Guide](/CONTRIBUTE.md)
 
 ## License
 
