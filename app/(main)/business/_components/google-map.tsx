@@ -1,12 +1,11 @@
 'use client';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { googleMapsApiKey } from '@/config/google-maps';
 import { cn } from '@/lib/utils';
 
 interface MapContainerProps {
   className?: string;
-  position?: { lat: number; lng: number }; // position prop for latitude and longitude
 }
 
 const containerStyle = {
@@ -20,14 +19,31 @@ const defaultCPP = {
   lng: -117.8242167716281,
 };
 
-const MapContainer: React.FC<MapContainerProps> = ({ className, position }) => {
+const MapContainer: React.FC<MapContainerProps> = ({ className }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey, // Ensure your API key is correctly provided
     libraries: ['places', 'maps', 'marker', 'drawing'],
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [, setMap] = useState<google.maps.Map | null>(null);
+  const [userLocation, setUserLocation] =
+    useState<google.maps.LatLngLiteral | null>(null);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ lat: latitude, lng: longitude });
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+        },
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  }, []);
 
   const onUnmount = useCallback(function callback() {
     setMap(null);
@@ -37,18 +53,18 @@ const MapContainer: React.FC<MapContainerProps> = ({ className, position }) => {
     <div className={cn('h-full w-full', className)}>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={position ?? defaultCPP}
+        center={userLocation ?? defaultCPP}
         onLoad={(map) => {
-          const bounds = new window.google.maps.LatLngBounds(
-            position ?? defaultCPP,
-          );
-          map.fitBounds(bounds);
+          if (userLocation) {
+            const bounds = new window.google.maps.LatLngBounds(userLocation);
+            map.fitBounds(bounds);
+          }
         }}
         onUnmount={onUnmount}
         options={{ maxZoom: 18 }}
       >
         {/* Child components, such as markers, info windows, etc. */}
-        <Marker position={position ?? defaultCPP} />
+        <Marker position={userLocation ?? defaultCPP} />
       </GoogleMap>
     </div>
   ) : (
