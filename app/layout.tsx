@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
-
+import Chat from '@/components/Chat'
 import '../styles/globals.css';
 import React from 'react'; // Ensure React is imported for JSX to work
 import { ThemeProvider } from '../context/ThemeProvider';
 import { cn } from '../lib/utils';
 import { UserProvider } from '@/context/UserContext';
 import { Toaster } from '@/components/ui/toaster';
+import Providers from '@/components/Providers'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -42,10 +43,11 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <UserProvider>
+          <Providers>
+            <Chat />
             {children}
             <Toaster />
-          </UserProvider>
+          </Providers>
         </ThemeProvider>
       </body>
     </html>
