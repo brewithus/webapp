@@ -37,6 +37,7 @@
     "date-fns": "^3.6.0",
     "embla-carousel-autoplay": "^8.0.4",
     "embla-carousel-react": "^8.0.0",
+    "firebase": "^10.11.1",
     "lucide-react": "^0.341.0",
     "mdb-react-ui-kit": "^7.2.0",
     "next": "^14.1.1",

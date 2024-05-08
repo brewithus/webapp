@@ -5,18 +5,14 @@ import React, {
   useState,
   type ReactNode,
 } from 'react';
-
-export interface User {
-  username: string;
-  firstName: string;
-  lastName: string;
-  phoneNo: string;
-  userId: string;
-}
+import firebase from 'firebase/compat/app';
+import { createUser } from '@/hooks/firebase/user';
+import { googleSignOut } from '@/config/firebase';
+import { toast } from 'sonner';
 
 interface UserContextType {
-  user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  user: firebase.User | null;
+  setUser: React.Dispatch<React.SetStateAction<firebase.User | null>>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -24,7 +20,19 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<firebase.User | null>(null);
+
+  React.useEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      setUser(user);
+      if (user) {
+        createUser(user).catch((e) => {
+          googleSignOut();
+          toast.error('An error happened while logging in');
+        });
+      }
+    });
+  }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

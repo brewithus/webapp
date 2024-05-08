@@ -3,7 +3,7 @@ import { Inter as FontSans } from 'next/font/google';
 
 import '../styles/globals.css';
 import React from 'react'; // Ensure React is imported for JSX to work
-import { ThemeProvider } from '../context/ThemeProvider';
+import { ThemeProvider } from '../context/theme-provider';
 import { cn } from '../lib/utils';
 import { UserProvider } from '@/context/UserContext';
 import { Toaster } from 'sonner';
