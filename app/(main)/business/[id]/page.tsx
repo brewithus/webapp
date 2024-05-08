@@ -13,7 +13,6 @@ import Section from '../../_components/section';
 import { Bookmark, Dot, Share, Star } from 'lucide-react';
 import DisplayAttributes from '../../_components/display-attributes';
 import BizImages from '../../_components/biz-images';
-import { useBusinessDetails } from '@/hooks/api/get-biz-details';
 import { Skeleton } from '@/components/ui/skeleton';
 import BrewReviews from '../../_components/brew-biz-reviews';
 import { Button } from '@/components/ui/button';
@@ -21,6 +20,7 @@ import { useUser } from '@/context/UserContext';
 import { googleSignInPopup } from '@/config/firebase';
 import { updateUserPreferences } from '@/hooks/firebase/user-biz-interact';
 import { toast } from 'sonner';
+import { useBizInfo } from '@/hooks/firebase/biz';
 
 interface PageProps {
   /**
@@ -32,7 +32,7 @@ interface PageProps {
 }
 
 const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
-  const { data: biz, isLoading } = useBusinessDetails(params.id);
+  const { data: biz, isLoading } = useBizInfo(params.id);
   const { user, userPreferences, setPreferences } = useUser();
 
   if (isLoading) {

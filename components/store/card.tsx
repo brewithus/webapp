@@ -39,7 +39,7 @@ const StoreCard: React.FC<StoreCardProps> = ({ biz }) => {
         <Button
           size={'sm'}
           onClick={() => {
-            router.push(`/business/${biz.alias}`);
+            router.push(`/business/${biz.id}`);
           }}
         >
           Visit
