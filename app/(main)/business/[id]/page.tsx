@@ -143,7 +143,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
                   />
                 )}
                 <span>{biz.rating}</span>
-                <span>({biz.review_count} reviews)</span>
+                <span>({biz.review_count} yelp reviews)</span>
               </div>
               {/* Categories */}
               <div className="flex flex-wrap gap-1">
