@@ -9,7 +9,10 @@ interface Props {
 const ReviewRatingDistributions: React.FC<Props> = ({ reviews }) => {
   // Calculate the average rating
   const averageRating =
-    reviews.reduce((acc, review) => acc + review.rating, 0) / reviews.length;
+    reviews.length === 0
+      ? 0
+      : reviews.reduce((acc, review) => acc + review.rating, 0) /
+        reviews.length;
 
   // Calculate the distribution of ratings, explicitly stating the type as number[]
   const ratingDistribution: number[] = Array(5).fill(0);

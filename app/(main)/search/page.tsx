@@ -3,11 +3,11 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { apiClient } from '@/config/api';
 import type { YelpBiz } from '@/types/yelp';
-import { toast } from 'sonner';
 import BizSearchResultCard from './_components/biz-card';
 import { Separator } from '@/components/ui/separator';
 import MapResults from './_components/maps-results';
 import { Skeleton } from '@/components/ui/skeleton';
+import { saveBiz } from '@/hooks/firebase/biz';
 
 /**
  * Represents the properties of the Page component.
@@ -69,7 +69,9 @@ const Page: NextPage<PageProps> = ({
       fetchData()
         .then((data) => {
           setBizList(data.businesses);
-          toast.success('loaded');
+          for (const biz of data.businesses) {
+            saveBiz(biz).catch((e) => {});
+          }
         })
         .catch((e) => {
           // console.error('error fetching data', e);
@@ -92,21 +94,6 @@ const Page: NextPage<PageProps> = ({
   }
   return (
     <div className="p-4">
-      {/* <div className="flex flex-row gap-2">
-        <span>Address:</span>
-        <span className="font-bold">
-          {searchParams.lat}
-          {searchParams.lng}
-        </span>
-      </div>
-      <div className="flex flex-row gap-2">
-        Tags:
-        <span className="font-bold flex flex-row gap-2">
-          {tags.length === 0
-            ? 'No tags selected'
-            : tags.map((tag, index) => <Badge key={index}>{tag}</Badge>)}
-        </span>
-      </div> */}
       <div className="w-full flex flex-col-reverse lg:flex-row gap-3">
         <div className="flex-1 mt-4 flex flex-col gap-4 max-w-5xl">
           <div className="text-xl font-semibold">Search Results</div>
