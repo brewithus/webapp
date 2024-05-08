@@ -29,6 +29,7 @@ import {
 import { EmptyStarSvg } from './svgs/star';
 import BrewLogo from './svgs/brew-logo';
 import MapPinSVG from './svgs/map-pin';
+import GoogleSVG from './svgs/google';
 
 export type Icon = LucideIcon;
 
@@ -72,6 +73,7 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  google: ({ ...props }: LucideProps) => <GoogleSVG {...props} />,
   emptyStar: ({ ...props }: LucideProps) => <EmptyStarSvg {...props} />,
   check: Check,
 };

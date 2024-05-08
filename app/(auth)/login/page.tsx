@@ -9,6 +9,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
+import ThirdPartyLogins from '@/components/auth/third-party';
 
 export const metadata: Metadata = {
   title: 'Log in to Brew',
@@ -16,12 +17,24 @@ export const metadata: Metadata = {
 };
 
 /**
+ * Represents the properties of the Page component.
+ */
+interface PageProps {
+  /**
+   * the search parameters passed to the page
+   */
+  queryParams: Record<string, string>;
+}
+
+/**
  * Page component for handling user login redirection.
- *
  * This component is intended for current users to log in.
+ * @param {PageProps} queryParams the page parameters with `redirect` param
  * @returns {JSX.Element} The JSX code for rendering the page.
  */
-export default function LoginPage(): JSX.Element {
+export default function LoginPage({ queryParams }: PageProps): React.ReactNode {
+  const redirectQuery = queryParams?.redirect ?? '/';
+
   return (
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
       <Link
@@ -78,7 +91,7 @@ export default function LoginPage(): JSX.Element {
               </Link>
             </div>
           </div>
-          <Separator className="hidden sm:block my-8" />
+          <Separator className="hidden sm:block my-6" />
 
           <div className="px-12 py-4 sm:py-0 sm:pb-4 font-semibold text-sm flex flex-col sm:flex-row items-center gap-2 ">
             <span className="text-zinc-500">Don&apos;t have an account?</span>
@@ -86,6 +99,9 @@ export default function LoginPage(): JSX.Element {
               Sign up with Brew
             </Link>
           </div>
+          <Separator className="hidden sm:block my-6" />
+
+          <ThirdPartyLogins redirect={redirectQuery} />
         </div>
       </div>
     </div>
