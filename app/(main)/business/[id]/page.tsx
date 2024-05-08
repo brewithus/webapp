@@ -15,6 +15,7 @@ import DisplayAttributes from '../../_components/display-attributes';
 import BizImages from '../../_components/biz-images';
 import { useBusinessDetails } from '@/hooks/api/get-biz-details';
 import { Skeleton } from '@/components/ui/skeleton';
+import BrewReviews from '../../_components/brew-biz-reviews';
 
 interface PageProps {
   /**
@@ -121,21 +122,31 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
             }}
           />
         </Section>
-        <Section title="About the Business" className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <div className="font-bold text-lg">Specialties</div>
-            <p className="text-foreground/70">
-              {biz.attributes.about_this_biz_specialties}
-            </p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="font-bold text-lg">History</div>
-            <p className="text-foreground/70">
-              {biz.attributes.about_this_biz_history}
-            </p>
-          </div>
-        </Section>
+        {(biz.attributes.about_this_biz_specialties ??
+          biz.attributes.about_this_biz_history) && (
+          <Section title="About the Business" className="flex flex-col gap-4">
+            {biz.attributes.about_this_biz_specialties && (
+              <div className="flex flex-col gap-2">
+                <div className="font-bold text-lg">Specialties</div>
+                <p className="text-foreground/70">
+                  {biz.attributes.about_this_biz_specialties}
+                </p>
+              </div>
+            )}
+            {biz.attributes.about_this_biz_history && (
+              <div className="flex flex-col gap-2">
+                <div className="font-bold text-lg">History</div>
+                <p className="text-foreground/70">
+                  {biz.attributes.about_this_biz_history}
+                </p>
+              </div>
+            )}
+          </Section>
+        )}
         {/* Review Section */}
+        <Section title="Brew Reviews" className="flex flex-col gap-4">
+          <BrewReviews bizID={biz.id} bizName={biz.name} />
+        </Section>
         {/* <ReviewSection reviews={biz.reviews ?? []} /> */}
       </div>
     </div>
