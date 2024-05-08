@@ -80,7 +80,7 @@ const MultiSelectCombobox: React.FC<MultiSelectComboboxProps> = ({
       <PopoverTrigger asChild>
         <div
           ref={triggerRef}
-          className="justify-start py-2 rounded-lg truncate text-sm cursor-pointer flex flex-wrap gap-2"
+          className="justify-start py-2 rounded-lg truncate text-sm cursor-pointer flex flex-wrap gap-2 w-full"
         >
           {selectedTags.length > 0 ? (
             selectedTags.map((tag) => (
