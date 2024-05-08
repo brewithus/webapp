@@ -40,15 +40,15 @@ const BizImages: React.FC<Props> = ({ images }) => {
           {images.map((image, index) => (
             <CarouselItem
               key={index}
-              className="h-[400px] pl-0 basis-1/5 min-w-fit"
+              className="h-[400px] w-fit pl-0 basis-1/12 min-w-fit"
             >
               <Image
                 src={image}
                 alt={`demo ${index}`}
                 width={1024}
-                height={400}
-                className="h-full w-auto"
+                height={1024}
                 priority
+                className="object-cover h-full w-auto"
               />
             </CarouselItem>
           ))}

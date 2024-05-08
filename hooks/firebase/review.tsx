@@ -62,6 +62,7 @@ export const getReviewsByBizID = async (
           id: doc.id,
           content,
           rating,
+          bizID,
           created: created?.toDate(),
           updated: updated?.toDate(),
           user: userData,

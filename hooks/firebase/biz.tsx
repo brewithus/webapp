@@ -31,17 +31,18 @@ export const getBiz = async (id: string): Promise<YelpBizDetails | null> => {
       return (await getDoc(docRef)).data() as YelpBizDetails;
     }
   } catch (e) {
+    console.log(e);
     return null;
   }
 };
 
 export const useBizInfo = (
   id: string,
-): UseQueryResult<YelpBizDetails | null, Error> => {
+): UseQueryResult<YelpBizDetails, Error> => {
   return useQuery(
     ['biz', id],
     async () => {
-      await getBiz(id);
+      return await getBiz(id);
     },
     {
       enabled: !!id,

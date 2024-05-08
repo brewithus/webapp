@@ -9,6 +9,7 @@ export interface BrewUser {
 
 export interface BrewReview {
   id: string;
+  bizID: string;
   content: string;
   rating: number;
   user?: BrewUser;

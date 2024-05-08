@@ -37,7 +37,6 @@ export default function Locations({
     reverseGeocodingWithGoogle(location.lat, location.lng)
       .then((time) => {
         if (time) {
-          console.log(time);
           setBizLocalTime(time);
         }
       })
