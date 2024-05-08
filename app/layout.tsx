@@ -6,7 +6,11 @@ import React from 'react'; // Ensure React is imported for JSX to work
 import { ThemeProvider } from '../context/ThemeProvider';
 import { cn } from '../lib/utils';
 import { UserProvider } from '@/context/UserContext';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from 'sonner';
+import { QueryProvider } from '@/context/query';
+import { UserLocationProvider } from '@/context/user-location';
+import { GoogleMapsProvider } from '@/context/google-maps';
+import { googleMapsApiKey } from '@/config/google-maps';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -43,8 +47,27 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <UserProvider>
-            {children}
-            <Toaster />
+            <QueryProvider>
+              <UserLocationProvider>
+                <GoogleMapsProvider googleMapsApiKey={googleMapsApiKey}>
+                  {children}
+                  <Toaster
+                    toastOptions={{
+                      duration: 3000,
+                      classNames: {
+                        title: 'text-sm font-bold',
+                        description: 'text-xs',
+                        toast: cn('border-0'),
+                        success: cn('bg-success text-success-foreground'),
+                        error: cn('bg-error text-error-foreground'),
+                        warning: cn('bg-warning text-warning-foreground'),
+                        info: cn('bg-info text-info-foreground'),
+                      },
+                    }}
+                  />
+                </GoogleMapsProvider>
+              </UserLocationProvider>
+            </QueryProvider>
           </UserProvider>
         </ThemeProvider>
       </body>
