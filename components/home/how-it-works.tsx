@@ -28,20 +28,20 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section className="px-4 rounded-lg py-12 justify-center">
+    <section className="justify-center rounded-lg px-4 py-12">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`mb-4 py-2 text-center text-5xl font-bold ${rubikFont.className}`}
       >
         How It Works
       </h2>
       <div className="flex justify-center">
-        <div className="w-full sm:w-4/5 md:w-3/4	lg:w-1/2 p-4">
+        <div className="w-full p-4 sm:w-4/5	md:w-3/4 lg:w-1/2">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex items-center mb-4 rounded-lg p-4 border-2"
+              className="mb-4 flex items-center rounded-lg border-2 p-4"
             >
-              <div className="flex-none font-bold rounded-full bg-secondary text-foreground flex items-center justify-center h-12 w-12 mr-3">
+              <div className="mr-3 flex h-12 w-12 flex-none items-center justify-center rounded-full bg-secondary font-bold text-foreground">
                 {index + 1}
               </div>
               <div className="flex-1">
@@ -50,7 +50,7 @@ const HowItWorksSection: React.FC = () => {
                 </p>
                 <Separator />
 
-                <p className="text-secondary-foreground text-sm pt-1">
+                <p className="pt-1 text-sm text-secondary-foreground">
                   {step.description}
                 </p>
               </div>

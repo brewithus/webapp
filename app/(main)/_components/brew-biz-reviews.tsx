@@ -95,14 +95,14 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
           width={1024}
           height={1024}
           priority
-          className="w-[50px] h-auto aspect-square object-cover rounded-full"
+          className="aspect-square h-auto w-[50px] rounded-full object-cover"
         />
-        <div className="flex flex-col text-primary-light-foreground">
+        <div className="text-primary-light-foreground flex flex-col">
           <span className={cn('font-semibold', poppinsFont.className)}>
             {user.displayName}
           </span>
-          <div className="flex items-center gap-3 flex-wrap">
-            <div className="flex items-center text-sm gap-1 text-primary-light-foreground/50">
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="text-primary-light-foreground/50 flex items-center gap-1 text-sm">
               <UserRoundCheck size={15} /> 0
             </div>
             {/* <div className="flex items-center text-sm gap-1 text-primary-light-foreground/50">
@@ -116,13 +116,13 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
   return (
     <div>
       <div className="grid w-full gap-1.5">
-        <div className="p-4 rounded-sm flex flex-col gap-2 bg-primary-light/20 drop-shadow-lg">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div className="flex items-center flex-none gap-2">
+        <div className="flex flex-col gap-2 rounded-sm bg-primary-light/20 p-4 drop-shadow-lg">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-none items-center gap-2">
               {renderUser()}
             </div>
             <div className="flex flex-col gap-2">
-              <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <SelectRatingStars
                   initialRating={reviewRating ?? 0}
                   onChange={(rating) => {
@@ -135,7 +135,7 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
                     : ratingToExpression(reviewRating)}
                 </div>
               </div>
-              <div className="font-medium text-sm">
+              <div className="text-sm font-medium">
                 Start your review of{' '}
                 <span className="font-semibold">{bizName}</span>
               </div>
@@ -152,7 +152,7 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
                   }}
                   placeholder="Type your review here."
                   id="review"
-                  className="border-none max-h-[30vh]"
+                  className="max-h-[30vh] border-none"
                 />
                 <Button
                   size={'sm'}

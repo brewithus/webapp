@@ -85,9 +85,9 @@ const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section className="px-4 py-12 rounded-lg md:px-8 justify-center">
+    <section className="justify-center rounded-lg px-4 py-12 md:px-8">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`mb-4 py-2 text-center text-5xl font-bold ${rubikFont.className}`}
       >
         See What Our Users Say
       </h2>
@@ -118,7 +118,7 @@ interface ReviewCardProps {
 }
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
-    <Card className="border-2 p-2 max-w-xs sm:max-w-full bg-secondary/50">
+    <Card className="max-w-xs border-2 bg-secondary/50 p-2 sm:max-w-full">
       <CardHeader>
         <CardTitle>{review.user}</CardTitle>
         <StarRating rating={review.rating} />

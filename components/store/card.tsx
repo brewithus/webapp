@@ -21,13 +21,13 @@ const StoreCard: React.FC<StoreCardProps> = ({ biz }) => {
   const router = useRouter();
 
   return (
-    <Card className="border-2  p-2 max-w-xs sm:max-w-full bg-secondary/50">
-      <CardContent className="pt-4 px-4 pb-2">
+    <Card className="max-w-xs  border-2 bg-secondary/50 p-2 sm:max-w-full">
+      <CardContent className="px-4 pb-2 pt-4">
         <CardTitle className="py-2 font-bold">{biz.name}</CardTitle>
         <CardDescription>
           {biz.location.display_address.join(', ')}
         </CardDescription>
-        <div className="flex flex-wrap gap-2 mt-4">
+        <div className="mt-4 flex flex-wrap gap-2">
           {biz.categories.map((cat) => (
             <Badge key={cat.alias} className="bg-primary-dark">
               {cat.title}
@@ -35,7 +35,7 @@ const StoreCard: React.FC<StoreCardProps> = ({ biz }) => {
           ))}
         </div>
       </CardContent>
-      <CardFooter className="flex justify-end py-4 px-4">
+      <CardFooter className="flex justify-end px-4 py-4">
         <Button
           size={'sm'}
           onClick={() => {

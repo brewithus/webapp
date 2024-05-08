@@ -20,6 +20,7 @@ interface UserContextType {
   userPreferences: UserPreferences | null;
   setPreferences: (pref: UserPreferences | null) => void;
   refreshPreferences: (user: firebase.User) => void;
+  isLoaded: boolean;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -27,6 +28,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [user, setUser] = useState<firebase.User | null>(null);
   const [userPreferences, setUserPreferences] =
     useState<UserPreferences | null>(null);
@@ -49,6 +51,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
       } else {
         setUserPreferences(null);
       }
+      setIsLoaded(true);
     });
   }, []);
 
@@ -62,6 +65,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
         setPreferences: (pref) => {
           setUserPreferences(pref);
         },
+        isLoaded,
       }}
     >
       {children}

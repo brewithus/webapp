@@ -15,24 +15,24 @@ const Page = (): JSX.Element => {
   return (
     <div className="container flex h-fit w-screen flex-col items-center justify-center">
       <div className="p-0 sm:p-12">
-        <div className="rounded-lg border-0 md:border-2 p-4 w-full sm:w-[734px] flex flex-col justify-center items-center px-6 sm:px-16 gap-4">
-          <div className="font-extrabold text-2xl md:text-xl ">
+        <div className="flex w-full flex-col items-center justify-center gap-4 rounded-lg border-0 p-4 px-6 sm:w-[734px] sm:px-16 md:border-2">
+          <div className="text-2xl font-extrabold md:text-xl ">
             Find Your Account
           </div>
           <Separator />
-          <div className="flex flex-col gap-2 self-start w-full text-lg">
+          <div className="flex w-full flex-col gap-2 self-start text-lg">
             <p>
               Please enter your email address or username to search for your
               account
             </p>
             <Input
-              className="flex-1 bg-white text-black text-sm md:text-md p-4"
+              className="md:text-md flex-1 bg-white p-4 text-sm text-black"
               placeholder="Email or username"
               type="email"
             />
           </div>
           <Separator />
-          <div className="flex self-end gap-2">
+          <div className="flex gap-2 self-end">
             <Link
               href="/"
               className={cn(buttonVariants({ variant: 'outline' }), 'px-4')}

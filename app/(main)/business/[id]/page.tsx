@@ -44,7 +44,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
 
   if (isLoading) {
     return (
-      <div className="p-8 flex flex-col gap-4">
+      <div className="flex flex-col gap-4 p-8">
         <Skeleton className="h-[40vh] w-full rounded-lg" />
         <Skeleton className="h-[100px] w-full rounded-lg" />
         <Skeleton className="h-[100px] w-full rounded-lg" />
@@ -55,8 +55,8 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
 
   if (!biz) {
     return (
-      <div className="flex items-center justify-center h-full py-[20vh] min-h-[300px]">
-        <div className="flex flex-row h-24 gap-8 items-center justify-center p-4 border rounded-lg">
+      <div className="flex h-full min-h-[300px] items-center justify-center py-[20vh]">
+        <div className="flex h-24 flex-row items-center justify-center gap-8 rounded-lg border p-4">
           <h2 className="text-3xl">404</h2>
           <Separator orientation="vertical" />
           <div className="flex flex-col items-center justify-center gap-3">
@@ -120,20 +120,20 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
 
   // Directly use coffeeShop.menuItems and coffeeShop.reviews
   return (
-    <div className="flex flex-col items-center mb-2">
-      <div className="w-full flex flex-col items-center gap-4 pb-8">
+    <div className="mb-2 flex flex-col items-center">
+      <div className="flex w-full flex-col items-center gap-4 pb-8">
         {/* Coffee Shop Image */}
         <div className="relative h-[400px] justify-center bg-primary-light dark:bg-primary-dark">
           {/* images */}
-          <BizImages images={biz.photos} />
+          <BizImages images={biz.photos ?? [biz.image_url]} />
           {/* Overlay Info */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 flex flex-col items-center gap-1 bg-gradient-to-t from-black/90 from-10% text-white justify-end">
-            <div className="flex flex-col gap-1 max-w-[1024px] w-full">
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-end gap-1 bg-gradient-to-t from-black/90 from-10% p-4 text-white">
+            <div className="flex w-full max-w-[1024px] flex-col gap-1">
               <div className={cn('text-4xl font-bold', rubikFont.className)}>
                 {biz.name}
               </div>
               {/* Rating and Review Section */}
-              <div className="text-lg font-medium flex items-center gap-2">
+              <div className="flex items-center gap-2 text-lg font-medium">
                 <span className="font-bold text-white">{biz.price}</span>
                 <Dot />
                 {biz.rating && (
@@ -154,11 +154,11 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
                 ))}
               </div>
               {/* Status and Hours */}
-              <div className="flex items-center flex-wrap gap-3 mt-2">
+              <div className="mt-2 flex flex-wrap items-center gap-3">
                 <OpeningTime hours={biz.hours} coordinates={biz.coordinates} />
                 <a
                   href="#location-&-hours"
-                  className="px-2 py-1 text-black/80 bg-white/50 text-xs font-semibold rounded-xl"
+                  className="rounded-xl bg-white/50 px-2 py-1 text-xs font-semibold text-black/80"
                 >
                   See hours
                 </a>
@@ -167,20 +167,20 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-4 max-w-[1024px]">
-          <div className="flex items-center gap-2 flex-wrap my-2 mx-4">
+        <div className="flex w-full max-w-[1024px] flex-col gap-4">
+          <div className="mx-4 my-2 flex flex-wrap items-center gap-2">
             <Popover>
               <PopoverTrigger>
-                <Button className="font-semibold gap-2" variant={'outline'}>
+                <Button className="gap-2 font-semibold" variant={'outline'}>
                   <Share size={20} />
                   Share
                 </Button>
               </PopoverTrigger>
               <PopoverContent align="start">
-                <div className="flex flex-col min-w-[100px] gap-1">
-                  <div className="flex items-center gap-1 p-2 text-xs bg-primary/10 rounded-md cursor-pointer">
-                    <span className="truncate text-foreground/50 font-semibold">{`https://brewith.us/business/${biz.id}`}</span>
-                    <span className="p-1 rounded-sm hover:bg-primary/30">
+                <div className="flex min-w-[100px] flex-col gap-1">
+                  <div className="flex cursor-pointer items-center gap-1 rounded-md bg-primary/10 p-2 text-xs">
+                    <span className="truncate font-semibold text-foreground/50">{`https://brewith.us/business/${biz.id}`}</span>
+                    <span className="rounded-sm p-1 hover:bg-primary/30">
                       <CopyToClipboard
                         text={`https://brewith.us/business/${biz.id}`}
                       />
@@ -196,7 +196,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
             </Popover>
 
             <Button
-              className="font-semibold gap-2"
+              className="gap-2 font-semibold"
               variant={userSaved() ? 'default' : 'outline'}
               onClick={handleSave}
             >
@@ -204,7 +204,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
               Save{userSaved() && 'd'}
             </Button>
             <Button
-              className="font-semibold gap-2"
+              className="gap-2 font-semibold"
               variant={userFollowed() ? 'default' : 'outline'}
               onClick={handleFollow}
             >
@@ -233,7 +233,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
             <Section title="About the Business" className="flex flex-col gap-4">
               {biz.attributes.about_this_biz_specialties && (
                 <div className="flex flex-col gap-2">
-                  <div className="font-bold text-lg">Specialties</div>
+                  <div className="text-lg font-bold">Specialties</div>
                   <p className="text-foreground/70">
                     {biz.attributes.about_this_biz_specialties}
                   </p>
@@ -241,7 +241,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
               )}
               {biz.attributes.about_this_biz_history && (
                 <div className="flex flex-col gap-2">
-                  <div className="font-bold text-lg">History</div>
+                  <div className="text-lg font-bold">History</div>
                   <p className="text-foreground/70">
                     {biz.attributes.about_this_biz_history}
                   </p>

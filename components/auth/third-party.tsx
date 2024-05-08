@@ -11,7 +11,7 @@ const ThirdPartyLogins: React.FC<Props> = ({ redirect }) => {
   return (
     <div
       className={cn(
-        'px-4 py-2 rounded-[8px] bg-white text-black text-sm font-semibold flex gap-2 items-center cursor-pointer hover:bg-primary/10',
+        'flex cursor-pointer items-center gap-2 rounded-[8px] bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-primary/10',
       )}
       onClick={() => {
         googleSignInRedirect();

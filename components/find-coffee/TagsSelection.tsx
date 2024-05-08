@@ -80,13 +80,13 @@ const MultiSelectCombobox: React.FC<MultiSelectComboboxProps> = ({
       <PopoverTrigger asChild>
         <div
           ref={triggerRef}
-          className="justify-start py-2 rounded-lg truncate text-sm cursor-pointer flex flex-wrap gap-2 w-full"
+          className="flex w-full cursor-pointer flex-wrap justify-start gap-2 truncate rounded-lg py-2 text-sm"
         >
           {selectedTags.length > 0 ? (
             selectedTags.map((tag) => (
               <Badge
                 key={tag}
-                className="flex items-center gap-1 bg-primary-light/80 hover:bg-primary-light/60 focus:bg-primary-light/50 text-secondary-foreground text-sm"
+                className="flex items-center gap-1 bg-primary-light/80 text-sm text-secondary-foreground hover:bg-primary-light/60 focus:bg-primary-light/50"
               >
                 {tag}
                 <Icons.close
@@ -122,7 +122,7 @@ const MultiSelectCombobox: React.FC<MultiSelectComboboxProps> = ({
               filteredTags.map((tag) => (
                 <CommandItem
                   key={tag}
-                  className="flex aria-selected:bg-accent/50 items-center gap-2"
+                  className="flex items-center gap-2 aria-selected:bg-accent/50"
                   onSelect={() => {
                     toggleTag(tag);
                   }}

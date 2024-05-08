@@ -23,13 +23,17 @@ export const getBiz = async (id: string): Promise<YelpBizDetails | null> => {
   try {
     const docRef = doc(firebaseDB, 'businesses', id);
     const docSnap = await getDoc(docRef);
+    const { data } = await apiClient.get<YelpBizDetails>(`/business/${id}`);
     if (docSnap.exists()) {
-      return docSnap.data() as YelpBizDetails;
+      await setDoc(
+        docRef,
+        { ...data, updated: serverTimestamp() },
+        { merge: true },
+      );
     } else {
-      const { data } = await apiClient.get<YelpBizDetails>(`/business/${id}`);
       await setDoc(docRef, { ...data, updated: serverTimestamp() });
-      return (await getDoc(docRef)).data() as YelpBizDetails;
     }
+    return (await getDoc(docRef)).data() as YelpBizDetails;
   } catch (e) {
     console.log(e);
     return null;

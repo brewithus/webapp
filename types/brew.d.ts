@@ -1,3 +1,5 @@
+import type { Category, YelpBiz } from './yelp';
+
 export interface BrewUser {
   uid: string;
   email: string;
@@ -15,4 +17,12 @@ export interface BrewReview {
   user?: BrewUser;
   created: Date;
   updated?: Date;
+}
+
+export interface ReviewWithBiz extends BrewReview {
+  biz: YelpBiz;
+}
+
+export interface CategoryWithCount extends Category {
+  count: number;
 }

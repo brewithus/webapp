@@ -29,7 +29,7 @@ const DisplayAttributes: React.FC<DisplayAttributesProps> = ({
   const attributesRecord = attributesToRecordMap(attributes);
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
       {attributesRecord.map(([name, value]) => (
         <DisplayAttribute key={name} name={name} value={value} />
       ))}

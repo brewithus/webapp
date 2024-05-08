@@ -15,10 +15,10 @@ const PopularStoresSection: React.FC = () => {
   return (
     <section
       id="popular"
-      className="px-4 py-12 rounded-lg md:px-8 justify-center"
+      className="justify-center rounded-lg px-4 py-12 md:px-8"
     >
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`mb-4 py-2 text-center text-5xl font-bold ${rubikFont.className}`}
       >
         Most Popular Coffee Shops
       </h2>

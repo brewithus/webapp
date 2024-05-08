@@ -21,7 +21,7 @@ const ModeMenuItem: React.FC<ModeMenuItemProps> = ({ mode, icon }) => {
 
   return (
     <DropdownMenuItem
-      className={`flex items-center focus:bg-accent/60 ${theme === mode ? 'bg-secondary/80 focus:bg-accent:50' : ''}`}
+      className={`flex items-center focus:bg-accent/60 ${theme === mode ? 'focus:bg-accent:50 bg-secondary/80' : ''}`}
       onClick={() => {
         setTheme(mode);
       }}

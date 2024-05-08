@@ -92,7 +92,7 @@ const MapResults: React.FC<MapContainerProps> = ({
   ) : (
     <div
       className={cn(
-        'h-[300px] w-[300px] flex items-center text-center text-md font-medium',
+        'text-md flex h-[300px] w-[300px] items-center text-center font-medium',
         className,
       )}
     >
@@ -114,7 +114,7 @@ const CustomMapPin: React.FC<MapPinProps> = ({ index, biz }) => {
       <Popover>
         <PopoverTrigger>
           <div className="relative">
-            <Icons.mapPin className="text-primary cursor-pointer" size={32} />
+            <Icons.mapPin className="cursor-pointer text-primary" size={32} />
             {/* <div className="text-primary-foreground bg-primary w-fit px-1 text-xs font-extrabold h-fit rounded-full absolute top-1 left-2 text-center">
               {index + 1}
             </div> */}
@@ -128,7 +128,7 @@ const CustomMapPin: React.FC<MapPinProps> = ({ index, biz }) => {
                 alt="res logo"
                 width={1024}
                 height={1024}
-                className="object-cover rounded-sm w-full h-[150px]"
+                className="h-[150px] w-full rounded-sm object-cover"
               />
             </div>
             <div>
@@ -137,7 +137,7 @@ const CustomMapPin: React.FC<MapPinProps> = ({ index, biz }) => {
                 target="_blank"
                 rel="noreferrer"
                 className={cn(
-                  'text-xl font-bold hover:underline cursor-pointer',
+                  'cursor-pointer text-xl font-bold hover:underline',
                   poppinsFont.className,
                 )}
               >
@@ -145,7 +145,7 @@ const CustomMapPin: React.FC<MapPinProps> = ({ index, biz }) => {
               </a>
               <DisplayReviewStars
                 rating={biz.rating ?? 0}
-                className="text-primary gap-[1px]"
+                className="gap-[1px] text-primary"
               />
               <div className="flex items-center gap-1 font-medium">
                 {biz.rating ? (

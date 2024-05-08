@@ -44,9 +44,9 @@ export default function Locations({
   }, [location]);
 
   return (
-    <div className="flex w-full px-4 flex-col sm:flex-row gap-4 font-medium">
+    <div className="flex w-full flex-col gap-4 px-4 font-medium sm:flex-row">
       {/* Map container */}
-      <div className="w-full flex flex-col gap-2">
+      <div className="flex w-full flex-col gap-2">
         <div className="h-[300px] w-full">
           <MapContainer position={location} />
         </div>
@@ -56,23 +56,23 @@ export default function Locations({
           rel="noopener noreferrer"
           className="group flex items-center justify-between gap-2"
         >
-          <div className="group-hover:text-foreground flex text-sm flex-col">
+          <div className="flex flex-col text-sm group-hover:text-foreground">
             {address.map((a, index) => (
               <span key={index}>{a}</span>
             ))}
           </div>
-          <div className="flex items-center gap-1 rounded-md bg-primary-light/50 py-2 px-4 w-fit font-semibold text-sm group-hover:text-foreground group-hover:bg-primary-light/80 h-fit">
+          <div className="flex h-fit w-fit items-center gap-1 rounded-md bg-primary-light/50 px-4 py-2 text-sm font-semibold group-hover:bg-primary-light/80 group-hover:text-foreground">
             Get Directions
           </div>
         </a>
       </div>
 
       {/* Information container */}
-      <div className="w-full max-w-[300px] min-w-[250px] px-2 flex flex-col gap-2 text-foreground/90 font-medium">
+      <div className="flex w-full min-w-[250px] max-w-[300px] flex-col gap-2 px-2 font-medium text-foreground/90">
         <div className="flex flex-col gap-2">
           <div className="flex gap-2">
             <Clock />
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex w-full flex-col gap-1">
               <span>Opening hours</span>
               {(
                 hours.find((h) => h.hours_type === 'REGULAR') ?? hours[0]
@@ -80,7 +80,7 @@ export default function Locations({
                 <div
                   key={index}
                   className={cn(
-                    'flex items-center justify-between w-full gap-1 text-sm text-foreground/70',
+                    'flex w-full items-center justify-between gap-1 text-sm text-foreground/70',
                     bizLocalTime.getDay() === dayHour.day && 'text-foreground',
                   )}
                 >

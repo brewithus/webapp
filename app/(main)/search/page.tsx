@@ -33,15 +33,15 @@ const Page: NextPage<PageProps> = ({
   searchParams,
 }: PageProps): JSX.Element => {
   // Check if 'tags' param exists and is not just whitespace
-  const tagsExistAndNotEmpty = searchParams.tags?.trim();
+  // const tagsExistAndNotEmpty = searchParams.tags?.trim();
 
   // If 'tags' param exists, split into array, else default to empty array
-  const tags = tagsExistAndNotEmpty
-    ? searchParams.tags
-        .trim()
-        .split(',')
-        .filter((tag) => tag !== '')
-    : [];
+  // const tags = tagsExistAndNotEmpty
+  //   ? searchParams.tags
+  //       .trim()
+  //       .split(',')
+  //       .filter((tag) => tag !== '')
+  //   : [];
 
   const [bizList, setBizList] = React.useState<YelpBiz[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -51,10 +51,10 @@ const Page: NextPage<PageProps> = ({
     () => {
       setIsLoading(true);
       const fetchData = async (): Promise<{ businesses: YelpBiz[] }> => {
-        const q = tags.join(','); // Combine tags with a comma separator
+        const q = searchParams.q; // Combine tags with a comma separator
         const lng = searchParams.lng || '';
         const lat = searchParams.lat || '';
-        if (!q || !lng || !lat) {
+        if (!q || q === '' || !lng || !lat) {
           throw Error('Invalid request');
         }
 
@@ -88,14 +88,14 @@ const Page: NextPage<PageProps> = ({
   if (!searchParams.lat || !searchParams.lng) {
     return (
       <div className="w-full">
-        <Skeleton className="w-full h-12" />
+        <Skeleton className="h-12 w-full" />
       </div>
     );
   }
   return (
     <div className="p-4">
-      <div className="w-full flex flex-col-reverse lg:flex-row gap-3">
-        <div className="flex-1 mt-4 flex flex-col gap-4 max-w-5xl">
+      <div className="flex w-full flex-col-reverse gap-3 lg:flex-row">
+        <div className="mt-4 flex max-w-5xl flex-1 flex-col gap-4">
           <div className="text-xl font-semibold">Search Results</div>
           {bizList.length === 0 && (
             <div className="font-medium text-foreground/50">No biz yet..</div>
@@ -109,7 +109,7 @@ const Page: NextPage<PageProps> = ({
             ))}
           </div>
         </div>
-        <div className="flex-none w-full lg:w-[500px] h-[30dvh] lg:h-[100dvh]">
+        <div className="h-[30dvh] w-full flex-none lg:h-[100dvh] lg:w-[500px]">
           <MapResults
             position={{
               lat: Number(searchParams.lat),

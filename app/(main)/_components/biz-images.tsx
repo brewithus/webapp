@@ -10,11 +10,15 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 interface Props {
   images: string[];
+  height?: string;
+  hidePrevNext?: boolean;
 }
-const BizImages: React.FC<Props> = ({ images }) => {
+
+const BizImages: React.FC<Props> = ({ images, height, hidePrevNext }) => {
   const plugin = React.useRef(
     Autoplay({
       delay: 3000,
@@ -25,12 +29,12 @@ const BizImages: React.FC<Props> = ({ images }) => {
   );
 
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <Carousel
         plugins={[plugin.current]}
         className="w-full"
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
+        // onMouseEnter={plugin.current.stop}
+        // onMouseLeave={plugin.current.reset}
         opts={{
           loop: true,
           dragFree: true,
@@ -40,7 +44,10 @@ const BizImages: React.FC<Props> = ({ images }) => {
           {images.map((image, index) => (
             <CarouselItem
               key={index}
-              className="h-[400px] w-fit pl-0 basis-1/12 min-w-fit"
+              className={cn(
+                'h-[400px] w-fit min-w-fit basis-1/12 pl-0',
+                height && `h-[${height}]`,
+              )}
             >
               <Image
                 src={image}
@@ -48,17 +55,21 @@ const BizImages: React.FC<Props> = ({ images }) => {
                 width={1024}
                 height={1024}
                 priority
-                className="object-cover h-full w-auto"
+                className="h-full w-auto object-cover"
               />
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute top-0 bottom-0 left-0  h-full ">
-          <CarouselPrevious className="left-3 text-black border-none bg-white" />
-        </div>
-        <div className="absolute top-0 bottom-0 right-0  h-full ">
-          <CarouselNext className="right-3 text-black border-none bg-white" />
-        </div>
+        {hidePrevNext !== true && (
+          <>
+            <div className="absolute bottom-0 left-0 top-0  h-full ">
+              <CarouselPrevious className="left-3 border-none bg-white text-black" />
+            </div>
+            <div className="absolute bottom-0 right-0 top-0  h-full ">
+              <CarouselNext className="right-3 border-none bg-white text-black" />
+            </div>
+          </>
+        )}
       </Carousel>
     </div>
   );

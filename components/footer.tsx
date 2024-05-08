@@ -17,19 +17,19 @@ import type { AdditionalProps } from './ui';
 export function Footer({ className }: AdditionalProps): JSX.Element {
   return (
     <footer className={cn(className)}>
-      <div className="w-full py-2 md:py-4 lg:py-6 bg-secondary-dark/50">
-        <div className="container px-4 md:px-6 flex flex-col items-center text-center">
+      <div className="w-full bg-secondary-dark/50 py-2 md:py-4 lg:py-6">
+        <div className="container flex flex-col items-center px-4 text-center md:px-6">
           <h2
-            className={`text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-secondary-foreground ${rubikFont.className}`}
+            className={`text-2xl font-bold tracking-tighter text-secondary-foreground sm:text-3xl md:text-4xl lg:text-5xl/none ${rubikFont.className}`}
           >
             Join Our Coffee Journey
           </h2>
-          <p className="my-2 mx-auto max-w-[700px] text-sm md:text-md lg:text-lg text-secondary-foreground/90">
+          <p className="md:text-md mx-auto my-2 max-w-[700px] text-sm text-secondary-foreground/90 lg:text-lg">
             Get the latest updates on the best coffee spots near you. Exclusive
             insights, early access to new features, and more, straight to your
             inbox.
           </p>
-          <div className="w-full max-w-md space-y-2 my-2">
+          <div className="my-2 w-full max-w-md space-y-2">
             <form className="flex space-x-2">
               <Input
                 className="max-w-lg flex-1 bg-white text-black"
@@ -41,7 +41,7 @@ export function Footer({ className }: AdditionalProps): JSX.Element {
               </Button>
             </form>
           </div>
-          <div className="flex justify-center space-x-4 my-2">
+          <div className="my-2 flex justify-center space-x-4">
             <Link
               aria-label="Facebook page"
               className="text-black dark:text-white"
@@ -71,7 +71,7 @@ export function Footer({ className }: AdditionalProps): JSX.Element {
               <LinkedinIcon className="h-6 w-6" />
             </Link>
           </div>
-          <p className="text-xs mt-2 text-muted-foreground">
+          <p className="mt-2 text-xs text-muted-foreground">
             Discover new flavors, exclusive offers, and never miss an update
             from the world of coffee.
           </p>

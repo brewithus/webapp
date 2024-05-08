@@ -50,7 +50,7 @@ const MapContainer: React.FC<MapContainerProps> = ({ className, position }) => {
   ) : (
     <div
       className={cn(
-        'h-[300px] w-[300px] flex items-center text-center text-md font-medium',
+        'text-md flex h-[300px] w-[300px] items-center text-center font-medium',
         className,
       )}
     >

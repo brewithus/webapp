@@ -29,13 +29,13 @@ const features: Feature[] = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="px-4 py-12 rounded-lg md:px-8 justify-center">
+    <section className="justify-center rounded-lg px-4 py-12 md:px-8">
       <h2
-        className={`py-2 text-5xl font-bold mb-4 text-center ${rubikFont.className}`}
+        className={`mb-4 py-2 text-center text-5xl font-bold ${rubikFont.className}`}
       >
         Features
       </h2>
-      <div className="flex flex-wrap gap-4 justify-items-center md:px-24 lg:px-48">
+      <div className="flex flex-wrap justify-items-center gap-4 md:px-24 lg:px-48">
         {features.map((feature) => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
@@ -58,9 +58,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   description,
 }) => {
   return (
-    <div className="relative flex-auto w-64 rounded-lg p-4 text-primary-light border-2">
-      <span className="absolute top-2 right-2">{icon}</span>
-      <h3 className="text-lg font-bold mb-2">{title}</h3>
+    <div className="relative w-64 flex-auto rounded-lg border-2 p-4 text-primary-light">
+      <span className="absolute right-2 top-2">{icon}</span>
+      <h3 className="mb-2 text-lg font-bold">{title}</h3>
       <p className="text-sm leading-loose text-muted-foreground">
         {description}
       </p>

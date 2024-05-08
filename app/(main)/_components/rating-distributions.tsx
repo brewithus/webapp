@@ -26,7 +26,7 @@ const ReviewRatingDistributions: React.FC<Props> = ({ reviews }) => {
   // Ensure Math.max argument is safe by providing a default value (0) for empty arrays
   const maxRatingCount = Math.max(0, ...ratingDistribution);
   return (
-    <div className="flex flex-col sm:flex-row gap-8">
+    <div className="flex flex-col gap-8 sm:flex-row">
       <div className="flex flex-col gap-1">
         <div className="text-lg font-bold">Overall rating</div>
         <DisplayReviewStars
@@ -43,18 +43,18 @@ const ReviewRatingDistributions: React.FC<Props> = ({ reviews }) => {
           .slice()
           .reverse()
           .map((count, index) => (
-            <div key={index} className="w-full flex items-center gap-4">
+            <div key={index} className="flex w-full items-center gap-4">
               <div
                 className={cn(
-                  'text-foreground/50 min-w-fit font-medium',
+                  'min-w-fit font-medium text-foreground/50',
                   count > 0 && 'text-foreground',
                 )}
               >
                 {5 - index} stars
               </div>
-              <div className="h-[8px] bg-foreground/50 rounded-lg w-full">
+              <div className="h-[8px] w-full rounded-lg bg-foreground/50">
                 <div
-                  className="h-full bg-primary rounded-lg"
+                  className="h-full rounded-lg bg-primary"
                   style={{
                     width: `${(count / (maxRatingCount || 1)) * 100}%`,
                   }}

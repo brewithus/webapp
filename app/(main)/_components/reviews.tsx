@@ -30,18 +30,18 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
     <div className="flex flex-col gap-2">
       <div
         id="biz-location"
-        className="flex self-start items-center gap-2 justify-between p-4 w-full border-b"
+        className="flex w-full items-center justify-between gap-2 self-start border-b p-4"
       >
         <p
           className={cn(
-            'text-3xl font-bold text-center text-foreground/90',
+            'text-center text-3xl font-bold text-foreground/90',
             rubikFont.className,
           )}
         >
           Reviews
         </p>
       </div>
-      <div className="mx-4 flex flex-col sm:flex-row gap-8">
+      <div className="mx-4 flex flex-col gap-8 sm:flex-row">
         <div className="flex flex-col gap-1">
           <div className="text-lg font-bold">Overall rating</div>
           <DisplayReviewStars
@@ -56,18 +56,18 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
             .slice()
             .reverse()
             .map((count, index) => (
-              <div key={index} className="w-full flex items-center gap-4">
+              <div key={index} className="flex w-full items-center gap-4">
                 <div
                   className={cn(
-                    'text-foreground/50 min-w-fit font-medium',
+                    'min-w-fit font-medium text-foreground/50',
                     count > 0 && 'text-foreground',
                   )}
                 >
                   {5 - index} stars
                 </div>
-                <div className="h-[8px] bg-foreground/50 rounded-lg w-full">
+                <div className="h-[8px] w-full rounded-lg bg-foreground/50">
                   <div
-                    className="h-full bg-primary rounded-lg"
+                    className="h-full rounded-lg bg-primary"
                     style={{
                       width: `${(count / (maxRatingCount || 1)) * 100}%`,
                     }}

@@ -42,7 +42,7 @@ const GoogleMapsSearchAutocomplete: React.FC<Props> = ({
         type="text"
         placeholder={'Loading location'}
         disabled
-        className=" py-2 h-fit text-sm outline-none placeholder:text-black/50 disabled:cursor-not-allowed disabled:opacity-50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black w-full bg-white/80 cursor-pointer"
+        className=" h-fit w-full cursor-pointer border-0 bg-white/80 py-2 text-sm text-black outline-none placeholder:text-black/50 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
       />
     );
   }
@@ -51,12 +51,12 @@ const GoogleMapsSearchAutocomplete: React.FC<Props> = ({
       onLoad={onLoad}
       onPlaceChanged={locationSelected}
       options={{ componentRestrictions: { country: 'us' } }}
-      className="p-0 w-full"
+      className="w-full p-0"
     >
       <Input
         type="text"
         placeholder={defaultAddress !== '' ? defaultAddress : 'Search'}
-        className="py-2 h-fit text-sm outline-none placeholder:text-black/50 disabled:cursor-not-allowed disabled:opacity-50 border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-black w-full bg-white/80 cursor-pointer"
+        className="h-fit w-full cursor-pointer border-0 bg-white/80 py-2 text-sm text-black outline-none placeholder:text-black/50 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
       />
     </Autocomplete>
   );

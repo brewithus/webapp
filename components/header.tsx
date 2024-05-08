@@ -33,7 +33,7 @@ const SensitiveHeader: React.FC<SensitiveHeaderProps> = ({
   return (
     <header
       className={cn(
-        'fixed top-0 right-0 left-0 z-40 bg-secondary-dark px-8 md:px-12 transition-all duration-300',
+        'fixed left-0 right-0 top-0 z-40 bg-secondary-dark px-8 transition-all duration-300 md:px-12',
         className,
         !isVisible && '-translate-y-full',
       )}

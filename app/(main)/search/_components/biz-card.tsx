@@ -16,7 +16,7 @@ const BizSearchResultCard: React.FC<Props> = ({ biz }) => {
       href={`/business/${biz.id}`}
       target="_blank"
       rel="noreferrer"
-      className="p-4 rounded-md cursor-pointer hover:bg-secondary/80 transition-all duration-300 ease-in-out flex flex-row gap-4"
+      className="flex cursor-pointer flex-row gap-4 rounded-md p-4 transition-all duration-300 ease-in-out hover:bg-secondary/80"
     >
       {/* image */}
       <div className="w-1/4 max-w-[150px] ">
@@ -25,11 +25,11 @@ const BizSearchResultCard: React.FC<Props> = ({ biz }) => {
           alt="res logo"
           width={400}
           height={400}
-          className="object-cover rounded-sm aspect-square"
+          className="aspect-square rounded-sm object-cover"
         />
       </div>
       {/* content */}
-      <div className="flex flex-col gap-1 w-full">
+      <div className="flex w-full flex-col gap-1">
         <div className={cn('text-xl font-bold', poppinsFont.className)}>
           {biz.name}
         </div>
@@ -51,13 +51,13 @@ const BizSearchResultCard: React.FC<Props> = ({ biz }) => {
         </div>
         <div className="flex flex-wrap gap-1 text-xs font-semibold">
           {biz.categories.map((tag, index) => (
-            <div key={index} className="p-1 rounded-sm bg-foreground/10">
+            <div key={index} className="rounded-sm bg-foreground/10 p-1">
               {tag.title}
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-between gap-3 w-full">
-          <div className="flex flex-wrap gap-2 items-center text-xs font-semibold py-2">
+        <div className="flex w-full items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2 py-2 text-xs font-semibold">
             {biz.attributes.outdoor_seating !== undefined &&
               biz.attributes.outdoor_seating !== null && (
                 <div className="flex items-center gap-1">
@@ -93,7 +93,7 @@ const BizSearchResultCard: React.FC<Props> = ({ biz }) => {
             rel="noopener noreferrer"
             className={cn(
               buttonVariants({ variant: 'default', size: 'sm' }),
-              'flex-none w-fit',
+              'w-fit flex-none',
             )}
           >
             Get direction

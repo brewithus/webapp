@@ -43,7 +43,7 @@ export function MainNav({ items, children }: MainNavProps): JSX.Element {
 
   return (
     <>
-      <div className="flex gap-2 items-center md:hidden">
+      <div className="flex items-center gap-2 md:hidden">
         <Button
           variant={'ghost'}
           className="relative h-9 w-8 px-0 hover:bg-primary/50"
@@ -64,11 +64,11 @@ export function MainNav({ items, children }: MainNavProps): JSX.Element {
           {children}
         </MobileNav>
       )}
-      <div className="flex gap-6 md:gap-10 justify-between">
+      <div className="flex justify-between gap-6 md:gap-10">
         <Link className="flex items-center" href="/">
           <Icons.logo size={32} />
           <span
-            className={`ml-6 font-bold text-2xl uppercase tracking-widest hidden md:block ${rubikFont.className}`}
+            className={`ml-6 hidden text-2xl font-bold uppercase tracking-widest md:block ${rubikFont.className}`}
           >
             Brew
           </span>

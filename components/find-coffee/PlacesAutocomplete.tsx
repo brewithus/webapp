@@ -100,7 +100,7 @@ const PlacesAutocomplete: React.FC<PlacesAutocompleteProps> = ({
       {isLoaded ? (
         <Popover>
           <PopoverTrigger asChild>
-            <div className="w-1/3 sm:w-1/4 py-2 rounded-lg text-sm cursor-pointer flex flex-row items-center justify-between text-primary-dark">
+            <div className="flex w-1/3 cursor-pointer flex-row items-center justify-between rounded-lg py-2 text-sm text-primary-dark sm:w-1/4">
               <div className="flex-1 ">
                 {value || (
                   <div className="text-zinc-500">Search your location</div>
@@ -108,7 +108,7 @@ const PlacesAutocomplete: React.FC<PlacesAutocompleteProps> = ({
               </div>
               {value !== '' && (
                 <Icons.close
-                  className="hover:bg-primary p-1 rounded-lg w-6 h-6"
+                  className="h-6 w-6 rounded-lg p-1 hover:bg-primary"
                   onClick={() => {
                     setValue('');
                     onSelectAddress('');

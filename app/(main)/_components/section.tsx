@@ -13,11 +13,11 @@ const Section: React.FC<Props> = ({ title, children, className }) => {
     <div className="flex flex-col gap-2">
       <div
         id={title.toLowerCase().split(' ').join('-')}
-        className="flex self-start items-center gap-2 justify-between px-4 py-2 w-full border-b"
+        className="flex w-full items-center justify-between gap-2 self-start border-b px-4 py-2"
       >
         <p
           className={cn(
-            'text-2xl font-bold text-center text-foreground/90',
+            'text-center text-2xl font-bold text-foreground/90',
             rubikFont.className,
           )}
         >

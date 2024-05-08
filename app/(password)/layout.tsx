@@ -20,18 +20,18 @@ export default function PasswordLayout({
 }: PasswordLayoutProps): JSX.Element {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="px-8 md:px-12 z-40 bg-secondary-dark/50">
+      <header className="z-40 bg-secondary-dark/50 px-8 md:px-12">
         <div className="flex h-20 items-center justify-between py-6">
           <MainNav items={passwordResetConfig.mainNav} />
 
-          <nav className="flex flex-row gap-2 items-center">
+          <nav className="flex flex-row items-center gap-2">
             <Input
-              className="flex-1 bg-white text-black hidden md:block"
+              className="hidden flex-1 bg-white text-black md:block"
               placeholder="Email or username"
               type="email"
             />
             <Input
-              className="flex-1 bg-white text-black hidden md:block"
+              className="hidden flex-1 bg-white text-black md:block"
               placeholder="Password"
               type="password"
             />
