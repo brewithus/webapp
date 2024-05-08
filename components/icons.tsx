@@ -28,6 +28,7 @@ import {
 
 import { EmptyStarSvg } from './svgs/star';
 import BrewLogo from './svgs/brew-logo';
+import MapPinSVG from './svgs/map-pin';
 
 export type Icon = LucideIcon;
 
@@ -53,6 +54,7 @@ export const Icons = {
   sun: SunMedium,
   moon: Moon,
   laptop: Laptop,
+  mapPin: ({ ...props }: LucideProps) => <MapPinSVG {...props} />,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

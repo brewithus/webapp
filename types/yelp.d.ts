@@ -1,25 +1,31 @@
-export interface YelpBusiness {
+export type YelpBizDetails = YelpBiz & YelpBizMore;
+
+export interface YelpBiz {
   id: string;
   alias: string;
   name: string;
-  image_url: string;
-  is_claimed: boolean;
-  is_closed: boolean;
-  url: string;
-  phone: string;
-  display_phone: string;
-  review_count: number;
+  image_url: string | null;
+  is_closed: boolean | null;
+  url: string | null;
+  review_count: number | null;
   categories: Category[];
-  rating: number;
+  rating: number | null;
+  coordinates: Coordinates; // required
+  transactions: string[];
+  price?: string;
+  phone: string; // required
+  display_phone: string; // required
+  distance: number | null;
   location: Location;
-  coordinates: Coordinates;
-  photos: string[];
+  attributes: Attributes;
+}
+
+export interface YelpBizMore {
+  hours: Hour[];
   photo_details: PhotoDetail[];
   photo_count: number;
-  price: string;
-  hours: Hour[];
-  attributes: Attributes;
-  transactions: string[];
+  photos: string[];
+  is_claimed: boolean;
   messaging: Messaging;
   yelp_menu_url: string;
 }
@@ -31,14 +37,14 @@ export interface Category {
 
 export interface Location {
   address1: string;
-  address2: string;
-  address3: string;
+  address2: string | null;
+  address3: string | null;
   city: string;
   zip_code: string;
   country: string;
   state: string;
   display_address: string[];
-  cross_streets: string;
+  cross_streets?: string;
 }
 
 export interface Coordinates {
@@ -71,33 +77,33 @@ export interface DayHour {
 }
 
 export interface Attributes {
-  business_url: string;
+  business_url: string | null;
   about_this_biz_business_recommendation: string[];
-  about_this_biz_history: string;
-  about_this_biz_specialties: string;
-  about_this_biz_year_established: string;
-  bike_parking: boolean;
-  business_accepts_credit_cards: boolean;
-  business_parking: Parking;
-  caters: boolean;
-  dogs_allowed: boolean;
-  drive_thru: boolean;
-  noise_level: string;
-  restaurants_delivery: boolean;
-  restaurants_take_out: boolean;
-  wi_fi: string;
-  outdoor_seating: boolean;
+  about_this_biz_history: string | null;
+  about_this_biz_specialties: string | null;
+  about_this_biz_year_established: string | null;
+  bike_parking: boolean | null;
+  business_accepts_credit_cards: boolean | null;
+  business_parking: Parking | null;
+  caters: boolean | null;
+  dogs_allowed: boolean | null;
+  drive_thru?: boolean | null;
+  noise_level: string | null;
+  restaurants_delivery: boolean | null;
+  restaurants_take_out: boolean | null;
+  wi_fi?: string | null;
+  outdoor_seating?: boolean | null;
   business_temp_closed: boolean | null;
   menu_url: string | null;
   [key: string]: unknown;
 }
 
 export interface Parking {
-  valet: boolean;
-  garage: boolean;
-  street: boolean;
-  lot: boolean;
-  validated: boolean;
+  valet: boolean | null;
+  garage: boolean | null;
+  street: boolean | null;
+  lot: boolean | null;
+  validated: boolean | null;
 }
 
 export interface Messaging {
