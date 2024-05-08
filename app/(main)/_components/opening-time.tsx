@@ -41,7 +41,7 @@ const OpeningTime: React.FC<Props> = ({ hours, coordinates }) => {
   return (
     <div
       className={cn(
-        'font-medium flex items-center gap-2 mt-2',
+        'font-medium flex items-center gap-2',
         poppinsFont.className,
       )}
     >

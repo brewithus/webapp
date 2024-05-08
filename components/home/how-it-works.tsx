@@ -11,11 +11,6 @@ const HowItWorksSection: React.FC = () => {
   // Example steps data
   const steps = [
     {
-      title: 'Sign Up',
-      description:
-        'Create your account to save your preferences, picks, and favorites for personalized coffee recommendations.',
-    },
-    {
       title: 'Choose Your Coffee Preferences',
       description:
         'Select your preferred coffee types, roasts, and brewing methods to tailor your coffee journey.',
@@ -24,6 +19,11 @@ const HowItWorksSection: React.FC = () => {
       title: 'Explore & Enjoy',
       description:
         'Discover new coffee spots, learn brewing tips, and enjoy curated selections based on your tastes.',
+    },
+    {
+      title: 'Share Your Coffee Experience',
+      description:
+        'Login with Google and share your thoughts by rating and reviewing your favorite coffee shops and drinks. Your reviews help others discover the best coffee spots.',
     },
   ];
 
