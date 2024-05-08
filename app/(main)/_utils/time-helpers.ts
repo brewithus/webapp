@@ -104,8 +104,12 @@ export function isBusinessOpen(dayHour: DayHour, date: Date): boolean {
   const currentMinute = date.getMinutes(); // Get the current minute (0-59)
 
   // Convert the start and end times to 24-hour format and split into hours and minutes
-  const [startHour, startMinute] = dayHour.start.split('').map(Number);
-  const [endHour, endMinute] = dayHour.end.split('').map(Number);
+
+  const startHour = parseInt(dayHour.start.substring(0, 2), 10);
+  const startMinute = parseInt(dayHour.start.substring(2));
+
+  const endHour = parseInt(dayHour.end.substring(0, 2), 10);
+  const endMinute = parseInt(dayHour.end.substring(2));
 
   // If the business day spans across midnight
   if (dayHour.is_overnight) {

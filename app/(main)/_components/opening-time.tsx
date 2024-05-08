@@ -32,7 +32,6 @@ const OpeningTime: React.FC<Props> = ({ hours, coordinates }) => {
     reverseGeocodingWithGoogle(coordinates.latitude, coordinates.longitude)
       .then((time) => {
         if (time) {
-          console.log(time);
           setBizLocalTime(time);
         }
       })
