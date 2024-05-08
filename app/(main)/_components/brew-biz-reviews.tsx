@@ -13,7 +13,6 @@ import Image from 'next/image';
 import { UserRoundCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { poppinsFont } from '@/styles/fonts';
-import { Icons } from '@/components/icons';
 import ReviewRatingDistributions from './rating-distributions';
 import { ratingToExpression } from '@/lib/brew/rating';
 import { Separator } from '@/components/ui/separator';
@@ -37,6 +36,7 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
         console.log('error fetching reviews', e);
       });
   };
+
   React.useEffect(
     () => {
       refreshReviews();
@@ -105,9 +105,9 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
             <div className="flex items-center text-sm gap-1 text-primary-light-foreground/50">
               <UserRoundCheck size={15} /> 0
             </div>
-            <div className="flex items-center text-sm gap-1 text-primary-light-foreground/50">
+            {/* <div className="flex items-center text-sm gap-1 text-primary-light-foreground/50">
               <Icons.emptyStar size={16} /> 0
-            </div>
+            </div> */}
           </div>
         </div>
       </>
@@ -148,7 +148,6 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
                 <Textarea
                   value={reviewInput}
                   onChange={(e) => {
-                    console.log(e.target.value);
                     setReviewInput(e.target.value);
                   }}
                   placeholder="Type your review here."
@@ -174,7 +173,7 @@ const BrewBizReviews: React.FC<Props> = ({ bizID, bizName }) => {
         </div>
       </div>
       <div>
-        <BrewReviews reviews={reviews} />
+        <BrewReviews bizName={bizName} reviews={reviews} />
       </div>
     </div>
   );
