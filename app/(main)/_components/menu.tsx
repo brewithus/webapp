@@ -2,7 +2,7 @@ import React from 'react';
 import MenuItemCard from './menu-item';
 import { chunkArray, cn } from '@/lib/utils';
 import { rubikFont } from '@/styles/fonts';
-import { type MenuItem } from '../_types';
+import { type MenuItem } from '../business/_types';
 import {
   Carousel,
   CarouselContent,

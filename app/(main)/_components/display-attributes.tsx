@@ -115,19 +115,17 @@ const attributesToRecordMap = (
         }
         break;
       }
-      case 'about_this_biz_business_recommendation':
-      case 'about_this_biz_history':
-      case 'about_this_biz_specialties':
       case 'menu_url':
       case 'business_url':
-      case 'about_this_biz_year_established':
       case 'business_temp_closed':
         break;
       default:
-        result.push([
-          key,
-          attributes[key as keyof Attributes] as string | boolean | null,
-        ]);
+        if (!/^about_this_biz/.test(key)) {
+          result.push([
+            key,
+            attributes[key as keyof Attributes] as string | boolean | null,
+          ]);
+        }
         break;
     }
   }

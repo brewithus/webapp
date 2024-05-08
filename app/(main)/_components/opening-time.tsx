@@ -5,7 +5,9 @@ import React from 'react';
 import {
   formatOpeningTimes,
   getTodayDayTime,
+  isBusinessClosingSoon,
   isBusinessOpen,
+  isBusinessOpeningSoon,
   reverseGeocodingWithGoogle,
 } from '../_utils/time-helpers';
 import { type Coordinates, type Hour } from '@/types/yelp';
@@ -45,10 +47,14 @@ const OpeningTime: React.FC<Props> = ({ hours, coordinates }) => {
       )}
     >
       <Badge className="text-md bg-primary/50">
-        {/* {coffeeShop.status} */}
-        {todayOpenTime && isBusinessOpen(todayOpenTime, bizLocalTime)
-          ? 'Open'
-          : 'Closed'}
+        {todayOpenTime &&
+          (isBusinessOpen(todayOpenTime, bizLocalTime)
+            ? 'Open'
+            : isBusinessOpeningSoon(todayOpenTime, bizLocalTime)
+              ? 'Opening soon'
+              : isBusinessClosingSoon(todayOpenTime, bizLocalTime)
+                ? 'Closing soon'
+                : 'Closed')}
       </Badge>
       {todayOpenTime && <span>{formatOpeningTimes(todayOpenTime)}</span>}
     </div>

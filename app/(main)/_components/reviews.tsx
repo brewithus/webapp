@@ -1,7 +1,7 @@
 import React from 'react';
 import { rubikFont } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
-import type { Review } from '../_types';
+import type { Review } from '../business/_types';
 import DisplayReviewStars from './stars';
 import ReviewComponent from './review';
 

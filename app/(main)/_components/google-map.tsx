@@ -1,8 +1,9 @@
 'use client';
-import React, { useState, useCallback } from 'react';
-import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
-import { googleMapsApiKey } from '@/config/google-maps';
+import React, { useState, useCallback, useContext } from 'react';
+import { GoogleMap, Marker } from '@react-google-maps/api';
+
 import { cn } from '@/lib/utils';
+import { GoogleMapsContext } from '@/context/google-maps';
 
 interface MapContainerProps {
   className?: string;
@@ -21,14 +22,9 @@ const defaultCPP = {
 };
 
 const MapContainer: React.FC<MapContainerProps> = ({ className, position }) => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey, // Ensure your API key is correctly provided
-    libraries: ['places', 'maps', 'marker', 'drawing'],
-  });
-
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [map, setMap] = useState<google.maps.Map | null>(null);
-
+  const { isLoaded } = useContext(GoogleMapsContext);
   const onUnmount = useCallback(function callback() {
     setMap(null);
   }, []);

@@ -1,5 +1,6 @@
 import { googleMapsApiKey } from '@/config/google-maps';
 import type { DayHour, Hour } from '@/types/yelp';
+import { isBefore, isAfter, addMinutes, subMinutes } from 'date-fns';
 
 /**
  * get DayHour of the biz local time
@@ -7,7 +8,7 @@ import type { DayHour, Hour } from '@/types/yelp';
  * @param {Hour[]} hours yelp hours
  * @returns {DayHour} returns the biz open time of the biz local day time
  */
-function getTodayDayTime(today: Date, hours: Hour[]): DayHour | null {
+export function getTodayDayTime(today: Date, hours: Hour[]): DayHour | null {
   const regHours = hours.find((hour) => hour.hours_type === 'REGULAR');
   if (!regHours) {
     return null;
@@ -22,7 +23,7 @@ function getTodayDayTime(today: Date, hours: Hour[]): DayHour | null {
  * @param {string} time input time string in the format `HHMM`
  * @returns {string} returns time string with the format `HH:MM`
  */
-function formatTime(time: string): string {
+export function formatTime(time: string): string {
   const hour = parseInt(time.substring(0, 2), 10);
   const minute = time.substring(2);
 
@@ -37,7 +38,7 @@ function formatTime(time: string): string {
  * @param {DayHour} dayHour biz current local day
  * @returns {string} Returns biz local opening time string
  */
-function formatOpeningTimes(dayHour: DayHour): string {
+export function formatOpeningTimes(dayHour: DayHour): string {
   const startTime = formatTime(dayHour.start);
   const endTime = formatTime(dayHour.end);
 
@@ -49,7 +50,7 @@ function formatOpeningTimes(dayHour: DayHour): string {
  * @param {number} dayIndex week day as a number (0-indexed)
  * @returns {string} Returns day as string
  */
-function getWeekDayString(dayIndex: number): string {
+export function getWeekDayString(dayIndex: number): string {
   return (
     [
       'Sunday',
@@ -69,7 +70,7 @@ function getWeekDayString(dayIndex: number): string {
  * @param {number} longitude longitude
  * @returns {string} Returns Date object of current time at biz location, null if an error happened while getting the time
  */
-async function reverseGeocodingWithGoogle(
+export async function reverseGeocodingWithGoogle(
   latitude: number,
   longitude: number,
 ): Promise<Date | null> {
@@ -97,7 +98,7 @@ async function reverseGeocodingWithGoogle(
  * @param {Date} date biz current local time
  * @returns {boolean} Returns a boolean determine if the biz is closed or open
  */
-function isBusinessOpen(dayHour: DayHour, date: Date): boolean {
+export function isBusinessOpen(dayHour: DayHour, date: Date): boolean {
   const currentDay = date.getDay(); // Get the current day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
   const currentHour = date.getHours(); // Get the current hour (0-23)
   const currentMinute = date.getMinutes(); // Get the current minute (0-59)
@@ -133,10 +134,31 @@ function isBusinessOpen(dayHour: DayHour, date: Date): boolean {
   return false;
 }
 
-export {
-  getTodayDayTime,
-  isBusinessOpen,
-  formatOpeningTimes,
-  getWeekDayString,
-  reverseGeocodingWithGoogle,
+const OPENING_SOON_THRESHOLD = 30; // in minutes
+const CLOSING_SOON_THRESHOLD = 60; // in minutes
+
+export const isBusinessOpeningSoon = (
+  todayOpenTime: DayHour,
+  currentTime: Date,
+): boolean => {
+  const openingTime = new Date(todayOpenTime.start);
+  const openingSoonThreshold = subMinutes(openingTime, OPENING_SOON_THRESHOLD);
+
+  return (
+    isAfter(currentTime, openingSoonThreshold) &&
+    isBefore(currentTime, openingTime)
+  );
+};
+
+export const isBusinessClosingSoon = (
+  todayOpenTime: DayHour,
+  currentTime: Date,
+): boolean => {
+  const closingTime = new Date(todayOpenTime.end);
+  const closingSoonThreshold = addMinutes(closingTime, CLOSING_SOON_THRESHOLD);
+
+  return (
+    isAfter(currentTime, closingTime) &&
+    isBefore(currentTime, closingSoonThreshold)
+  );
 };

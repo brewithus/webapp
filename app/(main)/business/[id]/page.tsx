@@ -1,21 +1,20 @@
+'use client';
 import type { NextPage } from 'next';
 import React from 'react';
-import Locations from '../_components/location-and-hours';
+import Locations from '../../_components/location-and-hours';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { mockYelpBiz } from '../_mock_data/cofeeShopData';
-import DisplayReviewStars from '../_components/stars';
+import DisplayReviewStars from '../../_components/stars';
 import { rubikFont } from '@/styles/fonts';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
-import type { YelpBusiness } from '@/types/yelp';
-
-import OpeningTime from '../_components/opening-time';
-import Section from '../_components/section';
-
+import OpeningTime from '../../_components/opening-time';
+import Section from '../../_components/section';
 import { Dot } from 'lucide-react';
-import DisplayAttributes from '../_components/display-attributes';
-import BizImages from '../_components/biz-images';
+import DisplayAttributes from '../../_components/display-attributes';
+import BizImages from '../../_components/biz-images';
+import { useBusinessDetails } from '@/hooks/api/get-biz-details';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface PageProps {
   /**
@@ -26,12 +25,19 @@ interface PageProps {
   };
 }
 
-const getBizData = (id: string): YelpBusiness | undefined => {
-  return mockYelpBiz.find((biz) => biz.id === id) ?? mockYelpBiz[0];
-};
-
 const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
-  const biz: YelpBusiness | undefined = getBizData(params.id);
+  const { data: biz, isLoading } = useBusinessDetails(params.id);
+
+  if (isLoading) {
+    return (
+      <div className="p-8 flex flex-col gap-4">
+        <Skeleton className="h-[40vh] w-full rounded-lg" />
+        <Skeleton className="h-[100px] w-full rounded-lg" />
+        <Skeleton className="h-[100px] w-full rounded-lg" />
+        <Skeleton className="h-[100px] w-full rounded-lg" />
+      </div>
+    );
+  }
 
   if (!biz) {
     return (
@@ -69,12 +75,6 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
         >
           {/* images */}
           <BizImages images={biz.photos} />
-          {/* <Image
-            src={biz.image_url}
-            alt={`demo`}
-            layout="fill" // This makes the image take over the container
-            objectFit="cover" // Adjust this as needed
-          /> */}
           {/* Overlay Info */}
           <div className="absolute bottom-0 left-0 right-0 p-4 w-fit rounded-tr-lg flex flex-col gap-1 bg-black/50  text-white">
             <div className={cn('text-4xl font-bold', rubikFont.className)}>
