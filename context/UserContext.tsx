@@ -46,6 +46,8 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({
           toast.error('An error happened while logging in');
         });
         refreshPreferences(user);
+      } else {
+        setUserPreferences(null);
       }
     });
   }, []);
