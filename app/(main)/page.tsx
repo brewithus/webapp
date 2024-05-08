@@ -16,8 +16,8 @@ export default function Home(): JSX.Element {
   return (
     <div>
       <HeroSection />
-      <FeaturesSection />
       <PopularStoresSection />
+      <FeaturesSection />
       <HowItWorksSection />
       <TestimonialsSection />
     </div>

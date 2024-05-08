@@ -10,12 +10,17 @@ import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
 import OpeningTime from '../../_components/opening-time';
 import Section from '../../_components/section';
-import { Dot } from 'lucide-react';
+import { Bookmark, Dot, Share, Star } from 'lucide-react';
 import DisplayAttributes from '../../_components/display-attributes';
 import BizImages from '../../_components/biz-images';
 import { useBusinessDetails } from '@/hooks/api/get-biz-details';
 import { Skeleton } from '@/components/ui/skeleton';
 import BrewReviews from '../../_components/brew-biz-reviews';
+import { Button } from '@/components/ui/button';
+import { useUser } from '@/context/UserContext';
+import { googleSignInPopup } from '@/config/firebase';
+import { updateUserPreferences } from '@/hooks/firebase/user-biz-interact';
+import { toast } from 'sonner';
 
 interface PageProps {
   /**
@@ -28,6 +33,7 @@ interface PageProps {
 
 const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
   const { data: biz, isLoading } = useBusinessDetails(params.id);
+  const { user, userPreferences, setPreferences } = useUser();
 
   if (isLoading) {
     return (
@@ -60,20 +66,56 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
     );
   }
 
+  const userFollowed = (): boolean => {
+    return (userPreferences?.followed ?? []).includes(biz.id);
+  };
+
+  const userSaved = (): boolean => {
+    return (userPreferences?.saved ?? []).includes(biz.id);
+  };
+
+  const handleSave = (): void => {
+    if (!user) {
+      googleSignInPopup();
+      return;
+    }
+    updateUserPreferences(user.uid, {
+      saved: userSaved()
+        ? userPreferences?.saved?.filter((s) => s !== biz.id) ?? []
+        : [...(userPreferences?.saved ?? []), biz.id],
+    })
+      .then((data) => {
+        setPreferences(data);
+      })
+      .catch((e) => {
+        toast.error('Unexpected error');
+      });
+  };
+
+  const handleFollow = (): void => {
+    if (!user) {
+      googleSignInPopup();
+      return;
+    }
+    updateUserPreferences(user.uid, {
+      followed: userFollowed()
+        ? userPreferences?.followed?.filter((s) => s !== biz.id) ?? []
+        : [...(userPreferences?.followed ?? []), biz.id],
+    })
+      .then((data) => {
+        setPreferences(data);
+      })
+      .catch((e) => {
+        toast.error('Unexpected error');
+      });
+  };
+
   // Directly use coffeeShop.menuItems and coffeeShop.reviews
   return (
     <div className="flex flex-col items-center mb-2">
       <div className="w-full max-w-[1028px] flex flex-col gap-4 pb-8">
         {/* Coffee Shop Image */}
-        <div
-          className="relative h-[400px] justify-center bg-primary-light dark:bg-primary-dark"
-          // style={{
-          //   backgroundImage: `url('${biz.image_url}')`,
-          //   backgroundSize: 'cover', // Cover the entire section
-          //   backgroundPosition: 'center', // Center the background image
-          //   backgroundRepeat: 'no-repeat', // Do not repeat the image
-          // }}
-        >
+        <div className="relative h-[400px] justify-center bg-primary-light dark:bg-primary-dark">
           {/* images */}
           <BizImages images={biz.photos} />
           {/* Overlay Info */}
@@ -88,7 +130,7 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
               {biz.rating && (
                 <DisplayReviewStars
                   rating={biz.rating}
-                  className="text-primary-dark"
+                  className="text-primary"
                 />
               )}
               <span>{biz.rating}</span>
@@ -103,10 +145,41 @@ const Page: NextPage<PageProps> = ({ params }: PageProps): JSX.Element => {
               ))}
             </div>
             {/* Status and Hours */}
-            <OpeningTime hours={biz.hours} coordinates={biz.coordinates} />
+            <div className="flex items-center flex-wrap gap-3 mt-2">
+              <OpeningTime hours={biz.hours} coordinates={biz.coordinates} />
+              <a
+                href="#location-&-hours"
+                className="px-2 py-1 text-black/80 bg-white/50 text-xs font-semibold rounded-xl"
+              >
+                See hours
+              </a>
+            </div>
             {/* Action Buttons */}
           </div>
         </div>
+        <div className="flex items-center gap-2 flex-wrap my-2 mx-4">
+          <Button className="font-semibold gap-2" variant={'outline'}>
+            <Share size={20} />
+            Share
+          </Button>
+          <Button
+            className="font-semibold gap-2"
+            variant={userSaved() ? 'default' : 'outline'}
+            onClick={handleSave}
+          >
+            <Bookmark size={20} />
+            Save{userSaved() && 'd'}
+          </Button>
+          <Button
+            className="font-semibold gap-2"
+            variant={userFollowed() ? 'default' : 'outline'}
+            onClick={handleFollow}
+          >
+            <Star size={20} />
+            Follow{userFollowed() && 'ed'}
+          </Button>
+        </div>
+
         <Section title="Amenities & More">
           <DisplayAttributes attributes={biz.attributes} />
         </Section>
