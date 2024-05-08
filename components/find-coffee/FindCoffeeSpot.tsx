@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import MultiSelectCombobox from './TagsSelection';
+
 import { Separator } from '../ui/separator';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
@@ -12,12 +12,15 @@ import {
   getUserLocationFromString,
   userLocationToString,
 } from '@/lib/location';
+import { Input } from '../ui/input';
+import { toast } from 'sonner';
 
 const FindCoffeeSpot: React.FC<{ className?: string }> = ({
   className,
 }): JSX.Element => {
   const router = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   // state to store the selected address details
@@ -25,6 +28,7 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
     null,
   );
 
+  const [searchQuery, setSearchQuery] = useState<string>('');
   // Define the handleSelectAddress function
   const handleSelectAddress = (address: UserLocation): void => {
     // Update the state with the new address and its lat/lng
@@ -35,7 +39,11 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
   const handleFindCoffeeSpotsClick = (): void => {
     if (!selectedAddress) {
       // Alert the user to select a location first
-      alert('Please select a location first.');
+      toast.error('Please select a location first.');
+      return;
+    }
+    if (!searchQuery) {
+      toast.error('Please enter your search query');
       return;
     }
 
@@ -43,7 +51,7 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
     const queryParams = new URLSearchParams({
       lat: String(selectedAddress.lat),
       lng: String(selectedAddress.lng),
-      tags: selectedTags.join(','),
+      q: `${searchQuery},${selectedTags.join(',')}`,
     }).toString();
 
     // Redirect to the /search page with query params
@@ -61,13 +69,21 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
   }, []);
 
   return (
-    <div className={cn('w-full flex flex-col items-start gap-4', className)}>
-      <div className="flex flex-col gap-1 items-start rounded-lg w-full h-fit">
-        <div className="flex-1 w-full px-4 bg-white/80 rounded-lg">
-          <MultiSelectCombobox
+    <div className={cn('flex w-full flex-col items-start gap-4', className)}>
+      <div className="flex h-fit w-full flex-col items-start gap-1 rounded-lg">
+        <div className="w-full flex-1 rounded-lg bg-white/80">
+          <Input
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+            }}
+            className="bg-transparent px-4 text-black"
+            placeholder="Enter your search here "
+          />
+          {/* <MultiSelectCombobox
             selectedTags={selectedTags}
             onTagsChange={setSelectedTags}
-          />
+          /> */}
         </div>
         <Separator className="bg-white/50" />
         {/* <PlacesAutocomplete onSelectAddress={handleSelectAddress} /> */}
