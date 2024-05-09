@@ -62,6 +62,7 @@ const FindCoffeeSpot: React.FC<Props> = ({
 
     // Redirect to the /search page with query params
     router.push(`/search?${queryParams}`);
+    router.refresh();
   };
 
   React.useEffect(() => {

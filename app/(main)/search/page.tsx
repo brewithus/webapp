@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import type { NextPage } from 'next';
 import { apiClient } from '@/config/api';
 import type { YelpBiz } from '@/types/yelp';
@@ -9,6 +9,7 @@ import MapResults from './_components/maps-results';
 import { Skeleton } from '@/components/ui/skeleton';
 import { saveBiz } from '@/hooks/firebase/biz';
 import FindCoffeeSpot from '@/components/find-coffee/FindCoffeeSpot';
+import { Icons } from '@/components/icons';
 
 /**
  * Represents the properties of the Page component.
@@ -48,24 +49,28 @@ const Page: NextPage<PageProps> = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const fetchData = async (): Promise<{ businesses: YelpBiz[] }> => {
+    setIsReloading(true);
+    const q = searchParams.q; // Combine tags with a comma separator
+    const lng = searchParams.lng || '';
+    const lat = searchParams.lat || '';
+    if (!q || q === '' || !lng || !lat) {
+      throw Error('Invalid request');
+    }
+
+    const response = await apiClient.get<{ businesses: YelpBiz[] }>(
+      `/business?q=${encodeURIComponent(q)}&lng=${lng}&lat=${lat}`,
+    );
+    setTimeout(() => {
+      setIsReloading(false);
+    }, 500);
+    // Handle the API response data as needed
+    return response.data;
+  };
+
   React.useEffect(
     () => {
       setIsLoading(true);
-      const fetchData = async (): Promise<{ businesses: YelpBiz[] }> => {
-        const q = searchParams.q; // Combine tags with a comma separator
-        const lng = searchParams.lng || '';
-        const lat = searchParams.lat || '';
-        if (!q || q === '' || !lng || !lat) {
-          throw Error('Invalid request');
-        }
-
-        const response = await apiClient.get<{ businesses: YelpBiz[] }>(
-          `/business?q=${encodeURIComponent(q)}&lng=${lng}&lat=${lat}`,
-        );
-
-        // Handle the API response data as needed
-        return response.data;
-      };
       // setBizList(sampleCafes);
       fetchData()
         .then((data) => {
@@ -86,6 +91,29 @@ const Page: NextPage<PageProps> = ({
     [],
   );
 
+  const [isReloading, setIsReloading] = useState(false);
+
+  React.useEffect(
+    () => {
+      fetchData()
+        .then((data) => {
+          setBizList(data.businesses);
+          for (const biz of data.businesses) {
+            saveBiz(biz).catch((e) => {});
+          }
+        })
+        .catch((e) => {
+          // console.error('error fetching data', e);
+          // toast.error('an error happened');
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [searchParams.lat, searchParams.lng, searchParams.q],
+  );
+
   if (!searchParams.lat || !searchParams.lng) {
     return (
       <div className="w-full">
@@ -95,34 +123,42 @@ const Page: NextPage<PageProps> = ({
   }
   return (
     <div className="p-4">
-      <div className="flex w-full flex-col-reverse gap-3 lg:flex-row">
-        <div className="relative mt-4 flex max-w-5xl flex-1 flex-col gap-4">
-          <div>
-            <FindCoffeeSpot defaultQuery={searchParams.q ?? ''} />
+      {isReloading ? (
+        <div className="flex flex-col gap-4">
+          <div className="text-xl font-semibold">Searching</div>
+          <Icons.spinner className="animate-spin" />
+        </div>
+      ) : (
+        <div className="flex w-full flex-col-reverse gap-3 lg:flex-row">
+          <div className="relative mt-4 flex max-w-5xl flex-1 flex-col gap-4">
+            <div>
+              <FindCoffeeSpot defaultQuery={searchParams.q ?? ''} />
+            </div>
+            <div className="text-xl font-semibold">Search Results</div>
+            {bizList.length === 0 && (
+              <div className="font-medium text-foreground/50">No biz yet..</div>
+            )}
+            <div className="flex flex-col">
+              {bizList.map((biz, index) => (
+                <div key={index} className="flex flex-col">
+                  <BizSearchResultCard key={index} biz={biz} />
+                  <Separator />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="text-xl font-semibold">Search Results</div>
-          {bizList.length === 0 && (
-            <div className="font-medium text-foreground/50">No biz yet..</div>
-          )}
-          <div className="flex flex-col">
-            {bizList.map((biz, index) => (
-              <div key={index} className="flex flex-col">
-                <BizSearchResultCard key={index} biz={biz} />
-                <Separator />
-              </div>
-            ))}
+
+          <div className="h-[30dvh] w-full flex-none lg:sticky lg:top-10 lg:h-[80dvh] lg:w-[500px]">
+            <MapResults
+              position={{
+                lat: Number(searchParams.lat),
+                lng: Number(searchParams.lng),
+              }}
+              bizList={bizList}
+            />
           </div>
         </div>
-        <div className="h-[30dvh] w-full flex-none lg:sticky lg:top-10 lg:h-[80dvh] lg:w-[500px]">
-          <MapResults
-            position={{
-              lat: Number(searchParams.lat),
-              lng: Number(searchParams.lng),
-            }}
-            bizList={bizList}
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

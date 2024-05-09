@@ -21,6 +21,7 @@ export const UserLocationContext = createContext<UserLocationContextData>({
 export const UserLocationProvider: React.FC<UserLocationProviderProps> = ({
   children,
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [userLocation, setUserLocation] =
     useState<google.maps.LatLngLiteral | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -28,18 +29,18 @@ export const UserLocationProvider: React.FC<UserLocationProviderProps> = ({
 
   useEffect(() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          setUserLocation({ lat: latitude, lng: longitude });
-          setIsLoading(false);
-        },
-        (error) => {
-          console.error('Error getting user location:', error);
-          setError(new Error(error.message));
-          setIsLoading(false);
-        },
-      );
+      // navigator.geolocation.getCurrentPosition(
+      //   (position) => {
+      //     const { latitude, longitude } = position.coords;
+      //     setUserLocation({ lat: latitude, lng: longitude });
+      //     setIsLoading(false);
+      //   },
+      //   (error) => {
+      //     console.error('Error getting user location:', error);
+      //     setError(new Error(error.message));
+      //     setIsLoading(false);
+      //   },
+      // );
     } else {
       console.error('Geolocation is not supported by this browser.');
       setError(new Error('Geolocation is not supported by this browser.'));
