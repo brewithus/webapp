@@ -25,6 +25,7 @@ const BizSearchResultCard: React.FC<Props> = ({ biz }) => {
           alt="res logo"
           width={400}
           height={400}
+          priority
           className="aspect-square rounded-sm object-cover"
         />
       </div>
