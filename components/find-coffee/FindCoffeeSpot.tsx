@@ -77,6 +77,11 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
             onChange={(e) => {
               setSearchQuery(e.target.value);
             }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleFindCoffeeSpotsClick();
+              }
+            }}
             className="bg-transparent px-4 text-black"
             placeholder="Enter your search here "
           />

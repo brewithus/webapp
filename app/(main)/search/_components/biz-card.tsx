@@ -30,8 +30,15 @@ const BizSearchResultCard: React.FC<Props> = ({ biz }) => {
       </div>
       {/* content */}
       <div className="flex w-full flex-col gap-1">
-        <div className={cn('text-xl font-bold', poppinsFont.className)}>
-          {biz.name}
+        <div className="flex w-full items-center justify-between gap-2">
+          <div className={cn('text-xl font-bold', poppinsFont.className)}>
+            {biz.name}
+          </div>
+          {biz.distance && (
+            <div className="text-sm font-medium">
+              {Number(biz.distance / 1000).toFixed(1)} miles
+            </div>
+          )}
         </div>
         <div className="flex items-center gap-1 font-medium">
           <DisplayReviewStars
