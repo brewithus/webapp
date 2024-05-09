@@ -45,7 +45,7 @@ export const useUserQuery = (uid: string): UseQueryResult<BrewUser, Error> => {
   return useQuery(
     ['user', uid],
     async () => {
-      await fetchUser(uid);
+      return await fetchUser(uid);
     },
     {
       enabled: !!uid, // This ensures the query runs only if uid is truthy
