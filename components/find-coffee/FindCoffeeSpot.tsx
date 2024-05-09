@@ -15,7 +15,13 @@ import {
 import { Input } from '../ui/input';
 import { toast } from 'sonner';
 
-const FindCoffeeSpot: React.FC<{ className?: string }> = ({
+interface Props {
+  className?: string;
+  defaultQuery?: string;
+}
+
+const FindCoffeeSpot: React.FC<Props> = ({
+  defaultQuery,
   className,
 }): JSX.Element => {
   const router = useRouter();
@@ -28,7 +34,7 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
     null,
   );
 
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>(defaultQuery ?? '');
   // Define the handleSelectAddress function
   const handleSelectAddress = (address: UserLocation): void => {
     // Update the state with the new address and its lat/lng
@@ -51,7 +57,7 @@ const FindCoffeeSpot: React.FC<{ className?: string }> = ({
     const queryParams = new URLSearchParams({
       lat: String(selectedAddress.lat),
       lng: String(selectedAddress.lng),
-      q: `${searchQuery},${selectedTags.join(',')}`,
+      q: searchQuery,
     }).toString();
 
     // Redirect to the /search page with query params

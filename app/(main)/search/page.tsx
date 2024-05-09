@@ -8,6 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import MapResults from './_components/maps-results';
 import { Skeleton } from '@/components/ui/skeleton';
 import { saveBiz } from '@/hooks/firebase/biz';
+import FindCoffeeSpot from '@/components/find-coffee/FindCoffeeSpot';
 
 /**
  * Represents the properties of the Page component.
@@ -95,7 +96,10 @@ const Page: NextPage<PageProps> = ({
   return (
     <div className="p-4">
       <div className="flex w-full flex-col-reverse gap-3 lg:flex-row">
-        <div className="mt-4 flex max-w-5xl flex-1 flex-col gap-4">
+        <div className="relative mt-4 flex max-w-5xl flex-1 flex-col gap-4">
+          <div>
+            <FindCoffeeSpot defaultQuery={searchParams.q ?? ''} />
+          </div>
           <div className="text-xl font-semibold">Search Results</div>
           {bizList.length === 0 && (
             <div className="font-medium text-foreground/50">No biz yet..</div>
@@ -109,7 +113,7 @@ const Page: NextPage<PageProps> = ({
             ))}
           </div>
         </div>
-        <div className="h-[30dvh] w-full flex-none lg:h-[100dvh] lg:w-[500px]">
+        <div className="h-[30dvh] w-full flex-none lg:sticky lg:top-10 lg:h-[80dvh] lg:w-[500px]">
           <MapResults
             position={{
               lat: Number(searchParams.lat),
