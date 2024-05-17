@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* New Theme Color: Lighter, less saturated orange */
+    --theme-color: 33 31% 100%; /* Base theme color */
+
+    /* Backgrounds */
+    --background: 33 31% 95%; /* Lighter variant for the main background */
+    --card: 33 31% 100%; /* Light background for cards, same as theme for consistency */
+    --popover: 33 31% 100%; /* Same as card, for consistency */
+
+    /* Text Colors */
+    --foreground: 210 20% 20%; /* Darker blue for better visibility against lighter backgrounds */
+    --card-foreground: 210 20% 20%; /* Ensuring readability on card backgrounds */
+    --popover-foreground: 210 20% 20%;
+
+    /* Primary Colors */
+    --primary: 33 50% 50%; /* A more saturated variant for primary elements */
+    --primary-foreground: 0 0% 100%; /* White text on primary elements */
+    --primary-light: 33 50% 70%; /* Lighter variant of primary */
+    --primary-dark: 33 50% 30%; /* Darker variant of primary */
+
+    /* Secondary Colors */
+    --secondary: 33 40% 90%; /* Adjusted to differentiate from the base theme color */
+    --secondary-light: 33 40% 95%; /* Lighter variant of secondary */
+    --secondary-dark: 33 40% 80%; /* Darker variant of secondary */
+    --secondary-foreground: 210 20% 20%; /* Dark text on secondary elements */
+
+    /* Muted Colors */
+    --muted: 33 31% 98%; /* Very close to the background, for muted elements */
+    --muted-light: 33 31% 100%; /* Lightest variant, same as theme color */
+    --muted-dark: 33 31% 90%; /* Slightly darker for subtle contrast */
+    --muted-foreground: 210 20% 40%; /* Darker text for readability */
+
+    /* Accent Colors */
+    --accent: 33 45% 85%; /* Adjusted to stand out against the theme color */
+    --accent-light: 33 45% 90%; /* Lighter variant of accent */
+    --accent-dark: 33 45% 70%; /* Darker variant of accent */
+    --accent-foreground: 210 20% 20%; /* Dark text for contrast */
+
+    /* Destructive Colors */
+    --destructive: 0 100% 50%; /* Red for destructive actions */
+    --destructive-light: 0 75% 60%; /* Lighter red */
+    --destructive-dark: 0 100% 40%; /* Darker red */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
+
+    /* Misc */
+    --border: 33 31% 80%; /* Light border for separation */
+    --input: 33 31% 100%; /* Input fields background, same as theme color */
+    --ring: 33 50% 50%; /* Focus ring color, more saturated for visibility */
+
+    /* Radius */
+    --radius: 0.5rem; /* Border radius for rounded corners */
+  }
+
+  .dark {
+    --background: 220 22% 12%; /* Dark blue-grey for main background, keeping it cool */
+    --foreground: 0 0% 98%; /* Very light color for text, ensuring readability */
+
+    --card: 220 20% 15%; /* Cooler blue-grey for card backgrounds */
+    --card-foreground: 0 0% 98%; /* Very light color for text on cards, ensuring readability */
+
+    --popover: 220 20% 15%; /* Consistent with card backgrounds */
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 28 60% 45%; /* A rich, coffee-inspired brown-orange for primary elements */
+    --primary-foreground: 0 0% 100%; /* White text on primary elements */
+    --primary-light: 28 60% 55%; /* Lighter, warmer variant of primary */
+    --primary-dark: 28 60% 35%; /* Darker, deeper coffee brown for primary */
+
+    --secondary: 24 34% 28%; /* Secondary elements with a subtle, muted coffee tone */
+    --secondary-dark: 24 34% 22%; /* Even darker variant of secondary */
+    --secondary-light: 24 34% 38%; /* Slightly lighter, muted coffee tone for secondary */
+    --secondary-foreground: 0 0% 98%; /* Very light text on secondary elements for contrast */
+
+    --muted: 220 15% 18%; /* Keeping muted elements cool */
+    --muted-light: 220 15% 22%; /* Slightly lighter cool muted tone */
+    --muted-dark: 220 15% 14%; /* Darker cool muted tone */
+    --muted-foreground: 0 0% 90%; /* Light grey for muted text readability */
+
+    --accent: 33 100% 50%; /* Brighter coffee-orange for accent elements, adding vibrancy */
+    --accent-light: 33 100% 60%; /* Lighter coffee-orange for a vibrant accent */
+    --accent-dark: 33 100% 40%; /* Darker, rich coffee-orange for accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent elements for contrast */
+
+    --destructive: 345 85% 45%; /* Vivid red for destructive actions */
+    --destructive-light: 345 85% 55%; /* Slightly lighter red */
+    --destructive-dark: 345 85% 35%; /* Darker red for visibility */
+    --destructive-foreground: 0 0% 100%; /* White text on destructive elements */
+
+    --border: 28 30% 25%; /* Subtle coffee-inspired borders for separation */
+    --input: 220 20% 14%; /* Dark input fields background, maintaining cool tone */
+    --ring: 28 60% 45%; /* Focus ring in coffee brown, matching the primary color */
+
+    --radius: 0.5rem; /* Border radius for rounded corners */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

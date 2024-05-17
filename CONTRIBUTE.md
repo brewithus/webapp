@@ -1,31 +1,109 @@
 # CONTRIBUTION GUIDE
 
+## Summary
+
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Branching Strategy and Pull Requests](#branching-strategy-and-pull-requests)
+- [Project Structure](#project-structure)
+- [Commit Style Guide](#commit-style-guide)
+- [Coding Standards](#coding-standards)
+
+## Getting Started
+
+Welcome to the project! We are developing a web application using technologies such as Next.js, TailwindCSS, and shadcn/ui. This guide provides you with all the information you need to start contributing effectively.
+
+### Key Technologies
+
+- **[Next.js](https://nextjs.org/docs)**: Used for both server-side and client-side rendering.
+- **[TailwindCSS](https://tailwindcss.com/docs)**: A utility-first CSS framework used for rapid UI development.
+- **[shadcn/ui](https://ui.shadcn.com/docs)**: A library of customizable UI components.
+
+## Prerequisites
+
+- **Docker and Docker-compose** installed, or
+- **Node.js** v20.x/v21.x if you're developing locally.
+
+### Setting up your development environment
+
+1. Clone the repo:
+   ```
+   git clone https://github.com/brewithus/webapp.git
+   ```
+2. Check out your branch:
+   ```
+   git checkout your-branch-name
+   ```
+3. To start the application:
+
+- With Docker:
+  ```
+  docker-compose up -d
+  ```
+- Locally:
+  ```
+  npm install
+  npm run dev
+  ```
+
 ## Branching Strategy and Pull Requests
 
-Our project utilizes two main branches to manage the development and release of the application:
+- **Main Branches**:
+  - `prod`: Production-ready code.
+  - `latest`: Active development branch.
 
-- **`prod` (Production Branch):** This branch contains code that has been fully tested and is ready to be deployed to production. It represents the stable version of our application.
+### Contributing:
 
-- **`latest` (Latest Development Branch):** This branch serves as the primary development branch. All new features, enhancements, and bug fixes are merged into this branch before being considered for release.
+- Branch off from `latest`.
+- Use descriptive names for your branches (e.g., `feature/add-coffee-shop-filters`).
+- Submit a pull request (PR) to `latest` for review.
 
-### Contributing Through Pull Requests (PRs)
+## Project Structure
 
-To contribute to the project, please follow these steps:
+- `/app`: Layouts and pages with file-based routing.
+- `/components`: Reusable components.
+- `/config`: Configuration files.
+- `/content`: Content files, primarily MDX.
+- `/hooks`: Reusable hooks.
+- `/lib`: Utility functions.
+- `/public`: Public assets.
+- `/styles`: Styling files.
+- `/types`: TypeScript types.
 
-1. **Branch off from `latest`:** Always create your feature or bugfix branch from the `latest` branch. This ensures that you're working with the most recent development code.
+## Commit Style Guide
 
-2. **Naming Your Branch:** Use a descriptive name for your branch that reflects the feature or fix you're working on. For example, `feature/add-coffee-shop-filters` or `fix/map-display-issue`.
+- **Format**: `$type($scope): $message`
+- **Example**: `docs: add commit style guide`
+- **Length**: Maximum of 98 characters.
 
-3. **Submitting a Pull Request:** Once your work is complete and tested locally, submit a pull request to merge your branch into the `latest` branch. Ensure your PR title and description clearly describe the changes and any implications they have on the project.
+```
+<type>(<scope>): <short summary>
+  │       │             │
+  │       │             └─⫸ a short, imperative tense description of the change
+  │       │
+  │       └─⫸ Commit Scope (optional)
+  │
+  └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
+```
 
-4. **Review Process:** Pull requests require a thorough review by at least one team member. This process ensures that all code is consistent with the project's standards and objectives. Feedback may be given, and revisions may be required before the PR is approved.
+### Commit Types:
 
-5. **Merging:** After your PR has been reviewed and approved, it will be merged into the `latest` branch. Periodically, after thorough testing and verification, changes from the `latest` branch will be merged into the `prod` branch for release.
+- `build`: Changes that affect the build system.
+- `ci`: Changes to our CI configuration.
+- `docs`: Documentation changes.
+- `feat`: New feature.
+- `fix`: Bug fix.
+- `perf`: Performance improvement.
+- `refactor`: Code refactoring.
+- `test`: Adding or fixing tests.
 
-### Guidelines
+### Automated Checks:
 
-- Ensure your code adheres to the project's coding standards and guidelines.
-- Keep your branches focused on a single feature or fix to simplify the review process.
-- Regularly sync your branch with the `latest` branch to avoid conflicts.
-- Provide detailed and meaningful commit messages.
-- Document any changes or additions to the project's documentation as necessary.
+- **Formatting**: Run `npm run format` to apply Prettier formatting.
+- **Linting**: Run `npm run lint` to check for issues. Use `npm run lint:fix` to auto-fix many issues, but review changes.
+
+## Coding Standards
+
+- Follow project-specific coding conventions.
+- Use ESLint for type-checking.
+- Ensure all code changes match the existing code style.
