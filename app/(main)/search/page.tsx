@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import type { NextPage } from 'next';
-import { apiClient } from '@/config/api';
 import type { YelpBiz } from '@/types/yelp';
 import BizSearchResultCard from './_components/biz-card';
 import { Separator } from '@/components/ui/separator';
@@ -10,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { saveBiz } from '@/hooks/firebase/biz';
 import FindCoffeeSpot from '@/components/find-coffee/FindCoffeeSpot';
 import { Icons } from '@/components/icons';
+import { searchCafes } from '@/hooks/yelp/search';
 
 /**
  * Represents the properties of the Page component.
@@ -58,14 +58,16 @@ const Page: NextPage<PageProps> = ({
       throw Error('Invalid request');
     }
 
-    const response = await apiClient.get<{ businesses: YelpBiz[] }>(
-      `/business?q=${encodeURIComponent(q)}&lng=${lng}&lat=${lat}`,
-    );
+    // const response = await apiClient.get<{ businesses: YelpBiz[] }>(
+    //   `/business?q=${encodeURIComponent(q)}&lng=${lng}&lat=${lat}`,
+    // );
+    const yelpBizList = await searchCafes(Number(lat), Number(lng), q);
     setTimeout(() => {
       setIsReloading(false);
     }, 500);
+    return { businesses: yelpBizList };
     // Handle the API response data as needed
-    return response.data;
+    // return response.data;
   };
 
   React.useEffect(
